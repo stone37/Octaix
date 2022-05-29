@@ -1,0 +1,36 @@
+app_dashboard_hostel_index:
+  path: /hostels/
+  methods: [GET]
+  controller: App\Controller\Account\HostelController::index
+
+app_dashboard_hostel_create:
+  path: /hostels/create/
+  methods: [GET, POST]
+  controller: App\Controller\Account\HostelController::create
+
+app_dashboard_hostel_edit:
+  path: /hostels/{id}/edit/
+  methods: [GET, POST]
+  controller: App\Controller\Account\HostelController::edit
+  requirements:
+    id: \d+
+  options:
+    expose: true
+
+app_dashboard_hostel_delete:
+  path: /hostels/{id}/delete/
+  methods: [GET, POST]
+  controller: App\Controller\Account\HostelController::delete
+  requirements:
+    id: \d+
+  options:
+    expose: true
+
+app_dashboard_hostel_gallery:
+  path: /hostels/{id}/gallery/
+  methods: [GET, POST]
+  controller: App\Controller\Account\HostelController::gallery
+  options:
+    expose: true
+  requirements:
+    id: \d+

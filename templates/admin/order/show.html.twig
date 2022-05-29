@@ -1,0 +1,19 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}
+    Voir une commande | Commande | {{ parent() }}
+{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/order/show/_header.html.twig' %}
+
+    {% include 'admin/order/show/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

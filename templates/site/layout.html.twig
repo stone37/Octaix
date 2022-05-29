@@ -1,0 +1,250 @@
+{% extends 'base.html.twig' %}
+
+{% set settings = config.get %}
+{% set serv = serv.get %}
+
+{% set acceuil = isActive('app_home') %}
+{% set apropos = isActive('app_apropos') %}
+{% set contact = isActive('app_contact') %}
+
+{% set service_index = isActive('app_service_index') %}
+{% set service_show = isActive('app_service_show') %}
+{% set service_show_s = isActive('app_service_show_s') %}
+
+{% set achieve_index = isActive('app_achieve_index') %}
+{% set achieve_show = isActive('app_achieve_show') %}
+
+{% set offer_index = isActive('app_offer_index') %}
+{% set offer_show = isActive('app_offer_show') %}
+
+{% set post_index = isActive('app_post_index') %}
+{% set post_show = isActive('app_post_show') %}
+{% set post_category = isActive('app_post_category') %}
+
+{% block app_navbar_first %}
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary d-none d-lg-block py-0 border border-danger">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ path('app_home') }}">
+                <img src="{{ vich_uploader_asset(settings, 'file') }}" alt="Logo du site" class="img-fluid logo py-0"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav ml-auto">
+                    {% if serv|length > 0 %}
+                        <li class="nav-item dropdown dropdown-hover dropdown-menu-lg-left
+                            {% if service_index or service_show or service_show_s %}active{% endif %}">
+                            <a class="nav-link dropdown-toggle" id="servicesMenu" data-offset="60" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Nos solutions <i class="fas fa-plus" style="font-size: .6rem !important;
+                        position:relative; bottom: 1px; right: 2px"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="servicesMenu">
+                                {% for s in serv %}
+                                    {% if serviceSlug is defined %}
+                                        {% if parent %}
+                                            <a class="dropdown-item {% if parent == s.slug %}active{% endif %}" href="{{ path('app_service_show', {'slug': s.slug}) }}">{{ s.name }}</a>
+                                        {% else %}
+                                            <a class="dropdown-item {% if serviceSlug == s.slug %}active{% endif %}" href="{{ path('app_service_show', {'slug': s.slug}) }}">{{ s.name }}</a>
+                                        {% endif %}
+                                    {% else %}
+                                        <a class="dropdown-item" href="{{ path('app_service_show', {'slug': s.slug}) }}">{{ s.name }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </li>
+                    {% endif %}
+
+                    {% if settings.activeAchieve %}
+                        <li class="nav-item {% if achieve_index or achieve_show %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('app_achieve_index') }}">Nos réalisations</a>
+                        </li>
+                    {% endif %}
+
+                    {% if settings.activeOffre %}
+                        <li class="nav-item {% if offer_index or offer_show %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('app_offer_index') }}">Nos offres</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item {% if apropos %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('app_apropos') }}">A propos</a>
+                    </li>
+
+                    {% if settings.activePost %}
+                        <li class="nav-item {% if post_index or post_show or post_category %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('app_post_index') }}">Le blog</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item {% if contact %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('app_contact') }}">Nous contacter</a>
+                    </li>
+                </ul>
+                <div class="pl-3">
+                    <a href="tel:{{ settings.phone }}" class="btn btn-sm btn-secondary btn-rounded phone">
+                        <i class="fas fa-phone-alt mr-1"></i> {{ settings.phone }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {# Mobile navbar #}
+    <nav class="navbar fixed-top navbar-expand-lg double-nav d-block d-lg-none px-md-5 px-4 mobile">
+        <div class="float-left mobile-logo">
+            <a class="navbar-brand" href="{{ path('app_home') }}">
+                <img src="{{ vich_uploader_asset(settings, 'file') }}" alt="Logo du site" class="img-fluid logo py-0"/>
+            </a>
+        </div>
+        <div class="float-right d-flex">
+            <a href="tel:{{ settings.phone }}" class="mobile phone pr-md-3 pr-2">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+            <a href="#" data-activates="slide-out" class="button-collapse">
+                <i class="fas fa-stream"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div id="slide-out" class="side-nav mobile sn-bg-4 fixed d-block d-lg-none">
+        <ul class="custom-scrollbar">
+            <li class="logo-sn waves-effect py-3">
+                <div class="text-center">
+                    <a href="{{ path('app_home') }}" class="pl-0">
+                        <img src="{{ vich_uploader_asset(settings, 'file') }}" style="width: 140px !important;" alt="Logo du site" />
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    {% if serv|length > 0 %}
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r
+                                {% if service_index or service_show or service_show_s %}active{% endif %}">
+                                Nos solutions <i class="fas fa-plus" style="position: relative; bottom: 1px; right: 0;"></i>
+                                <i class="fas fa-angle-down rotate-icon"
+                                   style="font-size: 1rem !important; top: .7rem !important;"></i>
+                            </a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    {% for s in serv %}
+                                        <li>
+                                            {% if serviceSlug is defined %}
+                                                <a href="{{ path('app_service_show', {'slug': s.slug}) }}"
+                                                   class="waves-effect {% if serviceSlug == s.slug %}active{% endif %}">
+                                                    <span class="sv-normal">{{ s.name }}</span>
+                                                </a>
+                                            {% else %}
+                                                <a href="{{ path('app_service_show', {'slug': s.slug}) }}" class="waves-effect">
+                                                    <span class="sv-normal">{{ s.name }}</span>
+                                                </a>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                    {% endif %}
+
+                    {% if settings.activeAchieve %}
+                        <li>
+                            <a href="{{ path('app_achieve_index') }}" class="waves-effect {% if achieve_index or achieve_show %}active{% endif %}">
+                                Nos réalisations
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if settings.activeOffre %}
+                        <li>
+                            <a href="{{ path('app_offer_index') }}" class="waves-effect {% if offer_index or offer_show %}active{% endif %}">
+                                Nos offres
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    <li>
+                        <a href="{{ path('app_apropos') }}" class="waves-effect {% if apropos %}active{% endif %}">
+                            A propos
+                        </a>
+                    </li>
+
+                    {% if settings.activePost %}
+                        <li>
+                            <a href="{{ path('app_post_index') }}" class="waves-effect {% if post_index or post_show or post_category %}active{% endif %}">
+                                Le blog
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    <li>
+                        <a href="{{ path('app_contact') }}" class="waves-effect {% if contact %}active{% endif %}">
+                            Nous contacter
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="sidenav-bg mask-strong"></div>
+    </div>
+    {# Mobile navbar #}
+
+    {% block app_intro %}
+        <div id="home" class="view jarallax bg-primary" data-jarallax='{"speed": 0.2}'
+             style="background-image: url({{ asset('images/banner/home.png') }});
+                     background-repeat: no-repeat; background-size: cover;
+                     background-position: center center;">
+            <div class="mask">
+                <div class="container h-100 d-flex justify-content-start align-items-center">
+                    <div class="row mt-5">
+                        <div class="col-12 col-md-7 col-lg-6 my-lg-5 pt-lg-3">
+                            <div class="intro-info-content mt-lg-5 mt-3 home">
+                                <h1 class="white-text text-uppercase font-weight-bold mb-md-5 wow fadeInDown" data-wow-delay="0.3s">
+                                    {{ settings.name }} - Accélérateur de développement
+                                </h1>
+                                <h5 class="white-text my-3 mb-md-5 mt-md-1 font-weight-stone-500 wow fadeInDown title" data-wow-delay="0.3s">
+                                    Nous accompagne les entreprises et marques dans leur stratégie digitale,
+                                    à travers la création de sites internet optimisés pour l’utilisateur et
+                                    la mise en place de dispositifs webmarketing performants.
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5 col-lg-6 my-lg-5 pt-lg-4">
+                            <div class="intro-info-content text-center d-flex justify-content-center">
+                                <img src="{{ asset('images/banner/illustration.png') }}" class="img-fluid" alt="illustration" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="technologie d-flex justify-content-start justify-content-lg-between align-items-center flex-wrap">
+                                <img src="{{ asset('images/technologie/html.png') }}" class="img-fluid html" alt="html-css">
+                                <img src="{{ asset('images/technologie/jquery.png') }}" class="img-fluid jquery" alt="jquery">
+                                <img src="{{ asset('images/technologie/php.png') }}" class="img-fluid php" alt="php">
+                                <img src="{{ asset('images/technologie/symfony.png') }}" class="img-fluid symfony" alt="symfony">
+                                <img src="{{ asset('images/technologie/react.png') }}" class="img-fluid react" alt="react">
+                                <img src="{{ asset('images/technologie/mongoDB.png') }}" class="img-fluid mongoDB" alt="mongoDB">
+                                <img src="{{ asset('images/technologie/nodeJS.png') }}" class="img-fluid nodeJS" alt="nodeJS">
+                                <img src="{{ asset('images/technologie/sass.png') }}" class="img-fluid sass" alt="sass">
+                                <img src="{{ asset('images/technologie/wordpress.png') }}" class="img-fluid wordpress" alt="wordpress">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+
+
+

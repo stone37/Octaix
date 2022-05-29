@@ -1,0 +1,43 @@
+{% extends layout %}
+
+{% import "mails/macros.twig" as e %}
+
+{% set settings = config.get %}
+
+{% block body %}
+
+  {% apply markdown_email %}
+
+    Demande de devis
+    ===============================
+
+    <strong>Nom et prénom</strong> <br>
+    {{ data.name }} <br>
+    <strong>Status</strong> <br>
+    {{ data.status }} <br>
+    <strong>Téléphone</strong> <br>
+    {{ data.phone }}
+    <strong>Email</strong> <br>
+    {{ data.email }} <br>
+
+    {% if data.project %}
+        <strong>Projet</strong> <br>
+
+      <ul>
+        {% for web in data.project.web %}
+          <li>{{ web }}</li>
+        {% endfor %}
+
+        {% for digital in data.project.digital %}
+          <li>{{ digital }}</li>
+        {% endfor %}
+
+        {% for web in data.project.print %}
+          <li>{{ print }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+
+  {% endapply %}
+{% endblock %}

@@ -1,0 +1,6 @@
+app_dashboard_index:
+  path: /
+  methods: [GET]
+  controller: App\Controller\Account\DashboardController::index
+
+

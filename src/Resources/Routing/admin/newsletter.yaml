@@ -1,0 +1,4 @@
+app_admin_newsletter_index:
+    path: /newsletter
+    methods: [GET, POST]
+    controller: App\Controller\Admin\NewsletterController::index

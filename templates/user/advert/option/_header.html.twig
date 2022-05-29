@@ -1,0 +1,144 @@
+<div class="modal fade right" id="adOptionDetail1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="font-weight-stone-600 h4-responsive heading lead">Annonce en tête de liste</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+            <div id="option-data" class="modal-body">
+                {% if advert.optionAdHead %}
+                    <div class="grey-text font-weight-stone-500 mb-3">
+                        L'option <span class="text-default">annonce en tête de liste</span>
+                        est deja active sur cette annonce.<br>
+                        Expiration: <span class="amber-text font-weight-stone-600">{{ advert.optionAdUrgentsEnd|date('d/m/Y') }}</span>.
+                    </div>
+                    <div class="text-grey small font-weight-stone-600 mb-3">
+                        Pour prolonger la durée de l'option, veuillez acheter une nouvelle offre de l'option. <br>
+                        La nouvelle durée sera ajouter à la durée actuelle.
+                    </div>
+                {% endif %}
+                
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mb-3">Choisir une option</h4>
+
+                {% for header in headers %}
+                    <div class="d-flex justify-content-between mb-2 ">
+                        <div class="form-check" style="margin-left: -20px;">
+                            <input type="radio" class="form-check-input with-gap option-input" id="option{{ header.id }}"
+                                   value="{{ header.id }}" name="header" />
+                            <label class="form-check-label grey-text d-inline-block" for="option{{ header.id }}">
+                                <span style="position: relative !important; left: -12px !important;
+                                            bottom: 2px !important; line-height: normal !important">
+                                    <span class="font-weight-stone-500">Annonce en tête de liste</span> pendant
+                                    <span class="font-weight-stone-500 text-default" >{{ header.days }} jours</span> à
+                                    <span class="font-weight-stone-600 text-default h5-responsive">{{ header.price }}<span class="pl-1
+                                            small-8 font-weight-stone-600">CFA</span></span>.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="text-center mt-3">
+                    <a href="{{ path('app_cart_validate', {'id': advert.id}) }}" class="btn btn-primary disabled">
+                        Valider <i class="fas fa-paper-plane ml-2"></i>
+                    </a>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="text-center mb-5">
+                    <img src="{{ asset('images/option/1.png') }}" alt="" class="img-fluid z-depth-3" />
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary">Replacez votre annonce en tête de liste</h4>
+                <p class="grey-text">
+                    L’option <span class="text-default font-weight-stone-500">annonce en tête de liste</span>
+                    replace votre annonce en tête de liste. Cette option vous donne l’avantage ultime.
+                    Vous gardez une longueur d’avance sur les autres vendeurs et relancez l’intérêt
+                    porté à votre annonce.
+                </p>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Pourquoi choisir cette option</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>
+                            Vous avez reçu des réponses qui n’ont pas résulté en ventes ?
+                            L'<span class="text-default font-weight-stone-500">annonce en tête de liste</span>
+                            vous donne la visibilité supplémentaire pour attirer les acheteurs intéressés.
+                        </li>
+                        <li>
+                            Les annonces sont automatiquement republiées, vous n’avez donc pas à les créer
+                            à nouveau - c’est du temps de gagné et un souci en moins.
+                        </li>
+                        <li>
+                            L'<span class="text-default font-weight-stone-500">annonce en tête de liste</span>
+                            peut coûter moins cher que l’option <span class="text-default">annonce en vedette</span>
+                            selon l’offre que vous choisissez.
+                        </li>
+                        <li>
+                            Les annonces obtiennent généralement 45% de leurs vues durant les trois premiers
+                            jours de publication. En replaçant la vôtre au sommet de sa catégorie, l’option
+                            <span class="text-default font-weight-stone-500">annonce en tête de liste</span>
+                            permet de recréer cette dynamique et d’augmenter le nombre de vues.
+                        </li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Avantages pour le vendeur</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>Renvoyez en tête de liste plusieurs annonces au lieu de les republier une par une</li>
+                        <li>
+                            Le meilleur moment pour places votre annonce en tête de liste se situe à mi-chemin
+                            entre la publication de votre annonce et sa date d’expiration
+                        </li>
+                        <li>
+                            Si vous supprimez et republiez votre annonce, vous perdez des vues affichées
+                            sur votre compteur. L’option <span class="text-default font-weight-stone-500">annonce en tête de liste</span>
+                            donne un coup de pouce à votre annonce tout en gardant votre compteur de vues (et votre crédibilité) intacts
+                        </li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Comment ça marche ?</h4>
+                <div class="">
+                    <ul class="list-unstyled grey-text font-weight-stone-500">
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            L’option <span class="text-default font-weight-stone-500">annonce en tête de liste</span>
+                            replace votre annonce en tête de liste dans les annonces classiques de sa catégorie et
+                            dans toutes les recherches pertinentes.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Votre annonce restera à cet endroit jusqu'à ce qu'une autre annonce soit mise en
+                            haut de la liste.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            L’option <span class="text-default font-weight-stone-500">annonce en tête de liste</span>
+                            est offerte dans toutes les catégories.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Une annonce tend à obtenir plus de 45% de ses vues durant les trois premiers jours
+                            de publication. L’option <span class="text-default font-weight-stone-500">annonce en tête de liste</span>
+                            vous permet de recréer cette dynamique et de générer plus de vues pendant une plus longue période de temps.
+                        </li>
+                        <li class="mb-2">
+                            Quand vous renvoyez votre annonce en tête de liste, vous conservez le nombre de visites de
+                            votre compteur et par conséquent le niveau d’intérêt suscité par votre annonce.
+                        </li>
+                        <li class="mb-2">
+                            L’option <span class="text-default font-weight-stone-500">annonce en tête de liste</span> changera la
+                            date de mise en ligne de votre annonce, mais elle ne prolongera pas sa durée.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

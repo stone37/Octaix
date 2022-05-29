@@ -1,0 +1,15 @@
+app_user_delete:
+    path: /profil/delete/
+    controller: App\Controller\Account\AccountDeletionController::delete
+
+app_user_delete_ajax:
+    path: /profil/delete/
+    controller: App\Controller\Account\AccountDeletionController::deleteAjax
+    options:
+        expose: true
+
+app_user_cancel_delete:
+    path: /profil/cancel-delete/
+    controller: App\Controller\Account\AccountDeletionController::cancelDelete
+    methods: [POST]
+

@@ -1,0 +1,21 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Edition d'un service | Services | {{ parent() }}{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/service/edit/_header.html.twig' %}
+
+    {% include 'admin/service/edit/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'bundles/cksourceckfinder/ckfinder/ckfinder.js'} %}
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/setup-ckfinder.js'} %}
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/admin/create.js'} %}
+{% endblock %}

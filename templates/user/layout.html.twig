@@ -1,0 +1,85 @@
+{% extends 'site/layout.html.twig' %}
+
+{% set dashboard = isActive('app_dashboard_index') %}
+
+{% set ad = isActive('app_dashboard_advert_index') %}
+{% set ad_active = isActive('app_dashboard_advert_index_active') %}
+
+{% set al = isActive('app_dashboard_alert_index') %}
+{% set al_active = isActive('app_dashboard_alert_index_active') %}
+
+{% set msg_send = isActive('app_dashboard_message_send') %}
+{% set msg_receive = isActive('app_dashboard_message_receive') %}
+
+{% set favoris = isActive('app_dashboard_favorite_index') %}
+
+{% set profil_edit = isActive('app_user_profil_edit') %}
+{% set profil_pw = isActive('app_user_change_password') %}
+{% set profil_delete = isActive('app_user_delete') %}
+
+{% block app_navbar_second %}
+    <nav class="navbar navbar-expand-md navbar-light second user nav-black d-none d-lg-block py-0 mb-4 ">
+        <div class="collapse navbar-collapse" id="{{ settings.name }}_navbarSecond">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item mega-dropdown {% if dashboard %}active{% endif %}">
+                    <a href="{{ path('app_dashboard_index') }}" class="nav-link"
+                       aria-haspopup="true" aria-expanded="false"> Tableau de bord
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item mega-dropdown {% if ad or ad_active %}active{% endif %}">
+                    <a  href="{{ path('app_dashboard_advert_index_active') }}" class="nav-link dropdown-toggle"
+                       aria-haspopup="true" aria-expanded="false"> Mes annonces
+                    </a>
+                </li>
+                {% if settings.activeMessage %}
+                    <li class="nav-item mega-dropdown {% if msg_send or msg_receive %}active{% endif %}">
+                        <a href="{{ path('app_dashboard_message_receive') }}" class="nav-link dropdown-toggle"
+                           aria-haspopup="true" aria-expanded="false"> Mes messages
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if settings.activeAlert %}
+                    <li class="nav-item mega-dropdown {% if al or al_active %}active{% endif %}">
+                        <a href="{{ path('app_dashboard_alert_index_active') }}" class="nav-link dropdown-toggle"
+                           aria-haspopup="true" aria-expanded="false"> Mes alertes
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if settings.activeAdFavorite %}
+                    <li class="nav-item mega-dropdown {% if favoris %}active{% endif %}" >
+                        <a href="{{ path('app_dashboard_favorite_index') }}" class="nav-link dropdown-toggle"
+                           aria-haspopup="true" aria-expanded="false"> Mes favoris
+                        </a>
+                    </li>
+                {% endif %}
+
+                <li class="nav-item mega-dropdown {% if favoris %}active{% endif %}" >
+                    <a href="" class="nav-link dropdown-toggle"
+                       aria-haspopup="true" aria-expanded="false"> Mes commandes
+                    </a>
+                </li>
+
+                <li class="nav-item mega-dropdown {% if profil_edit or profil_pw or profil_delete %}active{% endif %}">
+                    <a href="{{ path('app_user_profil_edit') }}" class="nav-link dropdown-toggle"
+                       aria-haspopup="true" aria-expanded="false"> Modifier mon profil
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/site/user.css'} %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/site/user.js'} %}
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}Editer les photos de votre annonce | {{ config.get.name }}{% endblock %}
+
+{% block app_advert_btn_post %}{% endblock %}
+{% block app_navbar_second %}{% endblock %}
+
+{% set nbrPhotoActuel = advert.images|length %}
+
+{% if advert.optionPhoto %}
+    {% set nbrPhoto = (option.photoFree + option.photoPaying) - nbrPhotoActuel %}
+{% else %}
+    {% set nbrPhoto = option.photoFree - nbrPhotoActuel %}
+{% endif %}
+
+{% block app_breadcrumbs %}
+    <div class="mt-lg-90 mt-70">
+        <a href="" class="btn btn-amber btn-sm mt-lg-3 ml-md-4">
+            <i class="fas fa-angle-left mr-2"></i>
+            Retour
+        </a>
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    <div class="row d-flex justify-content-center mt-4 mb-5 mx-md-4">
+        <div class="col-12">
+            <div class="card card-cascade narrower">
+                <div class="view view-cascade bg-grey-dark text-white">
+                    <h3 class="h3-responsive font-weight-stone-600 px-3 pt-3 pb-2">
+                        Editer les photos de votre annonce
+                    </h3>
+                </div>
+                <div class="card-body card-body-cascade px-lg-5">
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'advert-image-form'}}) }}
+
+                    {{ include('user/advert/image/add_content.htnl.twig') }}
+
+                    {{ form_widget(form._token) }}
+                    <div class="text-center mt-3">
+                        <button class="btn btn-grey-dark btn-lg app-ad-submit-btn" type="submit">
+                            Valider mes modifications <i class="fas fa-paper-plane d-none d-md-inline ml-2"></i>
+                        </button>
+                    </div>
+                    {{ form_end(form, {'render_rest': false}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/site/advert/advert.css'} %}
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/site/advert/create.css'} %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        let adImages = {{ advert.images|length }},
+            nbrPhoto = {{ nbrPhoto }},
+            nbrPhotoFree = {{ option.photoFree }},
+            nbrPhotoPaying = {{ option.photoPaying }},
+            optionStatus = {% if advert.optionPhoto %}true{% else %}false{% endif %},
+            adId = {{ advert.id }};
+    </script>
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/jquery.dm-uploader.min.js'} %}
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/site/advert/advert.js'} %}
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/site/advert/image.js'} %}
+{% endblock %}

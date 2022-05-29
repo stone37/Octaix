@@ -1,0 +1,8 @@
+ckfinder:
+  connector:
+    authenticationClass: App\CKFinderAuth\CKFinderAuth
+    resourceTypes:
+      MyResource:
+        name: MyResource
+        backend: default
+        directory: myResource

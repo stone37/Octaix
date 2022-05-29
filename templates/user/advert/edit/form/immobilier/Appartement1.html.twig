@@ -1,0 +1,179 @@
+{% extends 'user/advert/edit/form.html.twig' %}
+
+{% block app_advert_type %}
+{% endblock %}
+
+{% block app_advert_traitement %}
+{% endblock %}
+
+{% block app_advert_detail %}
+    <div class="form-row">
+        <div class="col-12 col-md-4 col-lg-3">
+            {{ form_row(form.surface) }}
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.nombrePiece) }}
+                    <label>{{ form.nombrePiece.vars.label }}</label>
+                </div>
+                <div style="margin-top: -15px;" class="red-text font-weight-stone-500">{{ form_errors(form.nombrePiece) }}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            {{ form_row(form.nombreChambre) }}
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            {{ form_row(form.nombreSalleBain) }}
+        </div>
+        <div class="col-12 app-radio-block-parent">
+            <div class="font-weight-stone-600 mb-2">{{ form.immobilierState.vars.label|capitalize }}</div>
+            {% for choices in form.immobilierState.vars.choices %}
+                <div class="app-radio-block grey-text text-center py-3 px-2 rounded mr-md-2">
+                    <div class="mb-3 label font-weight-stone-600">{{ form.immobilierState.vars.choices[loop.index0].label }}</div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input with-gap" id="{{ form.immobilierState.vars.id }}_{{ loop.index0 }}"
+                               value="{{ form.immobilierState.vars.choices[loop.index0].value }}"
+                               name="{{ form.immobilierState.vars.full_name }}"
+                               {% if advert.immobilierState == form.immobilierState.vars.choices[loop.index0].value %}checked{% endif %}>
+                        <label class="form-check-label" for="{{ form.immobilierState.vars.id }}_{{ loop.index0 }}"></label>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="red-text font-weight-stone-500 mt-2">{{ form_errors(form.immobilierState) }}</div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            {{ form_row(form.surfaceBalcon) }}
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            {{ form_row(form.nombrePlacard) }}
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.dateConstruction) }}
+                    <label>{{ form.dateConstruction.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 app-radio-block-parent mb-4">
+            <div class="font-weight-stone-600 mb-2">{{ form.standing.vars.label|capitalize }}</div>
+            {% for choices in form.standing.vars.choices %}
+                <div class="app-radio-block grey-text text-center py-3 px-0 rounded mb-1 mr-md-2">
+                    <div class="mb-3 label font-weight-stone-600">{{ form.standing.vars.choices[loop.index0].label }}</div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input with-gap" id="{{ form.standing.vars.id }}_{{ loop.index0 }}"
+                               value="{{ form.standing.vars.choices[loop.index0].value }}" name="{{ form.standing.vars.full_name }}"
+                               {% if advert.standing == form.standing.vars.choices[loop.index0].value %}checked{% endif %}>
+                        <label class="form-check-label" for="{{ form.standing.vars.id }}_{{ loop.index0 }}"></label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-12 app-radio-block-parent mb-4">
+            <div class="font-weight-stone-600 mb-2">{{ form.cuisine.vars.label|capitalize }}</div>
+            {% for choices in form.cuisine.vars.choices %}
+                <div class="app-radio-block grey-text text-center py-3 px-0 rounded mb-1 mr-md-2">
+                    <div class="mb-3 label font-weight-stone-600">{{ form.cuisine.vars.choices[loop.index0].label }}</div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input with-gap" id="{{ form.cuisine.vars.id }}_{{ loop.index0 }}"
+                               value="{{ form.cuisine.vars.choices[loop.index0].value }}" name="{{ form.cuisine.vars.full_name }}"
+                               {% if advert.cuisine == form.cuisine.vars.choices[loop.index0].value %}checked{% endif %}>
+                        <label class="form-check-label" for="{{ form.cuisine.vars.id }}_{{ loop.index0 }}"></label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-12 app-radio-block-parent mb-4">
+            <div class="font-weight-stone-600 mb-2">{{ form.situation.vars.label|capitalize }}</div>
+            {% for choices in form.situation.vars.choices %}
+                <div class="app-radio-block grey-text text-center py-3 px-0 rounded mr-md-2">
+                    <div class="mb-3 label font-weight-stone-600">{{ form.situation.vars.choices[loop.index0].label }}</div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input with-gap" id="{{ form.situation.vars.id }}_{{ loop.index0 }}"
+                               value="{{ form.situation.vars.choices[loop.index0].value }}" name="{{ form.situation.vars.full_name }}"
+                               {% if advert.situation == form.situation.vars.choices[loop.index0].value %}checked{% endif %}>
+                        <label class="form-check-label" for="{{ form.situation.vars.id }}_{{ loop.index0 }}"></label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-12 app-radio-block-parent mb-4">
+            <div class="font-weight-stone-600 mb-2">{{ form.salleManger.vars.label|capitalize }}</div>
+            {% for choices in form.salleManger.vars.choices %}
+                <div class="app-radio-block grey-text text-center py-3 px-0 rounded mb-1 mr-md-2">
+                    <div class="mb-3 label font-weight-stone-600">{{ form.salleManger.vars.choices[loop.index0].label }}</div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input with-gap" id="{{ form.salleManger.vars.id }}_{{ loop.index0 }}"
+                               value="{{ form.salleManger.vars.choices[loop.index0].value }}" name="{{ form.salleManger.vars.full_name }}"
+                               {% if advert.salleManger == form.salleManger.vars.choices[loop.index0].value %}checked{% endif %}>
+                        <label class="form-check-label" for="{{ form.salleManger.vars.id }}_{{ loop.index0 }}"></label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-12 app-radio-block-parent mb-4">
+            <div class="font-weight-stone-600 mb-2">{{ form.stateGenerale.vars.label|capitalize }}</div>
+            {% for choices in form.stateGenerale.vars.choices %}
+                <div class="app-radio-block grey-text text-center py-3 px-0 rounded mb-1 mr-md-2">
+                    <div class="mb-3 label font-weight-stone-600">{{ form.stateGenerale.vars.choices[loop.index0].label }}</div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input with-gap" id="{{ form.stateGenerale.vars.id }}_{{ loop.index0 }}"
+                               value="{{ form.stateGenerale.vars.choices[loop.index0].value }}" name="{{ form.stateGenerale.vars.full_name }}"
+                               {% if advert.stateGenerale == form.stateGenerale.vars.choices[loop.index0].value %}checked{% endif %}>
+                        <label class="form-check-label" for="{{ form.stateGenerale.vars.id }}_{{ loop.index0 }}"></label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-12 mb-4">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.access.vars.label }}</div>
+                {{ form_widget(form.access) }}
+            </div>
+        </div>
+
+        <div class="col-12 mb-4">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.exterior.vars.label }}</div>
+                {{ form_widget(form.exterior) }}
+            </div>
+        </div>
+
+        <div class="col-12 mb-4">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.interior.vars.label }}</div>
+                {{ form_widget(form.interior) }}
+            </div>
+        </div>
+
+        <div class="col-12 mb-4">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.typeSol.vars.label }}</div>
+                {{ form_widget(form.typeSol) }}
+            </div>
+        </div>
+
+        <div class="col-12 mb-4">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.serviceInclus.vars.label }}</div>
+                {{ form_widget(form.serviceInclus) }}
+            </div>
+        </div>
+
+        <div class="col-12 mb-4">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.proximite.vars.label }}</div>
+                {{ form_widget(form.proximite) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

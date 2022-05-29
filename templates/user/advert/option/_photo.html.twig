@@ -1,0 +1,47 @@
+<div class="modal fade right" id="adOptionPhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="font-weight-stone-600 h4-responsive heading lead">Photos supplémentaires</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div id="option-data" class="modal-body">
+                {% if not advert.optionPhoto %}
+                    <div class="grey-text font-weight-stone-500 mb-3">
+                        L'option <span class="text-default">photos supplémentaires</span>
+                        est deja active sur cette annonce.<br>
+                    </div>
+                {% endif %}
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mb-3">Choisir une option</h4>
+
+                <div class="d-flex justify-content-between mb-2 ">
+                    <div class="form-check" style="margin-left: -20px;">
+                        <input type="radio" class="form-check-input with-gap option-input" id="option{{ photo.id }}"
+                               value="{{ photo.id }}" name="header" />
+                        <label class="form-check-label grey-text d-inline-block" for="option{{ photo.id }}">
+                            <span style="position: relative !important; left: -12px !important;
+                                        bottom: 3px !important; line-height: normal !important">
+                                <span class="font-weight-stone-500">{{ photo.photoPaying }} photos supplémentaires</span> à
+                                <span class="font-weight-stone-600 text-default h5-responsive">{{ photo.price }}<span class="pl-1
+                                        small-8 font-weight-stone-600">CFA</span></span>.
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <a href="{{ path('app_cart_validate', {'id': advert.id}) }}" class="btn btn-primary disabled">
+                        Valider <i class="fas fa-paper-plane ml-2"></i>
+                    </a>
+                </div>
+
+                <hr class="my-4">
+            </div>
+        </div>
+    </div>
+</div>

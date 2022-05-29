@@ -1,0 +1,12 @@
+app_post_index:
+  path: /blog
+  controller: App\Controller\PostController::index
+
+app_post_show:
+  path: /blog/{slug}/
+  controller: App\Controller\PostController::show
+
+app_post_category:
+  path: /blog/categories/{slug}/
+  controller: App\Controller\PostController::category
+

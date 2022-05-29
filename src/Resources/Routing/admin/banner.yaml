@@ -1,0 +1,34 @@
+app_admin_banner_index:
+  path: /banners
+  methods: [GET]
+  controller: App\Controller\Admin\BannerController::index
+
+app_admin_banner_create:
+  path: /banners/create
+  methods: [GET, POST]
+  controller: App\Controller\Admin\BannerController::create
+
+app_admin_banner_edit:
+  path: /banners/{id}/edit
+  methods: [GET, POST]
+  controller: App\Controller\Admin\BannerController::edit
+  requirements:
+    id: \d+
+
+app_admin_banner_delete:
+  path: /banners/{id}/delete
+  methods: [GET, DELETE]
+  controller: App\Controller\Admin\BannerController::delete
+  requirements:
+    id: \d+
+  options:
+    expose: true
+
+app_admin_banner_bulk_delete:
+  path: /banners/bulk/delete
+  methods: [GET, DELETE]
+  controller: App\Controller\Admin\BannerController::deleteBulk
+  options:
+    expose: true
+
+

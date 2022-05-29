@@ -1,0 +1,34 @@
+app_admin_offer_index:
+  path: /offers
+  methods: [GET]
+  controller: App\Controller\Admin\OfferController::index
+
+app_admin_offer_create:
+  path: /offers/create
+  methods: [GET, POST]
+  controller: App\Controller\Admin\OfferController::create
+
+app_admin_offer_edit:
+  path: /offers/{id}/edit
+  methods: [GET, POST]
+  controller: App\Controller\Admin\OfferController::edit
+  requirements:
+    id: \d+
+
+app_admin_offer_delete:
+  path: /offers/{id}/delete
+  methods: [GET, DELETE]
+  controller: App\Controller\Admin\OfferController::delete
+  requirements:
+    id: \d+
+  options:
+    expose: true
+
+app_admin_offer_bulk_delete:
+  path: /offers/bulk/delete
+  methods: [GET, DELETE]
+  controller: App\Controller\Admin\OfferController::deleteBulk
+  options:
+    expose: true
+
+

@@ -1,0 +1,44 @@
+app_dashboard_room_index:
+    path: /rooms/
+    methods: [GET, POST]
+    controller: App\Controller\Account\RoomController::index
+
+app_dashboard_room_create:
+    path: /rooms/create/
+    methods: [GET, POST]
+    controller: App\Controller\Account\RoomController::create
+
+app_dashboard_room_edit:
+    path: /rooms/{id}/edit/
+    methods: [GET, POST]
+    controller: App\Controller\Account\RoomController::edit
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_dashboard_room_show:
+    path: /rooms/show/{id}/
+    methods: [GET, POST]
+    controller: App\Controller\Account\RoomController::show
+    requirements:
+        id: \d+
+
+app_dashboard_room_delete:
+    path: /rooms/{id}/delete/
+    methods: [GET, DELETE]
+    controller: App\Controller\Account\RoomController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_dashboard_room_bulk_delete:
+    path: /rooms/bulk/delete/
+    methods: [GET, DELETE]
+    controller: App\Controller\Account\RoomController::deleteBulk
+    options:
+        expose: true
+
+
+

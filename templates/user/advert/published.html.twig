@@ -1,0 +1,80 @@
+{% extends 'user/layout.html.twig' %}
+{% import 'user/advert/macro/__list.html.twig' as __advert  %}
+
+{% block title %}Annonces en ligne | {{ settings.name }}{% endblock %}
+{% block app_mobile_cart %}{% endblock %}
+{% block app_cart %}{% endblock %}
+
+{% block app_breadcrumbs %}
+    <div class="mt-80 mt-md-7">
+        {{ breadcrumb('Tableau de bord', '/u/') }}
+        {{ breadcrumb('Annonces en ligne') }}
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+
+    <div class="my-0 d-flex justify-content-end">
+        <div class="d-none d-lg-block">
+            <div class="btn-group title" role="group" aria-label="Basic example">
+                <a href="{{ path('app_dashboard_advert_index_active') }}"
+                   class="btn btn-outline-grey waves-effect px-3 px-lg-4 active">
+                    Annonces en ligne <span class="badge badge-grey badge-pill ml-1">{{ advertAN }}</span>
+                </a>
+                <a href="{{ path('app_dashboard_advert_index') }}"
+                   class="btn btn-outline-grey waves-effect px-3 px-lg-4">
+                    Annonces inactif  <span class="badge badge-grey badge-pill ml-1">{{ advertN }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-md-3">
+        <div class="col-12 col-md-6 col-lg-5">
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'advert-image-form'}}) }}
+            <div class="md-form md-outline form-lg input-with-pre-icon mt-0 mb-4 my-md-4">
+                <i class="fas fa-search input-prefix"></i>
+                <input type="search" id="{{ form.title.vars.id }}" name="{{ form.title.vars.full_name }}"
+                       value="{{ form.title.vars.value }}"
+                       class="form-control form-control-lg" placeholder="Rechercher" autocomplete />
+                <label for="{{ form.title.vars.id }}"></label>
+            </div>
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    <div class="row app-user">
+        {% if adverts|length > 0 %}
+            <div class="col-12 col-lg-8">
+                <div class="row">
+                    {% for advert in adverts %}
+                        <div class="col-12">
+                            {{ __advert.list(advert, settings, photo, headers, vedettes, encadres, urgents, gallery) }}
+                        </div>
+                    {% endfor %}
+
+                    <div class="col-12 d-flex justify-content-center mt-2">
+                        {{ knp_pagination_render(adverts, 'Ui/_pagination.html.twig') }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8">
+
+            </div>
+        {% else %}
+            <div class="col-12 text-center mt-5">
+                <h3 class="text-primary h3-responsive font-weight-stone-600">Vous n'avez aucune annonce en ligne pour le moment.</h3>
+
+                <p>Pourquoi ne pas <a href="{{ path('app_advert_category') }}" class="text-primary">publier une annonce</a> maintenant?</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

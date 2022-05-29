@@ -1,0 +1,40 @@
+app_admin_reference_index:
+    path: /references
+    methods: [GET]
+    controller: App\Controller\Admin\ReferenceController::index
+
+app_admin_reference_create:
+    path: /references/create
+    methods: [GET, POST]
+    controller: App\Controller\Admin\ReferenceController::create
+
+app_admin_reference_edit:
+    path: /references/{id}/edit
+    methods: [GET, POST]
+    controller: App\Controller\Admin\ReferenceController::edit
+    requirements:
+        id: \d+
+
+app_admin_reference_delete:
+    path: /references/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\ReferenceController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_reference_bulk_delete:
+    path: /references/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\ReferenceController::deleteBulk
+    options:
+        expose: true
+
+app_admin_reference_move:
+    path: /references/{id}/move
+    methods: GET
+    controller: App\Controller\Admin\ReferenceController::move
+    requirements:
+        id: \d+
+

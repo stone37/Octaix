@@ -1,0 +1,42 @@
+app_admin_customer_index:
+    path: /customers
+    methods: [GET]
+    controller: App\Controller\Admin\CustomerController::index
+
+app_admin_customer_create:
+    path: /customers/create
+    methods: [GET, POST]
+    controller: App\Controller\Admin\CustomerController::create
+
+app_admin_customer_edit:
+    path: /customers/{id}/edit
+    methods: [GET, POST]
+    controller: App\Controller\Admin\CustomerController::edit
+    requirements:
+        id: \d+
+
+app_admin_customer_show:
+    path: /customers/{id}/show
+    methods: [GET, POST]
+    controller: App\Controller\Admin\CustomerController::show
+    requirements:
+        id: \d+
+
+app_admin_customer_delete:
+    path: /customers/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\CustomerController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_customer_bulk_delete:
+    path: /customers/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\CustomerController::deleteBulk
+    options:
+        expose: true
+
+
+

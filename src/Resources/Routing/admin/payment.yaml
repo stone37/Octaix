@@ -1,0 +1,22 @@
+app_admin_payment_index:
+    path: /payments
+    methods: [GET]
+    controller: App\Controller\Admin\PaymentController::index
+
+app_admin_payment_delete:
+    path: /payments/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\PaymentController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_payment_bulk_delete:
+    path: /payments/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\PaymentController::deleteBulk
+    options:
+        expose: true
+
+

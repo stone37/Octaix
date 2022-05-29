@@ -1,0 +1,63 @@
+<div class="form-row mt-3">
+    <div class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="grey-text pb-1">{{ form.activeAchieve.vars.label|trans }}</div>
+        <div class="switch stone-switch mt-1 ml-md-2">
+            <label>
+                Non
+                <input type="checkbox" name="{{ form.activeAchieve.vars.full_name }}" id="{{ form.activeAchieve.vars.id }}"
+                       value="{{ form.activeAchieve.vars.value }}" {% if form.activeAchieve.vars.checked %}checked="checked{% endif %}">
+                <span class="lever"></span>
+                Oui
+            </label>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="grey-text pb-1">{{ form.activeEservice.vars.label|trans }}</div>
+        <div class="switch stone-switch mt-1 ml-md-2">
+            <label>
+                Non
+                <input type="checkbox" name="{{ form.activeEservice.vars.full_name }}" id="{{ form.activeEservice.vars.id }}"
+                       value="{{ form.activeEservice.vars.value }}" {% if form.activeEservice.vars.checked %}checked="checked{% endif %}">
+                <span class="lever"></span>
+                Oui
+            </label>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="grey-text pb-1">{{ form.activeOffre.vars.label|trans }}</div>
+        <div class="switch stone-switch mt-1 ml-md-2">
+            <label>
+                Non
+                <input type="checkbox" name="{{ form.activeOffre.vars.full_name }}" id="{{ form.activeOffre.vars.id }}"
+                       value="{{ form.activeOffre.vars.value }}" {% if form.activeOffre.vars.checked %}checked="checked{% endif %}">
+                <span class="lever"></span>
+                Oui
+            </label>
+        </div>
+    </div>
+   <div class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="grey-text pb-1">{{ form.activePost.vars.label|trans }}</div>
+        <div class="switch stone-switch mt-1 ml-md-2">
+            <label>
+                Non
+                <input type="checkbox" name="{{ form.activePost.vars.full_name }}" id="{{ form.activePost.vars.id }}"
+                       value="{{ form.activePost.vars.value }}" {% if form.activePost.vars.checked %}checked="checked{% endif %}">
+                <span class="lever"></span>
+                 Oui
+            </label>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="grey-text pb-1">{{ form.activeReview.vars.label|trans }}</div>
+        <div class="switch stone-switch mt-1 ml-md-2">
+            <label>
+                Non
+                <input type="checkbox" name="{{ form.activeReview.vars.full_name }}" id="{{ form.activeReview.vars.id }}"
+                       value="{{ form.activeReview.vars.value }}" {% if form.activeReview.vars.checked %}checked="checked{% endif %}">
+                <span class="lever"></span>
+                Oui
+            </label>
+        </div>
+    </div>
+</div>
+

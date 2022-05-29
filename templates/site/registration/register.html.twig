@@ -1,0 +1,34 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}Inscription | {{ config.get.name }}{% endblock %}
+
+{% block app_breadcrumbs %}
+    <div class="mt-lg-90 mt-70">
+        {{ breadcrumb('Inscription') }}
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_navbar_second %}{% endblock %}
+{% block app_cart %}{% endblock %}
+
+{% block app_body %}
+    {% include 'site/registration/register_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/site/security.css'} %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/site/security.js'} %}
+{% endblock %}
+
+
+
+

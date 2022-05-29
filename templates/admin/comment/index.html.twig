@@ -1,0 +1,17 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Commentaires | {{ parent() }}{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/comment/index/_header.html.twig' %}
+
+    {% include 'admin/comment/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block app_breadcrumbs %}{% endblock %}
+
+{% block app_intro %}
+    <div class="view jarallax" data-jarallax='{"speed": 0.2}'
+         style="background-image: url({{ asset('images/data/service.png') }}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="mask rgba-black-strong">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="row pt-5 mt-3">
+                    <div class="col-md-12 mb-3">
+                        <div class="intro-info-content text-center">
+                            <h1 class="display-5 amber-text font-weight-stone-600 mb-3 wow fadeInDown" data-wow-delay="0.3s">
+                                Connexion
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bc text-white mb-5">
+        {{ breadcrumb('Connexion') }}
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_navbar_second %}{% endblock %}
+{% block app_cart %}{% endblock %}
+
+{% block app_body %}
+    {% include 'site/security/login_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+

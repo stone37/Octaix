@@ -1,0 +1,24 @@
+{% if references|length > 0 %}
+    <section class="container-fluid app-home-reference my-4">
+        <div class="row p-0">
+            <div class="col-12 p-0">
+               <div class="bg-default text-center text-white pt-5 pb-3 px-4 px-md-1">
+                   <h1 class="display-4 font-weight-bold">Ils nous ont fait confiance</h1>
+                   <h2 class="h2-responsive font-weight-normal mb-5 d-none d-md-block">Vous aussi confiez-nous la réalisation de votre projet.</h2>
+                   <h3 class="h3-responsive font-weight-normal mb-5 d-block d-md-none">Vous aussi confiez-nous la réalisation de votre projet.</h3>
+
+                   <div class="mb-md-4 mt-md-5 pt-md-4 pb-md-2 mx-md-5 px-md-5
+                        d-flex justify-content-between justify-content-md-start align-items-center flex-wrap">
+                       {% for reference in references %}
+                           <div class="px-md-4 pb-md-3 pb-4" data-toggle="tooltip" title="{{ reference.name }}">
+                               <img src="{{ vich_uploader_asset(reference, 'file') }}"
+                                    class="img-fluid {{ reference.name|slug('')|lower }}" alt="{{ reference.name }}">
+                           </div>
+                       {% endfor %}
+                   </div>
+               </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+

@@ -1,0 +1,19 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}
+    Voir une demandes | Demandes | {{ parent() }}
+{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/demand/show/_header.html.twig' %}
+
+    {% include 'admin/demand/show/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,41 @@
+vich_uploader:
+    db_driver: orm
+    mappings:
+        settings:
+            uri_prefix: '%app.path.settings%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.settings%'
+        user:
+            uri_prefix: '%app.path.user%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.user%'
+        service:
+            uri_prefix: '%app.path.service%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.service%'
+        achieve:
+            uri_prefix: '%app.path.achieve%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.achieve%'
+        banner:
+            uri_prefix: '%app.path.banner%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.banner%'
+        post:
+            uri_prefix: '%app.path.post%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.post%'
+        offer:
+            uri_prefix: '%app.path.offer%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.offer%'
+        reference:
+            uri_prefix: '%app.path.reference%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.reference%'
+        team:
+            uri_prefix: '%app.path.team%'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            upload_destination: '%kernel.project_dir%/public%app.path.team%'
+
+

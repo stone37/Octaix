@@ -1,0 +1,43 @@
+app_dashboard_booking_index:
+    path: /bookings/
+    methods: [GET, POST]
+    controller: App\Controller\Account\BookingController::index
+
+app_dashboard_booking_confirmed_index:
+    path: /bookings/confirmed/
+    methods: [GET, POST]
+    controller: App\Controller\Account\BookingController::confirm
+
+app_dashboard_booking_cancel_index:
+    path: /bookings/cancelled/
+    methods: [GET, POST]
+    controller: App\Controller\Account\BookingController::cancel
+
+app_dashboard_booking_archive_index:
+    path: /bookings/archive/
+    methods: [GET, POST]
+    controller: App\Controller\Account\BookingController::archive
+
+app_dashboard_booking_edit:
+    path: /bookings/{id}/
+    methods: [GET, POST]
+    controller: App\Controller\Account\BookingController::edit
+
+app_dashboard_booking_delete:
+    path: /bookings/{id}/delete/
+    methods: [GET, DELETE]
+    controller: App\Controller\Account\BookingController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_dashboard_booking_bulk_delete:
+    path: /bookings/bulk/delete/
+    methods: [GET, DELETE]
+    controller: App\Controller\Account\BookingController::deleteBulk
+    options:
+        expose: true
+
+
+

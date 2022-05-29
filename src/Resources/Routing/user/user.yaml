@@ -1,0 +1,8 @@
+app_user_show:
+    path: /profil/{id}/
+    controller: App\Controller\UserController::show
+    requirements:
+        id: \d+
+
+
+

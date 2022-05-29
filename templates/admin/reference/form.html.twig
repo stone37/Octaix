@@ -1,0 +1,30 @@
+<div class="row d-flex justify-content-center justify-content-md-start">
+    <div class="col-12 col-md-6">
+        {{ form_row(form.name) }}
+        <small class="form-text text-muted" style="margin-top: -4px">
+            Ce champ est obligatoire
+        </small>
+    </div>
+</div>
+
+<div class="form-row mt-4">
+    <div class="col-6 col-md-3 col-lg-3">
+        <div class="file-field">
+            <div class="btn btn-mdb-color float-left">
+                <span>Choisir une image</span>
+                <input type="file" name="{{ form.file.children.file.vars.full_name }}" id="entity-image" />
+            </div>
+        </div>
+    </div>
+
+    {% if reference is defined %}
+        <div class="col-4 col-md-3 col-lg-2 grey">
+            <img src="{{ vich_uploader_asset(reference, 'file') }}" alt="" class="img-fluid" id="image-view" />
+        </div>
+    {% else %}
+        <div class="col-4 col-md-3 col-lg-2">
+            <img src="" alt="" class="img-fluid img-thumbnail" id="image-view" />
+        </div>
+    {% endif %}
+</div>
+

@@ -1,0 +1,111 @@
+{% extends 'user/layout.html.twig' %}
+
+{% block title %}Tableau de bord | {{ settings.name }}{% endblock %}
+
+{% block app_cart %}{% endblock %}
+{% block app_mobile_cart %}{% endblock %}
+
+{% block app_breadcrumbs %}
+    <div class="mt-80 mt-md-7">
+        {{ breadcrumb('Tableau de bord') }}
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    <div class="row app-user">
+        <div class="col-12 info col-md-6 col-lg-4 mb-5">
+            <div class="card promoting-card">
+                <div class="card-body d-flex flex-row">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+                    <div>
+                        <h4 class="card-title dark-grey-text font-weight-stone-600 mb-1">{{ user }}</h4>
+                        <p class="card-text" data-toggle="tooltip" title="Date d'inscription">
+                            <i class="far fa-clock pr-1"></i> {{ user.createdAt|ago('Depuis') }}
+                        </p>
+                    </div>
+                </div>
+                <div class="card-body pt-2">
+                    <ul class="card-text list-unstyled text-center">
+                        <li class="font-weight-stone-500">
+                            <i class="far fa-envelope mr-1"></i> {{ user.email }}
+                        </li>
+                        <li class="font-weight-stone-500 mt-3">
+                            <i class="fas fa-phone-alt mr-1"></i> {{ user.phone }}
+                            {% if user.phoneStatus %}
+                                <i class="fab fa-whatsapp text-success" data-toggle="tooltip" title="Numéro whatsapp"></i>
+                            {% endif %}
+                        </li>
+                        <li class="font-weight-stone-500 mt-3"
+                            data-toggle="tooltip" title="Ville">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            {% if user.city %}{{ user.city }}{% else %}
+                                <span class="badge badge-grey">Aucun</span>
+                            {% endif %}
+                        </li>
+                        <li class="font-weight-stone-500 mt-3"
+                            data-toggle="tooltip" title="Nom d'utilisation">
+                            {% if user.username %}
+                                @{{ user.username }}
+                            {% else %}
+                                @ <span class="badge badge-grey">Aucun</span>
+                            {% endif %}
+                        </li>
+                        <li class="font-weight-stone-500 mt-3"
+                            data-toggle="tooltip" title="Adresse">
+                            <i class="far fa-address-book mr-1"></i>
+                            {% if user.address %}{{ user.address }}{% else %}
+                                <span class="badge badge-grey">Aucun</span>
+                            {% endif %}
+                        </li>
+                        <li class="mt-4">
+                            <a href="{{ path('app_user_profil_edit') }}" class="link">Editer votre profil</a>
+                        </li>
+                        <li class="mt-3">
+                            <a href="{{ path('app_user_change_password') }}" class="link">Modifier votre mot de passe</a>
+                        </li>
+                    </ul>
+
+                    <div class="btn btn-flat red-text font-weight-stone-600 p-1 mt-1 mr-0"
+                       data-toggle="tooltip" title="Compte pro">PRO</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-5">
+            <div class="card weather-card">
+                <div class="card-body text-center pb-3">
+                    <h4 class="card-title dark-grey-text font-weight-stone-600">Annonce en ligne</h4>
+
+                    <p class="display-1 dark-grey-text font-weight-stone-600 degree">{{ advertAN }}</p>
+
+                    <hr>
+
+                    <a href="{{ path('app_dashboard_advert_index_active') }}" class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 text-primary">Vos annonces en ligne</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-5">
+            <div class="card">
+                <div class="card-body text-center">
+                    <p class="">Facilité vos achats d'options pour vos annonces par l'utilisation de vos crédits.</p>
+
+                    <a href="{{ path('app_dashboard_credit_index') }}" class="btn btn-grey mt-2">
+                        <i class="fas fa-wallet mr-1"></i>
+                        Acheter du crédit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+

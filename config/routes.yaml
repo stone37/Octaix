@@ -1,0 +1,16 @@
+app_admin:
+    resource: '../src/Resources/Routing/admin/'
+    type: directory
+    prefix: /admin/
+
+app_site:
+    resource: '../src/Resources/Routing/site/'
+    type: directory
+    prefix: /
+
+app_user:
+    resource: '../src/Resources/Routing/user/'
+    type: directory
+    prefix: /u/
+
+

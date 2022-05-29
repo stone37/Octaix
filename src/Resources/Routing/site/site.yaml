@@ -1,0 +1,16 @@
+app_home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+app_apropos:
+    path: /apropos
+    controller: App\Controller\HomeController::apropos
+
+app_contact:
+    path: /contact
+    controller: App\Controller\ContactController::index
+
+app_devis:
+    path: /devis
+    controller: App\Controller\DevisController::index
+

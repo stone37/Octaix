@@ -1,0 +1,17 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Offres | {{ parent() }}{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/offer/index/_header.html.twig' %}
+
+    {% include 'admin/offer/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

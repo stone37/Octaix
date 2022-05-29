@@ -1,0 +1,117 @@
+<div class="modal fade right" id="adOptionDetail3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="font-weight-stone-600 h4-responsive heading lead">Galerie de la page d'accueil</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div id="option-data" class="modal-body">
+
+                {% if advert.optionAdEncadre %}
+                    <div class="grey-text font-weight-stone-500 mb-3">
+                        L'option <span class="text-default">galerie de la page d'accueil</span>
+                        est deja active sur cette annonce.<br>
+                        Expiration: <span class="amber-text font-weight-stone-600">{{ advert.optionAdGalleryEnd|date('d/m/Y') }}</span>.
+                    </div>
+                    <div class="text-grey small font-weight-stone-600 mb-3">
+                        Pour prolonger la durée de l'option, veuillez acheter une nouvelle offre de l'option. <br>
+                        La nouvelle durée sera ajouter à la durée actuelle.
+                    </div>
+                {% endif %}
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mb-3">Choisir une option</h4>
+
+                {% for gal in gallery %}
+                    <div class="d-flex justify-content-between mb-2 ">
+                        <div class="form-check" style="margin-left: -20px;">
+                            <input type="radio" class="form-check-input with-gap option-input" id="option{{ gal.id }}"
+                                   value="{{ gal.id }}" name="header" />
+                            <label class="form-check-label grey-text d-inline-block" for="option{{ gal.id }}">
+                                <span style="position: relative !important; left: -12px !important;
+                                            bottom: 2px !important; line-height: normal !important">
+                                    <span class="font-weight-stone-500">Galerie de la page d'accueil</span> pendant
+                                    <span class="font-weight-stone-500 text-default" >{{ gal.days }} jours</span> à
+                                    <span class="font-weight-stone-600 text-default h5-responsive">{{ gal.price }}<span class="pl-1
+                                            small-8 font-weight-stone-600">CFA</span></span>.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="text-center mt-3">
+                    <a href="{{ path('app_cart_validate', {'id': advert.id}) }}" class="btn btn-primary disabled">
+                        Valider <i class="fas fa-paper-plane ml-2"></i>
+                    </a>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="text-center mb-5">
+                    <img src="{{ asset('images/option/3.png') }}" alt="" class="img-fluid z-depth-3" />
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary">Votre annonce pourra être vue des milliers de fois par jour</h4>
+                <p class="grey-text">
+                    L’option <span class="text-default font-weight-stone-500">galerie de la page d'accueil</span>
+                    publie une deuxième copie de votre annonce sur la page d’accueil, vous aidant ainsi à atteindre
+                    le plus grand nombre d’acheteurs dans votre communauté.
+                </p>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Pourquoi choisir cette option</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>La page d’accueil est vue par tous les acheteurs, pas uniquement ceux d’une catégorie spécifique</li>
+                        <li>Deux emplacements garantissent une meilleure visibilité, et jusqu’à 3 plus de vues qu’une annonce classique</li>
+                        <li>Idéal pour promouvoir de multiples produits dans une même annonce</li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Avantages pour le vendeur</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>Vous apparaissez en page d’accueil - votre annonce sera la star de {{ settings.name }}</li>
+                        <li>Vous attirez les acheteurs pressés</li>
+                        <li>
+                            Les annonces sur la page d’accueil ont les photos les plus vues sur l’ensemble du site
+                        </li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Comment ça marche ?</h4>
+                <div class="">
+                    <ul class="list-unstyled grey-text font-weight-stone-500">
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Votre annonce apparaît dans le haut de la page d’accueil de {{ settings.name }},
+                            pour un maximum de visibilité.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            La <span class="text-default font-weight-stone-500">galerie de la page d’accueil</span> ne
+                            change pas la position de votre annonce parmi le classement des annonces de sa catégorie.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            La <span class="text-default font-weight-stone-500">galerie de la page d’accueil</span>
+                            peut afficher jusqu’à seize annonces à la fois. Pour en voir plus, il suffit de
+                            rafraîchir la page ou cliquer sur la flèche à droite des annonces pour en voir d’autres.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Attirez les acheteurs potentiels dès qu’ils arrivent sur le site.
+                        </li>
+                        <li class="mb-2">
+                            Avec des milliers de vues tirées de la page d’accueil en plus des vues tirées de
+                            l’emplacement habituel de votre annonce, vous êtes assurés d’avoir plus de réponses
+                            de la part d’acheteurs potentiels qu’avec une annonce standard.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

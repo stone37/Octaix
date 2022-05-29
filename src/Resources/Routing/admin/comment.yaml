@@ -1,0 +1,22 @@
+app_admin_comment_index:
+    path: /comments
+    methods: [GET]
+    controller: App\Controller\Admin\CommentController::index
+
+app_admin_comment_delete:
+    path: /comments/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\CommentController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_comment_bulk_delete:
+    path: /comments/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\CommentController::deleteBulk
+    options:
+        expose: true
+
+

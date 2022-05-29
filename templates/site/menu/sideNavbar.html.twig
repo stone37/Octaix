@@ -1,0 +1,249 @@
+<div id="slide-out" class="side-nav sn-bg-4 fixed d-block d-lg-none">
+    <ul class="custom-scrollbar">
+        <li class="logo-sn waves-effect py-3">
+            <div class="text-center">
+                <a href="{{ path('app_home') }}" class="pl-0">
+                    <img src="{{ asset('images/logo_w2.png') }}" style="width: 180px !important;" alt="Logo du site" />
+                </a>
+            </div>
+        </li>
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <li class="text-center">
+            <a href="" class="text-center wallet mx-3 px-2 mb-2">
+                <i class="fas fa-wallet mr-1"></i>
+                500000
+                <span class="devise">CFA</span>
+            </a>
+        </li>
+        {% endif %}
+
+        {% set acceuil = isActive('app_home') %}
+        {% set dashboard = isActive('app_dashboard_index') %}
+
+        {# advert #}
+        {% set ad_active = isActive('app_dashboard_advert_index_active') %}
+        {% set ad = isActive('app_dashboard_advert_index') %}
+        {# advert #}
+
+        {# message #}
+        {% set msg_send = isActive('app_dashboard_message_send') %}
+        {% set msg_receive = isActive('app_dashboard_message_receive') %}
+        {# message #}
+
+        {# alerte #}
+        {% set al_active = isActive('app_dashboard_alert_index_active') %}
+        {% set al = isActive('app_dashboard_alert_index') %}
+        {# alerte #}
+
+        {# favorite #}
+        {% set favorite = isActive('app_dashboard_favorite_index') %}
+        {# favorite #}
+
+        {# profil #}
+        {% set profil_edit = isActive('app_user_profil_edit') %}
+        {% set profil_mdp = isActive('app_user_change_password') %}
+        {% set profil_d = isActive('app_user_delete') %}
+        {# profil #}
+
+
+        <li>
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a href="{{ path('app_advert_category') }}" class="waves-effect text-default font-weight-stone-600">
+                        <i class="sv-slim-icon fas fa-sign-in-alt"></i>
+                        Déposer une annonce gratuite
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_home') }}" class="waves-effect {% if acceuil %}active{% endif %}">
+                        <i class="sv-slim-icon fas fa-home"></i>
+                        Accueil
+                    </a>
+                </li>
+
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li>
+                    <a href="{{ path('app_dashboard_index') }}"
+                       class="waves-effect {% if dashboard %}active{% endif %}">
+                        <i class="sv-slim-icon fas fa-th-large"></i>
+                        Tableau de bord
+                    </a>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r {% if ad_active or ad %}active{% endif %}">
+                        <i class="sv-slim-icon fas fa-clipboard-list"></i> Mes annonces
+                        <i class="fas fa-angle-down rotate-icon"></i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="{{ path('app_dashboard_advert_index_active') }}" class="waves-effect {% if ad_active %}active{% endif %}">
+                                    <span class="sv-normal">Annonces en ligne</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_dashboard_advert_index') }}" class="waves-effect {% if ad %}active{% endif %}">
+                                    <span class="sv-normal">Annonce inactif</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {% if settings.activeMessage %}
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r {% if msg_send or msg_receive %}active{% endif %}">
+                            <i class="sv-slim-icon far fa-envelope"></i> Mes messages
+                            <i class="fas fa-angle-down rotate-icon"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{ path('app_dashboard_message_receive') }}" class="waves-effect {% if msg_receive %}active{% endif %}">
+                                        <span class="sv-normal">Messages reçu</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('app_dashboard_message_send') }}" class="waves-effect {% if msg_send %}active{% endif %}">
+                                        <span class="sv-normal">Messages envoyés</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+
+                {% if settings.activeAlert %}
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r {% if al_active or al %}active{% endif %}">
+                            <i class="sv-slim-icon far fa-bell"></i> Mes alertes
+                            <i class="fas fa-angle-down rotate-icon"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{ path('app_dashboard_alert_index_active') }}" class="waves-effect {% if al_active %}active{% endif %}">
+                                        <span class="sv-normal">Alertes active</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('app_dashboard_alert_index') }}" class="waves-effect {% if al %}active{% endif %}">
+                                        <span class="sv-normal">Alertes inactives</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+
+                {% if settings.activeAdFavorite %}
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r {% if favorite %}active{% endif %}">
+                            <i class="sv-slim-icon far fa-heart"></i> Mes favoris
+                            <i class="fas fa-angle-down rotate-icon"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{ path('app_dashboard_favorite_index') }}" class="waves-effect {% if favorite %}active{% endif %}">
+                                        <span class="sv-normal">Annonces favoris</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r active">
+                        <i class="sv-slim-icon far fa-shopping-cart"></i> Mes commandes
+                        <i class="fas fa-angle-down rotate-icon"></i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="" class="waves-effect active">
+                                    <span class="sv-normal">Mes commandes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="waves-effect active">
+                                    <span class="sv-normal">Mes commandes validées</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r
+                        {% if profil_edit or profil_mdp or profil_d %}active{% endif %}">
+                        <i class="sv-slim-icon fas fa-user"></i> Mon profil
+                        <i class="fas fa-angle-down rotate-icon"></i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="{{ path('app_user_profil_edit') }}" class="waves-effect {% if profil_edit %}active{% endif %}">
+                                    <span class="sv-normal">Modifier le profil</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_user_change_password') }}" class="waves-effect {% if profil_mdp %}active{% endif %}">
+                                    <span class="sv-normal">Modifier le mot de passe</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_user_delete') }}" class="waves-effect {% if profil_d %}active{% endif %}">
+                                    <span class="sv-normal">Fermeture du compte</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                {% endif %}
+
+                {% for category in categories %}
+                    {% if category.children|length > 0 %}
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r">
+                                <i class="sv-slim-icon fas {{ category.icon }}"></i>{{ category.name }}
+                                <i class="fas fa-angle-down rotate-icon"></i>
+                            </a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('app_advert_index',
+                                            {'category_slug': category.slug }) }}" class="waves-effect">
+                                            <span class="sv-normal">Tout afficher dans {{ category.name }}</span>
+                                        </a>
+                                    </li>
+                                    {% for children in category.children %}
+                                        <li>
+                                            <a href="{{ path('app_advert_index_s',
+                                                {'category_slug': category.slug ,
+                                                    'sub_category_slug': children.slug }) }}" class="waves-effect">
+                                                <span class="sv-normal">{{ children.name }}</span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ path('app_advert_index',
+                                {'category_slug': category.slug }) }}" class="waves-effect">
+                                <i class="sv-slim-icon fas {{ category.icon }}"></i>
+                                {{ category.name }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+    <div class="sidenav-bg mask-strong"></div>
+</div>
+

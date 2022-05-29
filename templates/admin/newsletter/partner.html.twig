@@ -1,0 +1,21 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Envoyer une newsletter aux partenaires | {{ parent() }}{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/newsletter/partner/_header.html.twig' %}
+
+    {% include 'admin/newsletter/partner/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'bundles/cksourceckfinder/ckfinder/ckfinder.js'} %}
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/setup-ckfinder.js'} %}
+{% endblock %}
+

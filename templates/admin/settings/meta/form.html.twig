@@ -1,0 +1,15 @@
+<div class="form-row">
+    <div class="col-12 col-md-6">
+        {{ form_row(form.title) }}
+    </div>
+    <div class="col-12 col-md-6">
+        {{ form_row(form.keywords) }}
+    </div>
+    <div class="col-12 col-md-8">
+        <div class="md-form md-outline">
+            {{ form_widget(form.descriptionM) }}
+            {{ form_label(form.descriptionM) }}
+            <div class="red-text font-weight-stone-500">{{ form_errors(form.descriptionM) }}</div>
+        </div>
+    </div>
+</div>

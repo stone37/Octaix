@@ -1,0 +1,123 @@
+<div class="modal fade right" id="adOptionDetail4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="font-weight-stone-600 h4-responsive heading lead">Annonce en vedette</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div id="option-data" class="modal-body">
+
+                {% if advert.optionAdVedette %}
+                    <div class="grey-text font-weight-stone-500 mb-3">
+                        L'option <span class="text-default">annonce en vedette</span>
+                        est deja active sur cette annonce.<br>
+                        Expiration: <span class="amber-text font-weight-stone-600">{{ advert.optionAdVedetteEnd|date('d/m/Y') }}</span>.
+                    </div>
+                    <div class="text-grey small font-weight-stone-600 mb-3">
+                        Pour prolonger la durée de l'option, veuillez acheter une nouvelle offre de l'option. <br>
+                        La nouvelle durée sera ajouter à la durée actuelle.
+                    </div>
+                {% endif %}
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mb-3">Choisir une option</h4>
+
+                {% for vedette in vedettes %}
+                    <div class="d-flex justify-content-between mb-2 ">
+                        <div class="form-check" style="margin-left: -20px;">
+                            <input type="radio" class="form-check-input with-gap option-input" id="option{{ vedette.id }}"
+                                   value="{{ vedette.id }}" name="header" />
+                            <label class="form-check-label grey-text d-inline-block" for="option{{ vedette.id }}">
+                                <span style="position: relative !important; left: -12px !important;
+                                            bottom: 2px !important; line-height: normal !important">
+                                    <span class="font-weight-stone-500">Annonce en vedette</span> pendant
+                                    <span class="font-weight-stone-500 text-default" >{{ vedette.days }} jours</span> à
+                                    <span class="font-weight-stone-600 text-default h5-responsive">{{ vedette.price }}<span class="pl-1
+                                            small-8 font-weight-stone-600">CFA</span></span>.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="text-center mt-3">
+                    <a href="{{ path('app_cart_validate', {'id': advert.id}) }}" class="btn btn-primary disabled">
+                        Valider <i class="fas fa-paper-plane ml-2"></i>
+                    </a>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="text-center mb-5">
+                    <img src="{{ asset('images/option/4.png') }}" alt="" class="img-fluid z-depth-3" />
+                </div>
+                <h4 class="h4-responsive font-weight-stone-600 text-primary">Votre annonce mérite une place de choix</h4>
+                <p class="grey-text">
+                    Avec jusqu’à 6 fois plus vues que les annonces classique, les
+                    <span class="text-default font-weight-stone-500">annonce en vedette</span>
+                    sont le meilleur moyen de vous aider à vendre votre article.
+                    C’est simple, plus il y a de gens qui voient votre annonce, meilleures seront
+                    vos chances de faire des ventes !
+                </p>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Pourquoi choisir cette option</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>Idéale pour annoncer de multiples articles en une seule annonce</li>
+                        <li>Pour vendre en continu ou répéter une vente</li>
+                        <li>Pour promouvoir un produit (ou un service) populaire et/ou à prix élevé</li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Avantages pour le vendeur</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>Votre annonce sera visible à deux endroits afin d’améliorer sa visibilité</li>
+                        <li>
+                            Pas besoin d’utiliser l’option <span class="text-default">annonce en tête de liste</span>
+                        </li>
+                        <li>
+                            Les acheteurs voient votre annonce dans les premiers résultats de leur recherche
+                        </li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Comment ça marche ?</h4>
+                <div class="">
+                    <ul class="list-unstyled grey-text font-weight-stone-500">
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            L’annonce est affichée à deux emplacements: dans la section "En Vedette" de sa
+                            catégorie pour la durée de l’option, ainsi qu’à sa position régulière parmi les
+                            résultats de recherche.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            S’il y a plus de cinq annonces en vedette parmi les vôtres et celles d’autres
+                            vendeurs dans une même catégorie, elles apparaîtront en rotation chaque fois
+                            que la page sera chargé. Ainsi chaque annonce obtient la même visibilité !
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Cette section populaire affiche jusqu’à cinq
+                            <span class="text-default font-weight-stone-500">annonces en vedette</span> à la fois.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Les <span class="text-default font-weight-stone-500">annonces en vedette</span> sont en
+                            moyenne 6 fois plus vues que les annonces classiques.
+                        </li>
+                        <li class="mb-2">
+                            Grâce à leur position stratégique au sein de leur catégorie,
+                            les <span class="text-default font-weight-stone-500">annonces en vedette</span> sont celles
+                            qui sont les plus vues et qui reçoivent le plus de réponses.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

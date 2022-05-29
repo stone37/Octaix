@@ -1,0 +1,49 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}Editer une annonce gratuite | {{ config.get.name }}{% endblock %}
+
+{% block app_advert_btn_post %}{% endblock %}
+{% block app_navbar_second %}{% endblock %}
+{% block app_cart %}{% endblock %}
+{% block app_mobile_cart %}{% endblock %}
+
+{% block app_breadcrumbs %}
+    <div class="mt-lg-90 mt-70">
+        <a href="" class="btn btn-secondary btn-back btn-sm mt-lg-3 ml-md-4">
+            <i class="fas fa-angle-left mr-2"></i>
+            Retour
+        </a>
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    <div class="row d-flex justify-content-center my-4 mx-md-4">
+        <div class="col-12">
+            {{ include('user/advert/edit/content.htnl.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/site/advert/advert.css'} %}
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/site/advert/create.css'} %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        let model = '{{ advert.model }}',
+            nbrImages = {{ advert.images|length }},
+            adId = {{ advert.id }};
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/location.js'} %}
+    
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/jquery.dm-uploader.min.js'} %}
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/site/advert/advert.js'} %}
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/site/advert/edit.js'} %}
+{% endblock %}

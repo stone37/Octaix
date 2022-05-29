@@ -1,0 +1,40 @@
+app_admin_achieve_index:
+    path: /achieves
+    methods: [GET]
+    controller: App\Controller\Admin\AchieveController::index
+
+app_admin_achieve_create:
+    path: /achieves/create
+    methods: [GET, POST]
+    controller: App\Controller\Admin\AchieveController::create
+
+app_admin_achieve_edit:
+    path: /achieves/{id}/edit
+    methods: [GET, POST]
+    controller: App\Controller\Admin\AchieveController::edit
+    requirements:
+        id: \d+
+
+app_admin_achieve_delete:
+    path: /achieves/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\AchieveController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_achieve_bulk_delete:
+    path: /achieves/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\AchieveController::deleteBulk
+    options:
+        expose: true
+
+app_admin_achieve_move:
+    path: /achieves/{id}/move
+    methods: GET
+    controller: App\Controller\Admin\AchieveController::move
+    requirements:
+        id: \d+
+

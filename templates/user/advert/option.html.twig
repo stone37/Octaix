@@ -1,0 +1,23 @@
+{% if headers|length > 0 %}
+    {% include 'user/advert/option/_header.html.twig' %}
+{% endif %}
+
+{% if urgents|length > 0 %}
+    {% include 'user/advert/option/_urgent.html.twig' %}
+{% endif %}
+
+{% if headers|length > 0 %}
+    {% include 'user/advert/option/_vedette.html.twig' %}
+{% endif %}
+
+{% if gallery|length > 0 %}
+    {% include 'user/advert/option/_gallery.html.twig' %}
+{% endif %}
+
+{% if encadres|length > 0 %}
+    {% include 'user/advert/option/_encadre.html.twig' %}
+{% endif %}
+
+{% if photo|length > 0 %}
+    {% include 'user/advert/option/_photo.html.twig' %}
+{% endif %}

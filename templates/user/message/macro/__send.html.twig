@@ -1,0 +1,44 @@
+{% macro send_list(message) %}
+
+{% set advert = message.advert %}
+
+{% if advert.subDivision|length > 0 %}
+    {% set route = path('app_advert_show', {'category_slug': advert.category.slug, 'sub_category_slug': advert.subCategory.slug,
+        'sub_division_slug': advert.subDivision.slug, 'city': advert.location.name,
+        'reference': advert.reference, 'slug': advert.slug}) %}
+{% else %}
+    {% set route = path('app_advert_show_s', {'category_slug': advert.category.slug, 'sub_category_slug': advert.subCategory.slug,
+        'city': advert.location.name, 'reference': advert.reference, 'slug': advert.slug}) %}
+{% endif %}
+
+<div class="col-12 col-md-9 col-lg-8">
+    <div class="card app-advert-message-bulk mb-4">
+        <div class="card-body pb-2 px-2 px-md-3">
+            <div class="title text-right small grey-text mb-2">
+                <i class="fas fa-share mr-2"></i>
+                Envoyer à {{ advert.user.firstName }} {{ advert.user.lastName }} -
+                le {{ message.createdAt|date_french(0, 1) }} . {{ message.createdAt|date('h:i') }}
+            </div>
+            <div class="content small-9">{{ message.content }}</div>
+            <div class="d-flex justify-content-end mt-3">
+                <div class="d-flex align-items-end">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle btn btn-primary btn-sm py-1 px-2" data-toggle="dropdown">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </a>
+                        <div class="dropdown-menu user dropdown-primary">
+                            <a href="{{ route }}" class="dropdown-item">
+                                <i class="fas fa-eye mr-1"></i> Voir l'annonce
+                            </a>
+                            <a class="dropdown-item app-advert-message-delete" data-id="{{ message.id }}">
+                                <i class="fas fa-trash mr-1 text-danger"></i> Supprimer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+

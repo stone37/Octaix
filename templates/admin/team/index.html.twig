@@ -1,0 +1,17 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Membres de l'équipe | {{ parent() }}{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/team/index/_header.html.twig' %}
+
+    {% include 'admin/team/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

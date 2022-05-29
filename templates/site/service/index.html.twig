@@ -1,0 +1,56 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}Les services de notre agence web{% endblock %}
+
+{% block meta %}
+    {% set content = "Bénéficiez de l'expertise web de Octaix pour créer, refondre, héberger votre site Internet ou augmenter sa visibilité et son référencement." %}
+    <meta name="description" content="{{ content }}" />
+    <meta property="og:description" content="{{ content }}" />
+    <meta name="twitter:description" content="{{ content }}" />
+{% endblock %}
+
+{% block app_breadcrumbs %}{% endblock %}
+
+{% block app_intro %}
+    <div class="view jarallax" data-jarallax='{"speed": 0.2}'
+         style="background-image: url({{ asset('images/data/service.png') }}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="mask rgba-black-strong">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="row pt-5 mt-3">
+                    <div class="col-md-12 mb-3">
+                        <div class="intro-info-content text-center">
+                            <h1 class="display-5 amber-text font-weight-stone-600 mb-3 wow fadeInDown" data-wow-delay="0.3s">
+                                Tous les <span class="white-text">services</span> dont vous avez
+                                <span class="text-success">besoins</span> regroupés en un
+                                <span class="text-danger">seul endroit</span>.
+                            </h1>
+                            <h6 class="white-text mt-1 title mx-lg-5 px-md-5 wow fadeInDown" data-wow-delay="0.3s">
+                                Nous avons tout ce qu'il faut pour faire prospérer votre entreprise ou votre business.
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bc text-white mb-5">
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    {% include 'site/service/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+
+
+

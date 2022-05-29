@@ -1,0 +1,17 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Comptes clients | {{ parent() }}{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/customer/index/_header.html.twig' %}
+
+    {% include 'admin/customer/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

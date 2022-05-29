@@ -1,0 +1,34 @@
+app_admin_post_index:
+    path: /posts
+    methods: [GET]
+    controller: App\Controller\Admin\PostController::index
+
+app_admin_post_create:
+    path: /posts/create
+    methods: [GET, POST]
+    controller: App\Controller\Admin\PostController::create
+
+app_admin_post_edit:
+    path: /posts/{id}/edit
+    methods: [GET, POST]
+    controller: App\Controller\Admin\PostController::edit
+    requirements:
+        id: \d+
+
+app_admin_post_delete:
+    path: /posts/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\PostController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_post_bulk_delete:
+    path: /posts/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\PostController::deleteBulk
+    options:
+        expose: true
+
+

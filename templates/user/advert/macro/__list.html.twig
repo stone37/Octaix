@@ -1,0 +1,120 @@
+{% macro list(advert, settings, photo, headers, vedettes, encadres, urgents, gallery) %}
+    {% set photo_principale = app_advert_photo(advert.images) %}
+
+    {% if advert.subDivision|length > 0 %}
+        {% set route = path('app_advert_show', {'category_slug': advert.category.slug, 'sub_category_slug': advert.subCategory.slug,
+            'sub_division_slug': advert.subDivision.slug, 'city': advert.location.name,
+            'reference': advert.reference, 'slug': advert.slug}) %}
+    {% else %}
+        {% set route = path('app_advert_show_s', {'category_slug': advert.category.slug, 'sub_category_slug': advert.subCategory.slug,
+            'city': advert.location.name, 'reference': advert.reference, 'slug': advert.slug}) %}
+    {% endif %}
+
+
+<div id="advert_{{ advert.id }}" class="card app-advert-list-block mb-4">
+    <div class="row no-gutters">
+        <div class="col-6 col-md-4 pr-md-4">
+            {% if photo_principale %}
+                <img src="{{ asset(photo_principale.webPath) }}" class="img-fluid advert-image" alt="{{ photo_principale.name }}" />
+            {% else %}
+                <img src="{{ asset('no_images.jpg') }}" class="img-fluid" alt="" />
+            {% endif %}
+        </div>
+        <div class="col-6 col-md-8">
+            {# Petit telephone #}
+            <div class="card-body p-0 d-block d-md-none">
+                <div class="font-weight-stone-600 price d-inline-block ml-3 py-1 white-text bg-default">
+                    {{ advert.price }}<span class="pl-1 font-weight-stone-600">CFA</span>
+                </div>
+                <h6 class="font-weight-stone-600 text-primary title mx-1">
+                    <a href="{{ route }}" class="">{{ advert.title|u.truncate(19) }}</a>
+                </h6>
+                <div class="dark-grey-text font-weight-stone-500 blue-grey-text small location">
+                    <i class="fas fa-map-marker-alt mx-1"></i> {{ advert.location.name }}
+                    {% if advert.location.detail %}
+                        <span class="px-1 mb-0"> | {{ advert.location.detail }} </span>
+                    {% endif %}
+                </div>
+            </div>
+            {# Petit telephone #}
+            <div class="card-body px-2 pl-md-0 pr-md-3 pt-2 pb-0 d-none d-md-block">
+                <div class="d-flex">
+                    <h6 class="font-weight-stone-600 text-primary title">
+                        <a href="{{ route }}" class="">{{ advert.title|u.truncate(28) }}</a>
+                    </h6>
+                    <div class="ml-auto font-weight-stone-600 price text-default">
+                        {{ advert.price }}<span class="pl-1 font-weight-stone-600">CFA</span>
+                    </div>
+                </div>
+                <div class="blue-grey-text font-weight-stone-600 small location">
+                    <i class="fas fa-map-marker-alt mr-1"></i> {{ advert.location.name }}
+                    {% if advert.location.detail %}
+                        <span class="px-1 mb-0"> | {{ advert.location.detail }} </span>
+                    {% endif %}
+
+                    {% if advert.validatedAt %}
+                        <i class="far fa-clock mx-1"></i> {{ advert.validatedAt|ago }}
+                    {% endif %}
+                </div>
+                <div class="text-secondary font-weight-stone-500 mt-2 small">
+                    {{ advert.category }} <i class="fas fa-angle-right mx-1"></i>
+                    {{ advert.subCategory }}
+                    {% if advert.subDivision %}
+                        <i class="fas fa-angle-right mx-1"></i> {{ advert.subDivision }}
+                    {% endif %}
+                </div>
+                <p class="content grey-text font-weight-stone-500 mt-2">
+                    {{ advert.description|u.truncate(200) }}
+                </p>
+            </div>
+        </div>
+        <div class="col-12 pr-md-3 info {% if not advert.shop|length > 0 %}user{% endif %}">
+            {# Petit telephone #}
+            <div class="d-block d-md-none px-2">
+                <div class="text-default font-weight-stone-600 mt-2 small-8">
+                    {{ advert.category }} <i class="fas fa-angle-right mx-1"></i>
+                    {{ advert.subCategory }}
+                    {% if advert.subDivision %}
+                        <i class="fas fa-angle-right mx-1"></i> {{ advert.subDivision }}
+                    {% endif %}
+                </div>
+                <p class="content grey-text font-weight-stone-500 small my-2">
+                    {{ advert.description|u.truncate(92) }}
+                </p>
+                <div class="d-flex justify-content-between pb-2">
+                    {% include 'user/advert/details/button_sm.html.twig' %}
+                </div>
+            </div>
+            {# Petit telephone #}
+            <div class="d-none d-md-flex justify-content-end mb-3 mx-1">
+                {% include 'user/advert/details/button.html.twig' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if photo %}
+    {% include 'user/advert/option/_photo.html.twig' %}
+{% endif %}
+
+{% if headers|length > 0 %}
+    {% include 'user/advert/option/_header.html.twig' %}
+{% endif %}
+
+{% if urgents|length > 0 %}
+    {% include 'user/advert/option/_urgent.html.twig' %}
+{% endif %}
+
+{% if headers|length > 0 %}
+    {% include 'user/advert/option/_vedette.html.twig' %}
+{% endif %}
+
+{% if gallery|length > 0 %}
+    {% include 'user/advert/option/_gallery.html.twig' %}
+{% endif %}
+
+{% if encadres|length > 0 %}
+    {% include 'user/advert/option/_encadre.html.twig' %}
+{% endif %}
+{% endmacro %}
+

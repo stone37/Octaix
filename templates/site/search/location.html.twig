@@ -1,0 +1,77 @@
+<div class="modal fade app-advert-search-global-modal"
+     tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-primary">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Sélectionner un lieu
+                </h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% set app_search_area_name = app.session.get('app_user_search_area') %}
+                {% set app_search_city_name = app.session.get('app_user_search_city') %}
+                {% set app_search_district_name = app.session.get('app_user_search_district') %}
+
+                <div class="row mb-0">
+                    <div class="col-12 mt-1 mb-0">
+                        <div class="font-weight-bold chip-area secondary-color mr-0 {% if app.session.get('app_user_search_area') %}chip{% endif %}">
+                            {{ app_search_area_name }}
+                        </div>
+                        <div class="font-weight-bold chip-city secondary-color mx-1 {% if app.session.get('app_user_search_city') %}chip{% endif %}">
+                            {{ app_search_city_name }}
+                        </div>
+                        <div class="font-weight-bold chip-district secondary-color ml-0 {% if app.session.get('app_user_search_district') %}chip{% endif %}" >
+                            {{ app_search_district_name }}
+                        </div>
+                    </div>
+                    <div class="col-12 mt-0">
+                        <div class="d-flex flex-wrap">
+                            <div class="select-outline position-relative w-100">
+                                <select class="mdb-select md-outline md-form dropdown-stone app-search-area mb-0"
+                                        id="app-search-location-area">
+                                    <option>Choisissez une region</option>
+                                    {% for key, value in areas %}
+                                        <option {% if value == app.session.get('app_user_search_area') %}selected{% endif %} value="{{ value }}">{{ key }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label>Region</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap">
+                            <div class="select-outline position-relative w-100">
+                                <select class="mdb-select md-outline md-form dropdown-stone app-search-city mb-0" id="app-search-location-city">
+                                    <option>Choisissez une ville</option>
+                                    {% for key, value in cities %}
+                                        <option {% if value == app.session.get('app_user_search_city') %}selected{% endif %} value="{{ value }}">{{ key }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label>Ville</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap">
+                            <div class="select-outline position-relative w-100 mb-0">
+                                <select class="mdb-select md-outline md-form dropdown-stone app-search-district" id="app-search-location-district">
+                                    <option>Choisissez un quartier</option>
+                                    {% if app_search_district_name %}
+                                        <option selected>{{ app_search_district_name }}</option>
+                                    {% endif %}
+                                </select>
+                                <label>Quartier</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

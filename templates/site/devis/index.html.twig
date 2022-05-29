@@ -1,0 +1,64 @@
+{% extends 'site/layout.html.twig' %}
+
+{% form_theme form 'Ui/Form/theme.html.twig' %}
+
+{% block title %}Devis création site internet, de marketing digital et print{% endblock %}
+{% block meta %}
+    {% set content = "Agence web Abidjan et Yamoussoukro vous propose d'obtenir rapidement un devis création site internet et vos besoins en communication digitale." %}
+    <meta name="description" content="{{ content }}" />
+    <meta property="og:description" content="{{ content }}" />
+    <meta name="twitter:description" content="{{ content }}" />
+{% endblock %}
+
+{% block app_breadcrumbs %}{% endblock %}
+
+{% block app_intro %}
+    <div class="view jarallax" data-jarallax='{"speed": 0.2}'
+         style="background-image: url({{ asset('images/data/devis.jpg') }});
+                 background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="mask rgba-black-strong">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="row pt-5 mt-3">
+                    <div class="col-md-12 mb-3">
+                        <div class="intro-info-content text-center">
+                            <h1 class="display-5 white-text font-weight-stone-600 mb-3 wow fadeInDown" data-wow-delay="0.3s">
+                                Obtenez votre devis <span class="amber-text">immédiatement</span>.
+                            </h1>
+                            <h5 class="h5-responsive white-text wow fadeInDown title mt-1 mx-3 mx-md-4 mx-lg-5">Pour chacune des prestations proposées</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bc text-white mb-5">
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    {% include 'site/devis/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfSnr0UAAAAAGgVbAAZQdtn8UdJ6CAMTf79myG_"></script>
+    <script>
+        let route = '{{ path('app_devis') }}';
+
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfSnr0UAAAAAGgVbAAZQdtn8UdJ6CAMTf79myG_', {action: route})
+                .then(function(token) {
+                    $('input.app-recaptchaToken').val(token);
+                });
+        });
+    </script>
+{% endblock %}
+
+

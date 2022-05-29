@@ -1,0 +1,61 @@
+{% import 'Ui/Macro/buttons.html.twig' as buttons %}
+
+<div class="row d-flex justify-content-center mb-5">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h2-responsive text-primary text-center font-weight-stone-600 pb-1">
+                    Acheter des crédits
+                </h2>
+
+                <div class="my-4 text-center">
+                    {{ form_start(form) }}
+                    <h5 class="text-default font-weight-stone-500">Pré-chargez votre compte et facilitez vos futurs achats</h5>
+                    <p>
+                        Maitrisez votre budget et gagnez du temps: payez vos options d'annonces
+                        facilement grace aux crédit !
+                    </p>
+
+                    <div class="form-row app-credit-bulk mt-5 mb-4">
+                        {% for product in products %}
+                            <div class="col-6 col-md-4 col-lg-3 mb-3">
+                                <div class="credit text-center px-0 card card-body py-0">
+                                    <div class="form-check px-0 d-inline-block mx-0">
+                                        <input type="radio" class="form-check-input with-gap" id="credit{{ product.id }}"
+                                               value="{{ product.id }}" name="credit"/>
+                                        <label class="form-check-label pl-4" for="credit{{ product.id }}">
+                                            <span class="h5-responsive font-weight-stone-500">{{ product.price }}</span>
+                                            <span class="font-weight-stone-500">CFA</span>
+                                        </label>
+                                    </div>
+                                    {% if product.credit %}
+                                        <div class="offre text-center mx-0">
+                                            <div class="price">
+                                                + <span class="font-weight-stone-500">{{ product.credit }}</span>
+                                                <span class="font-weight-stone-500 small-8">CFA</span>
+                                            </div>
+                                            <div class="text small-8 font-weight-stone-500">offerts</div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="mb-3">Les montants sont affichés et crédités en TTC</div>
+                    {{ form_row(form.credit) }}
+                    {{ form_widget(form._token) }}
+
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit" disabled>
+                            Valider
+                        </button>
+                    </div>
+                    {{ form_end(form, {'render_rest': false}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

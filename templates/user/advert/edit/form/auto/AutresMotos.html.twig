@@ -1,0 +1,79 @@
+{% extends 'user/advert/edit/form.html.twig' %}
+
+{% block app_advert_type %}
+{% endblock %}
+
+{% block app_advert_traitement %}
+{% endblock %}
+
+{% block app_advert_detail %}
+    <div class="form-row">
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.marque) }}
+                    <label>{{ form.marque.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.model) }}
+                    <label>{{ form.model.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.autoState) }}
+                    <label>{{ form.autoState.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.autoYear) }}
+                    <label>{{ form.autoYear.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            {{ form_row(form.kilo) }}
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            {{ form_row(form.cylindree) }}
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.autoColor) }}
+                    <label>{{ form.autoColor.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.typeCarburant) }}
+                    <label>{{ form.typeCarburant.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-4">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.autoSecurity.vars.label }}</div>
+                {{ form_widget(form.autoSecurity) }}
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.informationExterieur.vars.label }}</div>
+                {{ form_widget(form.informationExterieur) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

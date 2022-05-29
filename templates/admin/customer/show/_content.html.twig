@@ -1,0 +1,83 @@
+{% import 'Ui/Macro/buttons.html.twig' as buttons %}
+
+<div class="row app-customer">
+    <div class="col-12">
+        <table class="table table-borderless table-responsive-sm">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Id</div>
+                    <div class="content text-primary font-weight-stone-600">{{ customer.id }}</div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Nom et prénom</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        {{ customer.lastName|capitalize }} {{ customer.firstName|capitalize }}
+                    </div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Nom d'utilisateur</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        {% if customer.username %}
+                            @{{ customer.username }}
+                        {% else %}
+                            <span class="badge badge-grey">Aucun</span>
+                        {% endif %}
+                    </div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Email</div>
+                    <div class="content text-primary font-weight-stone-600">{{ customer.email }}</div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Téléphone</div>
+                    <div class="content text-primary font-weight-stone-600">{{ customer.phone }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="title font-weight-stone-600 grey-text">Description</div>
+                    <div class="content text-primary font-weight-stone-600">{{ customer.description }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Date de création</div>
+                    <div class="content text-primary font-weight-stone-600">{{ customer.createdAt|date('d/m/Y') }}</div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Dernière connexion</div>
+                    <div class="content text-primary font-weight-stone-600">{{ customer.lastLoginAt|ago }}</div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Dernière adresse Ip</div>
+                    <div class="content text-primary font-weight-stone-600">{{ customer.lastLoginIp }}</div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Avatar</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        {% if vich_uploader_asset(customer, 'file') %}
+                            <img src="{{ vich_uploader_asset(customer, 'file') }}" alt="customer avatar"
+                                 class="img-fluid z-depth-2" style="width: 140px;" />
+                        {% else %}
+                            <span class="badge badge-grey">Aucune</span>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-end mt-4">
+            {% set path = path('app_admin_customer_index') %}
+
+            <div class="text-center mr-3">{{ buttons.default(path, 'Retour à la liste', 'app-entity-list-btn', 'fas fa-angle-left', 'btn-outline-primary') }}</div>
+        </div>
+    </div>
+</div>
+
+

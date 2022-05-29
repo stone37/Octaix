@@ -1,0 +1,5 @@
+app_dashboard_favorite_index:
+    path: /mes-favoris/
+    methods: [GET]
+    controller: App\Controller\Account\FavoriteController::favorite
+

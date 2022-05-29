@@ -1,0 +1,29 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title 'Agence web Abidjan et Yamoussoukro | Création de sites internet' %}
+
+{% block meta %}
+    {% set content = "Agence web à Abidjan et Yamoussoukro, nous créons des sites internet, proposons des services de marketing digital, d'assistance et de maintenance site internet, de design et graphisme." %}
+    <meta name="description" content="{{ content }}" />
+    <meta property="og:description" content="{{ content }}" />
+    <meta name="twitter:description" content="{{ content }}" />
+{% endblock %}
+
+{% block app_cart %}{% endblock %}
+
+{% block app_body %}
+    {% include 'site/home/index/content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/timeline.min.css'} %}
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/site/index.css'} %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/timeline.min.js'} %}
+{% endblock %}

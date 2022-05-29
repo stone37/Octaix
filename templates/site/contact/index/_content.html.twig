@@ -1,0 +1,139 @@
+{% form_theme form 'Ui/Form/theme.html.twig' %}
+
+<section class="container contact-section">
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card mt-5 z-depth-4">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card-body form pl-lg-5 pr-lg-4">
+                            <h3 class="text-primary font-weight-600 mt-2">
+                                <i class="fas fa-envelope pr-2"></i>
+                                Utilisez le formulaire pour nous contacter ou appelez-nous directement.
+                            </h3>
+
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'admin-form'}}) }}
+                            <P class="text-danger my-0">{{ form_errors(form) }}</P>
+
+                            {% include 'site/contact/form.html.twig' %}
+
+                            {{ form_widget(form._token) }}
+
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-rounded">
+                                        Envoyer <i class="fas fa-paper-plane ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            {{ form_end(form, {'render_rest': false}) }}
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 ml-0">
+                        <div class="card-body contact text-center h-100 white-text ml-0">
+                            <h3 class="h3-responsive mt-2 mb-4 pb-2">Information de contact</h3>
+                            <ul class="text-lg-left list-unstyled ml-lg-3">
+                                {% if settings.city %}
+                                    <li>
+                                        <p class="font-weight-stone-500">
+                                            <span class="btn-floating btn-sm btn-white mr-2">
+                                                <i class="fas fa-map-marker-alt text-default"></i>
+                                            </span>
+                                            {{ settings.city }} {% if settings.country %}({{ settings.country }}){% endif %}
+                                        </p>
+                                    </li>
+                                {% endif %}
+
+                                {% if settings.address %}
+                                    <li>
+                                        <p class="font-weight-stone-500">
+                                            <span class="btn-floating btn-sm btn-white mr-2">
+                                                <i class="fas fa-home text-default"></i>
+                                            </span>
+                                            {{ settings.address }}
+                                        </p>
+                                    </li>
+                                {% endif %}
+
+                                {% if settings.phone %}
+                                    <li>
+                                        <p class="font-weight-stone-500">
+                                            <span class="btn-floating btn-sm btn-white mr-2">
+                                                <i class="fas fa-phone-alt text-default"></i>
+                                            </span>
+                                            {{ settings.phone }}
+                                        </p>
+                                    </li>
+                                {% endif %}
+
+                                {% if settings.fax %}
+                                    <li>
+                                        <p class="font-weight-stone-500">
+                                            <span class="btn-floating btn-sm btn-white mr-2">
+                                                <i class="fas fa-fax text-default"></i>
+                                            </span>
+                                            {{ settings.fax }}
+                                        </p>
+                                    </li>
+                                {% endif %}
+
+                                {% if settings.email %}
+                                    <li>
+                                        <p class="font-weight-stone-500">
+                                            <span class="btn-floating btn-sm btn-white mr-2">
+                                                <i class="fas fa-envelope text-default"></i>
+                                            </span>
+                                            {{ settings.email }}
+                                        </p>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            <hr class="hr-light my-4">
+                            <ul class="list-inline text-center list-unstyled">
+                                {% if settings.facebookAddress %}
+                                    <li class="list-inline-item">
+                                        <a href="{{ settings.facebookAddress }}" class="p-2 fa-lg fb-ic" target="_blank">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                {% if settings.twitterAddress %}
+                                    <li class="list-inline-item">
+                                        <a href="{{ settings.twitterAddress }}" class="p-2 fa-lg tw-ic" target="_blank">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                {% if settings.linkedinAddress %}
+                                    <li class="list-inline-item">
+                                        <a href="{{ settings.linkedinAddress }}" class="p-2 fa-lg li-ic" target="_blank">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                {% if settings.instagramAddress %}
+                                    <li class="list-inline-item">
+                                        <a href="{{ settings.instagramAddress }}" class="p-2 fa-lg ins-ic" target="_blank">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                {% if settings.youtubeAddress %}
+                                    <li class="list-inline-item">
+                                        <a href="{{ settings.youtubeAddress }}" class="p-2 fa-lg yt-ic" target="_blank">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

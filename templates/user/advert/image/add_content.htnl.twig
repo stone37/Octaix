@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-12 my-3">
+        <h4 class="font-weight-stone-600 text-default h4-responsive">
+            {% if nbrPhoto %}
+                {% if advert.optionPhoto %}
+                    Vous pouvez ajouter que {{ nbrPhoto }} photo(s) à votre annonce.
+                {% else %}
+                    Vous pouvez ajouter que {{ nbrPhoto }} photo(s) gratuite à votre annonce.
+                {% endif %}
+            {% endif %}
+        </h4>
+    </div>
+
+    {% if nbrPhoto %}
+        <div class="col-12 mb-4">
+            <div id="photosAnnonce" class="form-row">
+                <div id='photoUpload' class="col-12">
+                    <div class="font-weight-stone-600 text-primary">Ajoutez vos photos pour rendre votre annonce encore plus visible</div>
+                    <div class="form-row mt-3">
+                        <div class="col-12">
+                            <div id="imgUpload-dropdiv"
+                                 class="text-center rounded grey lighten-4 pt-3 pb-2 px-4">
+                                <label id="imgUpload-drop" class="dm-uploader d-block">
+                                    <div id="no-image" class="text-right text-primary small font-weight-stone-600 no-image">
+                                        <i class="far fa-question-circle"></i>
+                                        Pas de photos sous la main
+                                    </div>
+                                    <button type="button" class="btn btn-primary mt-3 px-4 depresp17-btn btn-dlphotos btn-photos" id="btn-photos">
+                                        <i class="fas fa-camera-retro mr-md-2 mr-1"></i> Télécharger des photos
+                                    </button>
+                                    <div class="h5-responsive grey-text font-weight-stone-600 d-md-block d-none mt-3">
+                                        ou Glisser directement vos photos ici
+                                    </div>
+                                    <div class="grey-text font-weight-stone-600 d-md-none d-block mt-3">
+                                        ou Glisser directement vos photos ici
+                                    </div>
+                                    <input type="file" accept="image/*" title="Cliquer pour ajouter des images" multiple class="d-none input-photo">
+                                </label>
+                            </div>
+                            <div id="imgUpload-list" class="mt-3 rounded grey lighten-4">
+                                <div id="imgUpload-add" class="row imgUpload-add">
+                                    <div class="col-lg-3 col-md-4 col-12 btn-image-upload">
+                                        <div class="text-center dm-uploader dm-upajout rounded white mt-1 pt-4 pb-3 btn-photos">
+                                            <i class="far fa-plus-square fa-3x"></i>
+                                            <div class="font-weight-stone-600 pt-2 h5-responsive">Ajouter</div>
+                                            <div class="nbPhotos">
+                                                <span id="nbPhoto-ac">0</span> / <span id="nbPhoto-info">{{ nbrPhoto }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-12">
+            <div class="d-flex justify-content-center my-5">
+                <h4 class="h4-responsive font-weight-stone-600">Vous ne pouvez plus ajouter de photo à votre annonce</h4>
+            </div>
+        </div>
+    {% endif %}
+</div>
+

@@ -1,0 +1,89 @@
+{% import 'Ui/Macro/buttons.html.twig' as buttons %}
+
+<div class="row app-user mb-5">
+    <div class="col-12">
+        <table class="table table-borderless table-responsive-sm table-responsive-md">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Id</div>
+                    <div class="content text-primary font-weight-stone-600">{{ order.id }}</div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Date</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        {{ order.createdAt|date('d/m/Y H:i:s') }}
+                    </div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Client</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        <ul class="list-unstyled">
+                            <li>Identifient: <a href="{{ path('app_admin_user_show', {'id': order.user.id, 'type': 1}) }}" class="link">#{{ order.user.id }}</a></li>
+                            <li>Email: <a href="mailto::{{ order.user.email }}" class="link">{{ order.user.email }}</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Reference</div>
+                    <div class="content text-primary font-weight-stone-600">{{ order.reference }}</div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Adresse</div>
+                    <div class="content text-primary font-weight-stone-600">{{ order.address }}</div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Methode de paiement</div>
+                    <div class="content text-primary font-weight-stone-600">{{ order.paymentMethod }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Montant sans taxe</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        {{ order.priceTotal }} CFA
+                    </div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Taxe</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        {{ order.totalTva }} CFA
+                    </div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Montant</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        {{ order.priceTotalTva }} CFA
+                    </div>
+                </td>
+                <td>
+                    <div class="title font-weight-stone-600 grey-text">Etat du paiement</div>
+                    <div class="content text-primary font-weight-stone-600">
+                        {% if order.validated %}
+                            <span class="badge badge-success">
+                                    <i class="fas fa-check mr-1"></i> Payée
+                                </span>
+                        {% else %}
+                            <span class="badge badge-warning">
+                                    <i class="fas fa-clock mr-1"></i> En attente de règlement
+                                </span>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-end mt-4">
+            {% set path = path('app_admin_order_index') %}
+
+            <div class="text-center mr-3">{{ buttons.default(path, 'Retour à la liste', 'app-entity-list-btn', 'fas fa-angle-left', 'btn-outline-primary') }}</div>
+        </div>
+    </div>
+</div>
+
+

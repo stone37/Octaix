@@ -1,0 +1,93 @@
+<div class="form-row">
+    <div class="col-12">
+        <div class="h5-responsive border border-secondary border-top-0 border-left-0 border-right-0">
+            <div class="badge badge-secondary d-inline-block mr-1" style="position: relative; bottom: 6px;">1</div>
+            <div class="text-secondary d-inline-block font-weight-stone-600">Information de base</div>
+        </div>
+    </div>
+</div>
+<div class="row d-flex justify-content-center justify-content-md-start">
+    <div class="col-12 col-md-6">
+        {{ form_row(form.title) }}
+        <small class="form-text text-muted" style="margin-top: -4px">
+            Ce champ est obligatoire
+        </small>
+    </div>
+    <div class="col-12 col-md-4">
+        <div>
+            <div>
+                {{ form_widget(form.category) }}
+                <label class=" ml-3">{{ form.category.vars.label|raw }}</label>
+            </div>
+            <div style="margin-top: -15px;" class="red-text font-weight-stone-500">{{ form_errors(form.category) }}</div>
+        </div>
+    </div>
+</div>
+<div class="row d-flex justify-content-center justify-content-md-start mt-4">
+    <div class="col-12 col-md-12">
+        <div class="grey-text " style="margin-bottom: -25px;">{{ form_label(form.content) }}</div>
+        <div class="md-form md-outline">
+            {{ form_widget(form.content) }}
+            <div class="red-text font-weight-stone-500">{{ form_errors(form.content) }}</div>
+        </div>
+        <small class="form-text text-muted" style="margin-top: -15px">
+            Ce champ est obligatoire
+        </small>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center justify-content-md-start mt-3">
+    <div class="col-12 col-md-5 mt-3">
+        <div class="grey-text pb-1">{{ form.online.vars.label|trans }}</div>
+        <div class="switch stone-switch mt-1 ml-md-2">
+            <label>
+                Non
+                <input type="checkbox" name="{{ form.online.vars.full_name }}" id="{{ form.online.vars.id }}"
+                       value="{{ form.online.vars.value }}" {% if form.online.vars.checked %}checked="checked{% endif %}">
+                <span class="lever"></span>
+                Oui
+            </label>
+        </div>
+    </div>
+    <div class="col-12 col-md-5 mt-3">
+        <div class="grey-text pb-1">{{ form.comment.vars.label|trans }}</div>
+        <div class="switch stone-switch mt-1 ml-md-2">
+            <label>
+                Non
+                <input type="checkbox" name="{{ form.comment.vars.full_name }}" id="{{ form.comment.vars.id }}"
+                       value="{{ form.comment.vars.value }}" {% if form.comment.vars.checked %}checked="checked{% endif %}">
+                <span class="lever"></span>
+                Oui
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-row mt-4">
+    <div class="col-12">
+        <div class="h5-responsive border border-secondary border-top-0 border-left-0 border-right-0">
+            <div class="badge badge-secondary d-inline-block mr-1" style="position: relative; bottom: 6px;">2</div>
+            <div class="text-secondary d-inline-block font-weight-stone-600">Image</div>
+        </div>
+    </div>
+</div>
+<div class="form-row mt-4">
+    <div class="col-5 col-md-4 col-lg-3">
+        <div class="file-field">
+            <div class="btn btn-mdb-color float-left">
+                <span>Choisir une photo</span>
+                <input type="file" name="{{ form.file.children.file.vars.full_name }}" id="entity-image" />
+            </div>
+        </div>
+    </div>
+    {% if post is defined %}
+        <div class="col-4 col-md-3 col-lg-2">
+            <img src="{{ vich_uploader_asset(post, 'file') }}" alt="" class="img-fluid img-thumbnail" id="image-view" />
+        </div>
+    {% else %}
+        <div class="col-4 col-md-3 col-lg-2">
+            <img src="" alt="" class="img-fluid img-thumbnail" id="image-view" />
+        </div>
+    {% endif %}
+</div>
+
+

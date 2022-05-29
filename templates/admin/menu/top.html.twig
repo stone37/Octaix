@@ -1,0 +1,15 @@
+<nav class="navbar fixed-top navbar-expand-lg double-nav py-0 z-depth-1" style="background-color: #ffffff !important">
+    <div class="float-left" >
+        <a href="#" data-activates="slide-out"
+           class="button-collapse"><i class="fas fa-bars"></i>
+        </a>
+    </div>
+    <div class="d-none d-md-block pl-5">
+        <a href="{{ path('app_home') }}" target="_blank" class="btn btn-sm btn-flat">
+            Voir votre site en ligne
+        </a>
+    </div>
+
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}{% endif %}
+</nav>
+

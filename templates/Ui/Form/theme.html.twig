@@ -1,0 +1,44 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block form_row %}
+    <div class="md-form md-outline mb-2">
+        {{- form_widget(form, {'attr': {'class': 'form-control'}}) -}}
+        {{- form_label(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{% endblock %}
+
+{%- block form_errors %}
+    {%- if errors|length > 0 -%}
+        {%- for error in errors -%}
+            <div class="red-text font-weight-stone-500 small mb-1">
+                {{ error.message }}
+            </div>
+        {%- endfor -%}
+    {%- endif -%}
+{%- endblock %}
+
+{% macro service_template(fields) %}
+    {{ form_widget(fields.file) }}
+{% endmacro %}
+
+{% block _advert_images_widget %}
+
+    <ul id="advert-images-fields-list" class="list-unstyled"
+        data-prototype="{{ _self.service_template(prototype)|e }}"
+        data-widget-tags="{{ '<li class="mb-3"></li>'|e }}"
+        data-widget-counter="{{ value|length }}"
+    >
+        {% for key, productImageForm in form.children %}
+            {{ form_widget(productImageForm) }}
+        {% endfor %}
+    </ul>
+
+    <button type="button"
+            class="add-another-collection-widget btn btn-default btn-sm"
+            data-list-selector="#advert-images-fields-list">Ajouter une images a votre annonce</button>
+{% endblock %}
+
+

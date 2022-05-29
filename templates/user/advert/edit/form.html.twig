@@ -1,0 +1,207 @@
+{% form_theme form 'Ui/Form/theme.html.twig' %}
+
+<div class="form-row mt-3">
+    <div class="col-12">
+        <div class="h5-responsive border border-primary border-top-0 border-left-0 border-right-0">
+            <div class="badge badge-primary d-inline-block mr-1" style="position: relative; bottom: 6px;">1</div>
+            <div class="text-primary d-inline-block font-weight-stone-600">Détails de l'annonce</div>
+        </div>
+    </div>
+</div>
+
+<div class="form-row my-3">
+    <div class="col-12">
+        <div class="font-weight-stone-600 mb-2">Catégorie</div>
+        <div class="font-weight-stone-500 grey-text">
+            {{ advert.category.name }}
+            {% if advert.subCategory|length > 0 %} <i class="fas fa-angle-right"></i> {{ advert.subCategory.name}}{% endif %}
+            {% if advert.subDivision|length > 0 %} <i class="fas fa-angle-right"></i> {{ advert.subDivision.name}}{% endif %}
+        </div>
+    </div>
+</div>
+
+{% block app_advert_type %} {# Type de l'annonce #}
+{% endblock %}
+
+<div class="form-row">
+    <div class="col-12 col-md-6">
+        {{ form_row(form.title) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-12 col-md-8">
+        <div class="md-form md-outline">
+            {{ form_widget(form.description) }}
+            {{ form_label(form.description) }}
+            <div class="red-text font-weight-stone-500">{{ form_errors(form.description) }}</div>
+        </div>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-6 col-md-5 col-lg-4">
+        {{ form_row(form.price) }}
+    </div>
+    <div class="col-6 col-md-7 col-lg-8">
+        <div class="switch stone-switch mt-4 pt-2">
+            <label  for="{{ form.priceStatus.vars.id }}">
+                <input type="checkbox" id="{{ form.priceStatus.vars.id }}"
+                       name="{{ form.priceStatus.vars.full_name }}"
+                       value="{{ form.priceStatus.vars.value }}" {{ form.priceStatus.vars.checked }}
+                       {% if advert.priceStatus %}checked{% endif %} />
+                <span class="lever"></span>
+                {{ form.priceStatus.vars.label }}
+            </label>
+        </div>
+    </div>
+</div>
+
+{% block app_advert_traitement %} {# Traitement de l'annonce #}
+<div class="form-row mt-2">
+    <div class="col-12 app-radio-block-parent">
+        <div class="font-weight-stone-600 mb-2">{{ form.traitement.vars.label }}</div>
+        {% for choices in form.traitement.vars.choices %}
+            <div class="app-radio-block grey-text text-center p-2 rounded mr-md-2">
+                <div class="mb-2 label font-weight-stone-600">{{ form.traitement.vars.choices[loop.index0].label }}</div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input with-gap" id="{{ form.traitement.vars.id }}_{{ loop.index0 }}"
+                           value="{{ form.traitement.vars.choices[loop.index0].value }}" name="{{ form.traitement.vars.full_name }}"
+                           {% if advert.traitement == form.traitement.vars.choices[loop.index0].value %}checked{% endif %}>
+                    <label class="form-check-label" for="{{ form.traitement.vars.id }}_{{ loop.index0 }}"></label>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block app_advert_detail %} {# Detail de l'annonce #}
+{% endblock %}
+
+<div class="form-row my-3">
+    <div class="col-12">
+        <div class="h5-responsive border border-primary border-top-0 border-left-0 border-right-0">
+            <div class="badge badge-primary d-inline-block mr-1" style="position: relative; bottom: 6px;">2</div>
+            <div class="text-primary d-inline-block font-weight-stone-600">Médias</div>
+        </div>
+    </div>
+</div>
+<div id="photosAnnonce" class="form-row">
+    <div id='photoUpload' class="col-12">
+        <div class="form-row">
+            <div class="col-12">
+                {% if advert.images|length > 0 %}
+                    <div class="font-weight-stone-600 text-primary mb-3">
+                        Ici vous pouvez que gérer vos images c'est à dire les supprimées et definir l'image principale
+                    </div>
+                    <div id="imgUpload-list" class="mt-2">
+                        <div id="imgUpload-add" class="row imgUpload-add show">
+                            {% for image in advert.images %}
+                                <div id="{{ image.id }}" class="col-lg-3 col-md-4 col-12 scale-up-ver-top
+                                        {% if image.principale %}principale{% endif %}">
+                                    <div class="img-bloc mx-4 z-depth-4">
+                                        <img src="{{ asset(image.webPath) }}" alt="{{ image.name }}" class="">
+                                        <div class="info small font-weight-stone-500">
+                                            <span>{{ image.name }}</span>
+                                        </div>
+                                        <div class="action">
+                                            <button class="remove" data-id="{{ image.id }}" title="Supprimer"><svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M11.586 13l-2.293 2.293a1 1 0 0 0 1.414 1.414L13 14.414l2.293 2.293a1 1 0 0 0 1.414-1.414L14.414 13l2.293-2.293a1 1 0 0 0-1.414-1.414L13 11.586l-2.293-2.293a1 1 0 0 0-1.414 1.414L11.586 13z" fill="currentColor" fill-rule="nonzero"></path></svg></button>
+                                        </div>
+                                    </div>
+                                    <div class="mx-4 img-principale" data-id="{{ image.id }}">Photo principale</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        Pour ajouter d'autres images à votre annonce, merci de cliquer
+                        <a href="{{ path('app_dashboard_advert_image_add', {'id': advert.id}) }}"
+                           class="font-weight-stone-600 text-default">ici</a>.
+                    </div>
+                {% else %}
+                    <div>
+                        <div class="font-weight-stone-500 text-primary">
+                            Votre annonce ne comporte aucune image. Pour ajouter des images à votre annonce veuillez 
+                            cliquer sur le bouton ci-dessous:
+                        </div>
+                        
+                        <div class="mt-4 text-center">
+                            <a href="{{ path('app_dashboard_advert_image_add', {'id': advert.id}) }}" class="btn btn-lg btn-default ">
+                                Ajouter des images à votre annonce <i class="fas fa-image ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="form-row my-3">
+    <div class="col-12">
+        <div class="h5-responsive border border-primary border-top-0 border-left-0 border-right-0">
+            <div class="badge badge-primary d-inline-block mr-1" style="position: relative; bottom: 6px;">3</div>
+            <div class="text-primary d-inline-block font-weight-stone-600">Emplacement</div>
+        </div>
+    </div>
+</div>
+
+{% block app_advert_location %}
+    <div class="form-row">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="md-form md-outline mb-2">
+                {{- form_widget(form.location.name, {'id': 'app-city-name', 'attr': {'class': 'form-control'}}) -}}
+                {{- form_label(form.location.name) -}}
+                {{- form_errors(form.location.name) -}}
+            </div>
+        </div>
+    </div>
+    <div class="form-row mb-4">
+        <div class="col-12 col-md-7 col-lg-5">
+            {{ form_row(form.location.detail) }}
+            <small id="app-advert-user-email-help" class="form-text text-muted">
+                Donnez des détails sur votre emplacement (quartier, rue, ...). Ex Riviera 2 marcher d'anono.
+            </small>
+        </div>
+    </div>
+{% endblock %}
+
+<div class="form-row my-3">
+    <div class="col-12">
+        <div class="h5-responsive border border-primary border-top-0 border-left-0 border-right-0">
+            <div class="badge badge-primary d-inline-block mr-1" style="position: relative; bottom: 6px;">4</div>
+            <div class="text-primary d-inline-block font-weight-stone-600">Coordonnées</div>
+        </div>
+    </div>
+</div>
+{% block app_advert_coordonnees %}
+    <div class="form-row">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="md-form md-outline input-with-pre-icon mb-0">
+                <i class="fas fa-phone-alt input-prefix"></i>
+                <input type="text" id="app-advert-user-phone" class="form-control"
+                       value="{{ advert.user.phone }}" disabled />
+                <label for="app-advert-user-phone">Numéro de telephone</label>
+            </div>
+            <small id="emailHelp2" class="form-text text-muted">
+                Votre numéro de telephone apparaîtra dans votre annonce
+            </small>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="md-form md-outline input-with-pre-icon mb-0">
+                <i class="fas fa-envelope input-prefix"></i>
+                <input type="text" id="app-advert-user-email" class="form-control"
+                       value="{% if advert.shop|length > 0 %}{{ advert.shop.email }}{% else %}{{ advert.user.email }}{% endif %}" disabled />
+                <label for="app-advert-user-email">Adresse e-mail</label>
+            </div>
+            <small id="app-advert-user-email-help" class="form-text text-muted">
+                Votre adresse e-mail ne sera pas communiquée à des tiers.
+            </small>
+        </div>
+    </div>
+{% endblock %}
+
+

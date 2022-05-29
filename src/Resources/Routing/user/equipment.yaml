@@ -1,0 +1,33 @@
+app_dashboard_equipment_index:
+    path: /equipments/
+    methods: [GET]
+    controller: App\Controller\Account\EquipmentController::index
+
+app_dashboardn_equipment_create:
+    path: /equipments/create/
+    methods: [GET, POST]
+    controller: App\Controller\Account\EquipmentController::create
+
+app_dashboard_equipment_edit:
+    path: /equipments/{id}/edit/
+    methods: [GET, POST]
+    controller: App\Controller\Account\EquipmentController::edit
+    requirements:
+        id: \d+
+
+app_dashboard_equipment_delete:
+    path: /equipments/{id}/delete/
+    methods: [GET, DELETE]
+    controller: App\Controller\Account\EquipmentController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_dashboard_equipment_bulk_delete:
+    path: /equipments/bulk/delete/
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\EquipmentController::deleteBulk
+    options:
+        expose: true
+

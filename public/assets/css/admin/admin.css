@@ -1,0 +1,89 @@
+.skin-light .dropdown-menu {
+    color: #212529;
+    margin:.125rem 0 0;
+    padding:0;
+    min-width:5rem;
+    border:0;
+    /*border-radius:.375rem;*/
+    -webkit-box-shadow:0 50px 100px rgba(50,50,93,0.1),0 15px 35px rgba(50,50,93,0.15),0 5px 15px rgba(0,0,0,0.1);
+    box-shadow:0 50px 100px rgba(50,50,93,0.1),0 15px 35px rgba(50,50,93,0.15),0 5px 15px rgba(0,0,0,0.1)
+}
+
+@media (max-width: 767px) {
+    .skin-light .btn {
+        padding: .5rem 1.6rem !important;
+        font-size: .64rem !important
+    }
+
+    .skin-light .btn i {
+        display: none !important;
+    }
+
+}
+
+@media (min-width: 576px) {
+
+    .navbar {
+        /*min-height: 110px;*/
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .navbar {
+        /*min-height: 110px;*/
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        background-color: rgba(255, 255, 255, .75) !important;
+        box-shadow: none;
+    }
+
+    .navbar {
+        min-height: 65px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
+}
+
+
+.skin-light div.dropdown:hover .dropdown-menu {display: block !important}
+
+@media (max-width: 767px) {
+    body.skin-light.fixed-sn .button-collapse {
+        background-color: #000AA5 !important;
+        color: #ffffff !important;
+        padding-top: 0.52rem !important;
+        padding-bottom: 0.52rem !important;
+        padding-left: 0.77rem !important;
+        padding-right: 0.77rem !important;
+    }
+
+    body.skin-light.fixed-sn .navbar {
+        box-shadow: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    body.skin-light.fixed-sn .button-collapse {
+        background-color: #000AA5 !important;
+        color: #ffffff !important;
+        padding-top: 0.58rem !important;
+        padding-bottom: 0.58rem !important;
+        padding-left: 0.76rem !important;
+        padding-right: 0.76rem !important;
+        font-size: 2rem !important;
+    }
+
+    body.skin-light.fixed-sn .navbar {
+        box-shadow: none !important;
+    }
+}
+

@@ -1,0 +1,17 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}References | {{ parent() }}{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/reference/index/_header.html.twig' %}
+
+    {% include 'admin/reference/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

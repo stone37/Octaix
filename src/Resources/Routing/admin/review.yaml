@@ -1,0 +1,40 @@
+app_admin_review_index:
+    path: /reviews
+    methods: [GET]
+    controller: App\Controller\Admin\ReviewController::index
+
+app_admin_review_create:
+    path: /reviews/create
+    methods: [GET, POST]
+    controller: App\Controller\Admin\ReviewController::create
+
+app_admin_review_edit:
+    path: /reviews/{id}/edit
+    methods: [GET, POST]
+    controller: App\Controller\Admin\ReviewController::edit
+    requirements:
+        id: \d+
+
+app_admin_review_delete:
+    path: /reviews/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\ReviewController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_review_bulk_delete:
+    path: /reviews/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\ReviewController::deleteBulk
+    options:
+        expose: true
+
+app_admin_review_move:
+    path: /reviews/{id}/move
+    methods: GET
+    controller: App\Controller\Admin\ReviewController::move
+    requirements:
+        id: \d+
+

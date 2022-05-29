@@ -1,0 +1,19 @@
+app_dashboard_message_send:
+    path: /messages/messages-envoyees/
+    methods: [GET]
+    controller: App\Controller\Account\MessageController::messageSend
+
+app_dashboard_message_receive:
+  path: /messages/messages-recu/
+  methods: [GET]
+  controller: App\Controller\Account\MessageController::messageReceive
+
+app_dashboard_message_delete:
+  path: /messages/{id}/delete/
+  methods: [GET, POST]
+  controller: App\Controller\Account\MessageController::delete
+  requirements:
+    id: \d+
+  options:
+    expose: true
+

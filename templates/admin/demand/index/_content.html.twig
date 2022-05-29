@@ -1,0 +1,114 @@
+<div class="row mb-4">
+    <div class="col-12 d-flex justify-content-center justify-content-md-between">
+        <div id="entity-list-delete-bulk-btn" class="mr-3 d-none entity-demand-delete-bulk-btn">
+            {% include 'Ui/Grid/Action/delete.html.twig' with {'action': {'label': 'Supprimer'}} %}
+        </div>
+        <div class="d-flex ml-auto">
+            <div class="">
+                {% include 'admin/demand/filter.html.twig' with {'form': searchForm}  %}
+            </div>
+            <div>
+                <a href="" class="btn btn-grey" data-toggle="modal" data-target="#entity-search">
+                    <i class="fas fa-filter mr-1" aria-hidden="true"></i> Filtres
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if demands|length > 0 %}
+    <div class="row app-user mb-5">
+        <div class="col-12">
+            <table class="table table-responsive-sm">
+                <thead class="text-primary">
+                <tr>
+                    <th scope="col" class="text-center">
+                        <div class="" style="position: relative; right: 10px; top: 2px">
+                            <input type="checkbox" name="principal" class="form-check-input filled-in" id="principal-checkbox" value="" style="margin: 0 !important;" />
+                            <label class="form-check-label" for="principal-checkbox"
+                                   style="padding-left: 0!important; "></label>
+                        </div>
+                    </th>
+                    <th scope="col" class="font-weight-stone-500 text-center">Nom et prénom</th>
+                    <th scope="col" class="font-weight-stone-500 text-center">Téléphone</th>
+                    <th scope="col" class="font-weight-stone-500 text-center">Email</th>
+                    <th scope="col" class="font-weight-stone-500 text-center">Ville</th>
+                    <th scope="col" class="font-weight-stone-500 text-center">Offre</th>
+                    <th scope="col" class="font-weight-stone-500 text-center">Traiter</th>
+                    <th scope="col" class="font-weight-stone-500 text-center"></th>
+                </tr>
+                </thead>
+                <tbody id="list-checkbook-container">
+                {% for demand in demands %}
+                    <tr>
+                        <td class="text-center">
+                            <div class="" style="position: relative; right: 10px; top: 2px">
+                                <input type="checkbox" name="checkbox{{ loop.index }}" class="form-check-input filled-in list-checkbook"
+                                       id="checkbox{{ loop.index }}" value="{{ demand.id }}" style="margin: 0 !important;" />
+                                <label class="form-check-label" for="checkbox{{ loop.index }}" style="padding-left: 0!important; "></label>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            {{ demand.lastName|capitalize }} {{ demand.firstName|capitalize }}
+                        </td>
+                        <td class="text-center">{{ demand.phone }}</td>
+                        <td class="text-center">{{ demand.email }}</td>
+                        <td class="text-center">{{ demand.city }}</td>
+                        <td class="text-center">
+                            {{ demand.offer.name }}
+                        </td>
+                        <td class="text-center">
+                            {% if demand.enabled %}
+                                <span class="badge badge-success">
+                                    <i class="fas fa-check mr-1"></i> Oui
+                                </span>
+                            {% else %}
+                                <span class="badge badge-danger">
+                                    <i class="fas fa-times mr-1"></i> Non
+                                </span>
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <a href="" class="dropdown-toggle"><i class="fas fa-ellipsis-h"></i></a>
+                                <div class="dropdown-menu dropdown-primary dropdown-menu-right mt-0">
+                                    <a href="{{ path('app_admin_demand_show', {'id': demand.id}) }}" class="dropdown-item">
+                                        <i class="fas fa-eye mr-1"></i> Voir
+                                    </a>
+                                    {% if demand.enabled %}
+                                        <a href="{{ path('app_admin_demand_no_treat', {'id': demand.id}) }}" class="dropdown-item">
+                                            <i class="fas fa-times mr-1"></i> Non traiter
+                                        </a>
+                                    {% else %}
+                                        <a href="{{ path('app_admin_demand_treat', {'id': demand.id}) }}" class="dropdown-item">
+                                            <i class="fas fa-check mr-1"></i> Traiter
+                                        </a>
+                                    {% endif %}
+                                    <a class="dropdown-item entity-demand-delete" id="{{ demand.id }}">
+                                        <i class="fas fa-trash mr-1 text-danger"></i> Supprimer
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 d-flex justify-content-start mt-2">
+            <div class="font-weight-stone-500 text-secondary">{{ demands.totalItemCount }} resultats</div>
+        </div>
+        <div class="col-12 d-flex justify-content-center mt-2">
+            {{ knp_pagination_render(demands, 'Ui/_pagination.html.twig') }}
+        </div>
+    </div>
+{% else %}
+    <div class="row app-user d-flex justify-content-center">
+        <div class="col-12 col-md-8 text-center mt-3 mt-md-5">
+            <h3 class="text-primary h3-responsive font-weight-stone-600">
+                Vous n'avez aucune demande.
+            </h3>
+        </div>
+    </div>
+{% endif %}
+

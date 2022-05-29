@@ -1,0 +1,111 @@
+<div class="modal fade right" id="adOptionDetail5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="font-weight-stone-600 h4-responsive heading lead">Annonce encadrée</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div id="option-data" class="modal-body">
+                {% if advert.optionAdEncadre %}
+                    <div class="grey-text font-weight-stone-500 mb-3">
+                        L'option <span class="text-default">annonce encadrée</span>
+                        est deja active sur cette annonce.<br>
+                        Expiration: <span class="amber-text font-weight-stone-600">{{ advert.optionAdEncadreEnd|date('d/m/Y') }}</span>.
+                    </div>
+                    <div class="text-grey small font-weight-stone-600 mb-3">
+                        Pour prolonger la durée de l'option, veuillez acheter une nouvelle offre de l'option. <br>
+                        La nouvelle durée sera ajouter à la durée actuelle.
+                    </div>
+                {% endif %}
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mb-3">Choisir une option</h4>
+
+                {% for encadre in encadres %}
+                    <div class="d-flex justify-content-between mb-2 ">
+                        <div class="form-check" style="margin-left: -20px;">
+                            <input type="radio" class="form-check-input with-gap option-input" id="option{{ encadre.id }}"
+                                   value="{{ encadre.id }}" name="header" />
+                            <label class="form-check-label grey-text d-inline-block" for="option{{ encadre.id }}">
+                                <span style="position: relative !important; left: -12px !important;
+                                            bottom: 3px !important; line-height: normal !important">
+                                    <span class="font-weight-stone-500">Annonce encadrée</span> pendant
+                                    <span class="font-weight-stone-500 text-default" >{{ encadre.days }} jours</span> à
+                                    <span class="font-weight-stone-600 text-default h5-responsive">{{ encadre.price }}<span class="pl-1
+                                            small-8 font-weight-stone-600">CFA</span></span>.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="text-center mt-3">
+                    <a href="{{ path('app_cart_validate', {'id': advert.id}) }}" class="btn btn-primary disabled">
+                        Valider <i class="fas fa-paper-plane ml-2"></i>
+                    </a>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="text-center mb-5">
+                    <img src="{{ asset('images/option/5.png') }}" alt="" class="img-fluid z-depth-3" />
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary">Sortez du lot</h4>
+                <p class="grey-text">
+                    L’option <span class="text-default font-weight-stone-500">annonce encadrée</span> affiche
+                    votre annonce sur un arrière-plan bleu vif qui lui permet de se démarquer dans les résultats
+                    de recherche et d’obtenir plus de vues et de réponses qu’une annonce classique.
+                </p>
+
+                <h4 class="h4-responsive text-primary mt-4">Pourquoi choisir cette option</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>Pour attirer l’attention des acheteurs</li>
+                        <li>Pour vendre plus rapidement</li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Avantages pour le vendeur</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>Votre annonce se démarque dans les résultats de recherche de sa catégorie</li>
+                        <li>Votre annonce obtient plus de visites et de réponses</li>
+                        <li>
+                            Pour de meilleurs résultats, ajoutez l’option
+                            <span class="text-default font-weight-stone-500">annonce encadrée</span>
+                            dès que vous publiez votre annonce
+                        </li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Comment ça marche ?</h4>
+                <div class="">
+                    <ul class="list-unstyled grey-text font-weight-stone-500">
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Cette option affiche votre annonce avec un arrière-plan bleu dans les résultats
+                            de recherche et lui offre un maximum de visibilité.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Elle ne ne change pas la position de votre annonce dans le classement d’une catégorie.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Avec plus de vues, vous avez de meilleures chances de vendre vos produits.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Grâce à leur couleur bleue distinctive, les annonces encadrée attirent
+                            jusqu’a 2 fois plus de vues et de réponses par rapport aux annonces classique.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

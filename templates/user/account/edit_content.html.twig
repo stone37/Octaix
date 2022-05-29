@@ -1,0 +1,73 @@
+{% form_theme form_update 'Ui/Form/theme.html.twig' %}
+
+<div class="row my-5">
+    <div class="col-md-8">
+        {{ form_start(form_update, {'attr': { 'class': 'fos_user_profile_edit', 'novalidate': 'novalidate' } }) }}
+        <div class="card card-cascade narrower">
+            <div class="view view-cascade gradient-card-header bg-primary">
+                <h2 class="mb-0 h3-responsive">
+                    Mes informations
+                </h2>
+            </div>
+            <div class="card-body card-body-cascade">
+                <div class="form-row">
+                    <div class="col-12 col-md-6">
+                        {{ form_row(form_update.lastName) }}
+                        <small class="form-text text-muted" style="margin-top: -4px">
+                            Ce champ est obligatoire
+                        </small>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {{ form_row(form_update.firstName) }}
+                        <small class="form-text text-muted" style="margin-top: -4px">
+                            Ce champ est obligatoire
+                        </small>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {{ form_row(form_update.email) }}
+                        <small class="form-text text-muted" style="margin-top: -4px">
+                            Ce champ est obligatoire
+                        </small>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {{ form_row(form_update.username) }}
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {{ form_row(form_update.phone) }}
+                        <small class="form-text text-muted" style="margin-top: -4px">
+                            Ce champ est obligatoire
+                        </small>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-check mt-4 pl-0">
+                            <input type="checkbox" class="form-check-input filled-in" id="{{ form_update.phoneStatus.vars.id }}"
+                                   value="{{ form_update.phoneStatus.vars.value }}" name="{{ form_update.phoneStatus.vars.full_name }}"
+                                   {% if user.phoneStatus %}checked{% endif %}/>
+                            <label class="form-check-label" for="{{ form_update.phoneStatus.vars.id }}">{{ form_update.phoneStatus.vars.label }}
+                                <i class="fas fa-question-circle ml-1 grey-text material-tooltip-main" data-toggle="tooltip"
+                                   title="Il sera signifier dans vos annonces que votre numéro de téléphone est sur whatsApp"></i></label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {{ form_row(form_update.address) }}
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {{ form_row(form_update.city) }}
+                    </div>
+
+                    {{ form_widget(form_update._token) }}
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-pencil-alt mr-1"></i> Modifier mon profil
+                    </button>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form_update, {'render_rest': false}) }}
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+

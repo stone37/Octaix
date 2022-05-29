@@ -1,0 +1,4 @@
+app_user_email_confirm:
+    path: /email-confirm/{token}/
+    controller: App\Controller\Account\EmailChangeController::confirm
+

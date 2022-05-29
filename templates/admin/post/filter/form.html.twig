@@ -1,0 +1,32 @@
+<div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-10">
+        <div class="form-row mt-1">
+            <div class="col-12 text-center text-md-left">
+                <div class="grey-text pb-1">{{ form.published.vars.label|trans }}</div>
+                <div class="switch stone-switch mt-1 ml-md-2">
+                    <label>
+                        Non
+                        <input type="checkbox" name="{{ form.published.vars.full_name }}" id="{{ form.published.vars.id }}"
+                               value="{{ form.published.vars.value }}" {% if form.published.vars.checked %}checked="checked{% endif %}">
+                        <span class="lever"></span>
+                        Oui
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12">
+                <div class="d-flex flex-wrap">
+                    <div class="select-outline position-relative w-100">
+                        {{ form_widget(form.category) }}
+                        <label>{{ form.category.vars.label }}</label>
+                    </div>
+                    <div style="margin-top: -15px;" class="red-text font-weight-stone-500">{{ form_errors(form.category) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,686 @@
+@media (min-width: 600px) {
+    .fixed-sn main,
+    .fixed-sn .page-footer .container-fluid {
+        margin-right: 0;
+        margin-left: 0
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #000AA5 !important;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #000AA5 !important;
+    }
+}
+
+body.skin-light.fixed-sn .navbar {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.jarallax {
+    min-height: 400px
+}
+
+html,
+body,
+header,
+.jarallax {
+    height: 400px;
+}
+
+@media (max-width: 740px) {
+    html,
+    body,
+    header,
+    .jarallax {
+        height: 80vh ;
+    }
+}
+
+@media (max-width: 768px) {
+    html,
+    body,
+    header,
+    .jarallax {
+        height: 450px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    html,
+    body,
+    header,
+    .jarallax {
+        height: 800vh;
+    }
+}
+
+@media (min-width: 560px) and (max-width: 650px) {
+    header .jarallax h1 {
+        margin-bottom: 1.5rem !important;
+    }
+    header .jarallax h5 {
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+.skin-light .app-home-service .card {
+    border-radius: 30px !important;
+}
+
+.skin-light .app-home-service .card .view {
+    border-radius: 30px !important;
+}
+
+.skin-light .app-home-service .card img {
+    height: 150px !important;
+}
+
+.skin-light .display-5 {
+    font-size: 3.2rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+@media (max-width: 767px) {
+    .skin-light .display-4 {
+        font-size: 2rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+
+    .skin-light .display-5 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .skin-light .display-4 {
+        font-size: 3rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+
+    .skin-light .display-5 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+}
+
+.skin-light .app-home-service-plus .service img {
+    width: 80% !important;
+}
+
+.skin-light .app-home-service-plus .service hr {
+    position: relative;
+    left: -11.55rem;
+    border-width: 6px;
+    width: 30% !important;
+}
+
+.skin-light .app-home-service-plus .service .pair hr {
+    left: -11rem;
+}
+
+.skin-light .app-home-service-plus .service p strong {
+    font-weight: 600;
+    color: #EDD500 !important;
+}
+
+.skin-light .app-home-service-plus .service .pair p strong {
+    font-weight: 600;
+    color: #f57c00 !important;
+}
+
+.skin-light .streak {
+    height: 250px;
+}
+
+.skin-light .streak.streak-photo {
+    background-attachment: fixed;
+}
+
+.skin-light .app-home-reference img {
+    width: 120px !important;
+}
+
+.skin-light .app-home-reference img.jaspevoyance {
+    width: 200px !important;
+}
+
+.skin-light .app-home-question .card.card-cascade.wider.reverse .card-body.card-body-cascade {
+    border-radius: 0 !important;
+    margin-top: -7rem !important;
+}
+
+.skin-light .app-home-question .card.card-cascade.wider.reverse .view img {
+    height: 360px !important;
+    border-radius: 0 !important;
+}
+
+.skin-light .app-home-question .card.card-cascade.wider.reverse .view.view-cascade {
+    border-radius: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .skin-light .app-home-service-plus .service hr {
+        left: -5.15rem;
+    }
+
+    .skin-light .app-home-service-plus .service .pair hr {
+        left: -5.4rem;
+    }
+
+    .skin-light .app-home-reference img {
+        width: 100px !important;
+    }
+
+    .skin-light .app-home-reference img.jaspevoyance {
+        width: 130px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .skin-light .app-home-service-plus .service hr {
+        left: -13.5rem;
+    }
+
+    .skin-light .app-home-service-plus .service .pair hr {
+        left: -14.05rem;
+    }
+}
+
+/* Breadcrumb */
+.skin-light .breadcrumb {
+    background-color: #0033ff !important;
+    font-size: 1rem;
+    border-radius: 0;
+    padding: 18px 10px 14px 40px !important;
+}
+
+@media (max-width: 767px) {
+    .skin-light .breadcrumb {
+        font-size: .9rem;
+        padding: 18px 10px 14px 10px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .skin-light .breadcrumb {
+        padding: 18px 10px 14px 10px !important;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .skin-light .breadcrumb {
+        background-color: #0033ff !important;
+        font-size: 1rem;
+    }
+}
+
+.skin-light .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    content: none;
+}
+
+.skin-light .breadcrumb .breadcrumb-item a {
+    display: inline-block;
+    color: #ffffff !important;
+    font-weight: 400;
+    border-bottom: 2px solid #0033ff;
+}
+
+.skin-light .breadcrumb .breadcrumb-item a:hover {
+    border-bottom: 2px solid #FFF;
+}
+
+.skin-light .breadcrumb .breadcrumb-item i {
+    color: #FFFFFF !important;
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+}
+
+.skin-light .breadcrumb .breadcrumb-item.active {
+    display: inline-block;
+    /*padding: 0;*/
+    font-weight: 400;
+    color: #c5c5cd !important;
+}
+/* Breadcrumb */
+
+.skin-light .rgba-stylish-light {
+    background-color: rgba(0, 10, 165, 0.5)
+}
+
+.skin-light .app-service .service .card.card-image,
+.skin-light .app-service .service .card.card-image > div {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.skin-light .app-service .service .card.card-image p strong {
+    color: #FFC107FF;
+    font-weight: 600 !important;
+}
+
+.skin-light .app-service .service .card.card-image:hover {
+    width: 100%;
+    height: 400px;
+    border-radius: 0;
+    transition: .6s;
+}
+
+.skin-light .app-service .service .card.card-image > div:hover {
+    width: 100%;
+    height: 400px;
+    border-radius: 0;
+    transition: .3s;
+}
+
+@media (max-width: 767px) {
+    .skin-light .app-service .service .card.card-image,
+    .skin-light .app-service .service .card.card-image > div {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .skin-light .app-service .service .display-5 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .skin-light .app-service .service .card.card-image,
+    .skin-light .app-service .service .card.card-image > div {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .skin-light .app-service .service .display-5 {
+        font-size: 2.2rem;
+    }
+}
+
+.skin-light .app-service .service .card.card-image .first {
+    display: none;
+}
+
+.skin-light .app-service-technologie img.html {
+    width: 120px;
+}
+
+.skin-light .app-service-technologie img.php {
+    width: 120px;
+}
+
+.skin-light .app-service-technologie img.mysql {
+    width: 120px;
+}
+
+.skin-light .app-service-technologie img.sass {
+    width: 70px;
+}
+
+.skin-light .app-service-technologie img.flutter {
+    width: 70px !important;
+}
+
+.skin-light .app-service-technologie img.facebook,
+.skin-light .app-service-technologie img.google-analytics,
+.skin-light .app-service-technologie img.google-ads,
+.skin-light .app-service-technologie img.woocommerce {
+    width: 75px !important;
+}
+
+.skin-light .app-service-show .card.card-cascade.narrower {
+    border-radius: 30px !important;
+}
+
+.skin-light .app-service-show .card.card-cascade.narrower .view {
+    border-radius: 30px !important;
+}
+
+.skin-light .app-service-show .card.card-cascade.narrower img {
+    height: 180px !important;
+}
+
+.skin-light .app-service-show .card.card-cascade.narrower .card-body {
+    border-bottom-left-radius: 30px !important;
+    border-bottom-right-radius: 30px !important;
+    font-size: .97rem;
+}
+
+.skin-light .app-service-show .card.service strong {
+    font-weight: 600 !important;
+    color: #000AA5;
+}
+
+.skin-light .app-service-show .card.service a {
+    font-weight: 600 !important;
+}
+
+.skin-light .app-service-show .card.service a {
+    color: #EDD500;
+}
+
+.skin-light .app-service-show .card.service a:hover,
+.skin-light .app-service-show .card.service a:focus,
+.skin-light .app-service-show .card.service a:active {
+    color: #f57c00;
+    text-decoration: underline;
+}
+
+.skin-light .app-service-question img {
+    width: 140px;
+}
+
+.skin-light .app-service-question .card .card-body {
+    font-size: .95rem;
+}
+
+.skin-light .app-service-design-graphic .graphic h1 {
+    line-height: 50px !important;
+}
+
+.skin-light .app-service-design-graphic .graphic .one .stylish-color,
+.skin-light .app-service-design-graphic .graphic .one .view img,
+.skin-light .app-service-design-graphic .graphic .one .view {
+    height: 31rem;
+}
+
+.skin-light .app-service-design-graphic .graphic .two .bg-white,
+.skin-light .app-service-design-graphic .graphic .two .view {
+    height: 16rem;
+}
+
+.skin-light .app-service-design-graphic .graphic .two .view img {
+    width: 100% !important;
+}
+
+.skin-light .app-service-design-graphic .graphic .three .danger-color,
+.skin-light .app-service-design-graphic .graphic .three .view {
+    height: 17rem;
+}
+
+.skin-light .app-service-design-graphic .graphic .three .view img {
+    width: 100% !important;
+}
+
+.skin-light .app-service-design-graphic .graphic .foor .bg-primary,
+.skin-light .app-service-design-graphic .graphic .foor .view {
+    height: 17rem;
+}
+
+.skin-light .app-service-design-graphic .graphic .foor .view img {
+    width: 100% !important;
+}
+
+@media (max-width: 767px) {
+    .skin-light .app-service-design-graphic .graphic {
+        margin-top: 4.6rem !important;
+    }
+
+    .skin-light .app-service-design-graphic .graphic h1 {
+        line-height: 36px !important;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .one .stylish-color,
+    .skin-light .app-service-design-graphic .graphic .one .view img,
+    .skin-light .app-service-design-graphic .graphic .one .view {
+        height: 31rem;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .two .bg-white,
+    .skin-light .app-service-design-graphic .graphic .two .view {
+        height: 19rem;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .two .view img {
+        width: 100% !important;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .three .danger-color,
+    .skin-light .app-service-design-graphic .graphic .three .view {
+        height: 20.7rem;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .three .view img {
+        width: 100% !important;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .foor .bg-primary,
+    .skin-light .app-service-design-graphic .graphic .foor .view {
+        height: 16.5rem;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .foor .view img {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .skin-light .app-service-design-graphic .graphic h1 {
+        line-height: 50px !important;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .one .stylish-color,
+    .skin-light .app-service-design-graphic .graphic .one .view img,
+    .skin-light .app-service-design-graphic .graphic .one .view {
+        height: 24rem;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .two .bg-white,
+    .skin-light .app-service-design-graphic .graphic .two .view {
+        height: 15rem;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .two .view img {
+        width: 100% !important;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .three .danger-color,
+    .skin-light .app-service-design-graphic .graphic .three .view {
+        height: 16rem;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .three .view img {
+        width: 100% !important;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .foor .bg-primary,
+    .skin-light .app-service-design-graphic .graphic .foor .view {
+        height: 13.6rem;
+    }
+
+    .skin-light .app-service-design-graphic .graphic .foor .view img {
+        width: 100% !important;
+    }
+}
+
+.skin-light .contact-section .card {
+    border-radius: 30px !important;
+}
+
+.skin-light .contact-section .contact {
+    background-color: #000AA5;
+    border-radius: 0 30px 30px 0 !important;
+}
+
+.skin-light .contact-section .contact .fas,
+.skin-light .contact-section .contact .fab,
+.skin-light .contact-section .contact .far {
+    color: #FFF;
+}
+
+@media (max-width: 767px) {
+    .skin-light .contact-section .contact {
+        background-color: #000AA5;
+        border-radius: 0 0 30px 30px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .skin-light .contact-section .contact {
+        background-color: #000AA5;
+        border-radius: 0 0 30px 30px !important;
+    }
+}
+
+.skin-light .app-apropos h1.display-3 {
+    line-height: 1;
+}
+
+.skin-light .view.service-intro .container .intro-info-content h6 {
+    margin-right: 6rem !important;
+    margin-left: 6rem !important;
+}
+
+.skin-light .view.service-intro .container .intro-info-content h6 strong {
+    color: #FFC107FF;
+    font-weight: 600 !important;
+    line-height: 25px !important;
+}
+
+@media (max-width: 767px) {
+
+    .skin-light .view.service-intro .container .intro-info-content h6 {
+        margin-right: .5rem !important;
+        margin-left: .5rem !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .skin-light .view.service-intro .container .intro-info-content h6 {
+        margin-right: 3.5rem !important;
+        margin-left: 3.5rem !important;
+    }
+}
+
+
+.contact-section .form-check-input[type="checkbox"].filled-in:not(:checked)+label:after,
+.contact-section label.btn input[type="checkbox"].filled-in:not(:checked)+label:after {
+    top: 0;
+    z-index: 0;
+    width: 17.5px;
+    height:17.5px;
+}
+
+.contact-section .form-check-input[type="checkbox"].filled-in:checked+label:before,
+.contact-section label.btn input[type="checkbox"].filled-in:checked+label:before {
+    top: -.9px;
+    left: 1px;
+    width: 7px;
+    height: 11px;
+}
+
+.contact-section .form-check-input[type="checkbox"].filled-in:checked+label:after,
+.contact-section label.btn input[type="checkbox"].filled-in:checked+label:after {
+    width: 17.5px;
+    height: 17.5px;
+}
+
+.skin-light .contact-section .app-checkbox-field-bulk label {
+    padding-left: 25px;
+    padding-top: 0;
+    padding-right: 36px;
+    margin-top: 12px;
+    font-size: .98rem;
+    font-weight: 400;
+    color: #4f4f4f;
+}
+
+.skin-light .contact-section form .app-radio-block {
+    border: 1.6px solid #dadce0;
+    width: 125px;
+    height: 120px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-right: 20px;
+    padding-right: .3rem;
+    padding-left: .3rem;
+}
+
+.skin-light .contact-section form .app-radio-block .label {
+    line-height: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.skin-light .contact-section form .app-radio-block .label span {
+    line-height: 20px;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .skin-light .contact-section form .app-radio-block {
+        width: 115px;
+        height: 110px;
+        margin-right: 10px;
+    }
+
+    .skin-light .contact-section form .app-radio-block .label span {
+        line-height: 20px;
+        font-size: .7rem;
+        font-weight: 600;
+    }
+}
+
+.skin-light .contact-section form .app-radio-block.choice,
+.skin-light .contact-section form .app-radio-block:hover {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(255, 193, 7, 0.16), 0 2px 10px 0 rgba(255, 193, 7, 0.12) !important;
+    box-shadow: 0 2px 5px 0 rgba(255, 193, 7, 0.16), 0 2px 10px 0 rgba(255, 193, 7, 0.12) !important;
+    border: 1.6px solid #FFC107FF;
+    background-color: #FFC107FF;
+    transition: .3s;
+}
+
+.skin-light .contact-section form .app-radio-block.choice .label,
+.skin-light .contact-section form .app-radio-block:hover .label{
+    color: #FFF;
+}
+
+.skin-light .contact-section form .form-check-input[type=radio]:checked+label:after {
+    background-color:#FFF !important
+}
+
+.skin-light .contact-section form .form-check-input[type=radio]:checked+label:after {
+    border: 2px solid #FFF !important
+}
+
+.skin-light .contact-section form .form-check-input[type="radio"]:checked+label:after,
+.skin-light .contact-section form .form-check-input[type="radio"].with-gap:checked+label:before,
+.skin-light .contact-section form .form-check-input[type="radio"].with-gap:checked+label:after,
+.skin-light .contact-section form .app-radio-block:hover .form-check-input[type="radio"]+label:after,
+.skin-light .contact-section form .app-radio-block:hover .form-check-input[type="radio"].with-gap+label:before,
+.skin-light .contact-section form .app-radio-block:hover .form-check-input[type="radio"].with-gap+label:after {
+    border: 2px solid #FFF !important;
+}
+
+/*.skin-light .contact-section form .app-radio-block:not(.choice) {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}*/
+
+
+
+
+
+
+
+

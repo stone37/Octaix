@@ -1,0 +1,7 @@
+app_user_profil_edit:
+    path: /profil/edit/
+    controller: App\Controller\AccountController::edit
+
+app_user_change_password:
+    path: /profil/modifier-mot-passe/
+    controller: App\Controller\AccountController::changePassword

@@ -1,0 +1,132 @@
+<div class="modal fade right" id="adOptionDetail2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="font-weight-stone-600 h4-responsive heading lead">Logo urgent</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div id="option-data" class="modal-body">
+
+                {% if advert.optionAdEncadre %}
+                    <div class="grey-text font-weight-stone-500 mb-3">
+                        L'option <span class="text-default">logo urgent</span>
+                        est deja active sur cette annonce.<br>
+                        Expiration: <span class="amber-text font-weight-stone-600">{{ advert.optionAdHeadEnd|date('d/m/Y') }}</span>.
+                    </div>
+                    <div class="text-grey small font-weight-stone-600 mb-3">
+                        Pour prolonger la durée de l'option, veuillez acheter une nouvelle offre de l'option. <br>
+                        La nouvelle durée sera ajouter à la durée actuelle.
+                    </div>
+                {% endif %}
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mb-3">Choisir une option</h4>
+
+                {% for urgent in urgents %}
+                    <div class="d-flex justify-content-between mb-2 ">
+                        <div class="form-check" style="margin-left: -20px;">
+                            <input type="radio" class="form-check-input with-gap option-input" id="option{{ urgent.id }}"
+                                   value="{{ urgent.id }}" name="header" />
+                            <label class="form-check-label grey-text d-inline-block" for="option{{ urgent.id }}">
+                                <span style="position: relative !important; left: -12px !important;
+                                            bottom: 2px !important; line-height: normal !important">
+                                    <span class="font-weight-stone-500">Logo urgent</span> pendant
+                                    <span class="font-weight-stone-500 text-default" >{{ urgent.days }} jours</span> à
+                                    <span class="font-weight-stone-600 text-default h5-responsive">{{ urgent.price }}<span class="pl-1
+                                            small-8 font-weight-stone-600">CFA</span></span>.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="text-center mt-3">
+                    <a href="{{ path('app_cart_validate', {'id': advert.id}) }}" class="btn btn-primary disabled">
+                        Valider <i class="fas fa-paper-plane ml-2"></i>
+                    </a>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="text-center mb-5">
+                    <img src="{{ asset('images/option/2.png') }}" alt="" class="img-fluid z-depth-3" />
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary">Si c’est urgent, faites-le savoir</h4>
+                <p class="grey-text">
+                    L’option <span class="text-default font-weight-stone-500">logo urgent</span>
+                    est idéale pour des ventes rapides. Elle ajoute un bandeau et des bordure rouge
+                    à votre annonce qui permet aux acheteurs de la trouver rapidement et facilement.
+                </p>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Pourquoi choisir cette option</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>Vendre plus rapidement</li>
+                        <li>Vendre à prix réduit ou négociable</li>
+                        <li>Idéal pour vendre rapidement avant un déménagement</li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Avantages pour le vendeur</h4>
+                <div class="">
+                    <ul class="grey-text font-weight-stone-500">
+                        <li>Le bandeau et les bordures rouge rend votre annonce plus visible</li>
+                        <li>Vous attirez les acheteurs pressés</li>
+                        <li>
+                            Les annonces urgentes sont vues jusqu’à 2 fois plus souvent et obtiennent davantage
+                            de réponses que les annonces classiques
+                        </li>
+                        <li>
+                            Pour de meilleurs résultats, ajoutez l’option
+                            <span class="text-default font-weight-stone-500">logo urgent</span> dès que vous
+                            publiez votre annonce
+                        </li>
+                        <li>
+                            Les acheteurs peuvent filtrer directement les annonces
+                            <span class="text-default font-weight-stone-500">logo urgent</span> dans leur
+                            recherche pour trouver une bonne affaire ou les prix les plus flexibles
+                        </li>
+                    </ul>
+                </div>
+
+                <h4 class="h4-responsive font-weight-stone-600 text-primary mt-4">Comment ça marche ?</h4>
+                <div class="">
+                    <ul class="list-unstyled grey-text font-weight-stone-500">
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Le bandeau et les bordures rouge
+                            <span class="text-default font-weight-stone-500">logo urgent</span>
+                            permet à votre annonce de se démarquer du lot.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            L’option <span class="text-default font-weight-stone-500">logo urgent</span> ne change pas la
+                            position de votre annonce dans le classement d’une catégorie.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Le bandeau «Urgent» s’affiche dans les catégories Acheter et vendre, Immobilier,
+                            Emplois, Services, Rencontres et Animaux. Les annonces des catégories Autos Moto auront un bandeau «Réduit».
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-hand-point-right text-default"></i>
+                            Les ventes sont plus rapides grâce à une annonce qui attire les acheteurs pressés.
+                        </li>
+                        <li class="mb-2">
+                            Comme les acheteurs filtrent les annonces urgentes et les annonces d’articles réduits,
+                            vous recevez jusqu’à 3 fois plus de réponses pertinentes qu’avec une annonce classiques.
+                        </li>
+                        <li class="mb-2">
+                            L’option <span class="text-default font-weight-stone-500">annonce en tête de liste</span> changera la
+                            date de mise en ligne de votre annonce, mais elle ne prolongera pas sa durée.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

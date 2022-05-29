@@ -1,0 +1,8 @@
+app_offer_index:
+    path: /nos-offres
+    controller: App\Controller\OfferController::index
+
+app_offer_show:
+    path: /nos-offres/{slug}
+    controller: App\Controller\OfferController::show
+

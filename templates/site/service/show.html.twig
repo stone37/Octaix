@@ -1,0 +1,37 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}
+    {% if service.parent %}
+        {{ service.name }} | {{ service.parent.name }}
+    {% else %}
+        {{ service.name }}
+    {% endif %}
+{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ service.description }}" />
+    <meta property="og:description" content="{{ service.description }}" />
+    <meta name="twitter:description" content="{{ service.description }}" />
+{% endblock %}
+
+{% block app_breadcrumbs %}{% endblock %}
+
+{% block app_intro %}
+    {% include 'site/service/intro.html.twig' %}
+{% endblock %}
+
+{% block app_body %}
+    {% include 'site/service/show/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/timeline.min.css'} %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/timeline.min.js'} %}
+{% endblock %}

@@ -1,0 +1,130 @@
+{% if advert.validated %}
+    <div>
+        <div class="dropdown">
+            <button class="btn btn-grey btn-sm dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                <i class="far fa-chart-bar ml-1"></i>
+            </button>
+            <div class="dropdown-menu dropdown-grey" aria-labelledby="dropdownMenu3">
+                <h6 class="dropdown-header">Statistiques</h6>
+                <span class="dropdown-item" href="#">
+                    <i class="fas fa-eye mr-2"></i> Nombres de vue
+                    <span class="badge badge-pill badge-grey ml-2">{{ advert.reads|length }}</span>
+                </span>
+                <span class="dropdown-item" href="#">
+                    <i class="fas fa-heart mr-2"></i> Nombres de favoris
+                    <span class="badge badge-pill badge-grey ml-2">{{ advert.favorites|length }}</span>
+                </span>
+                <span class="dropdown-item" href="#">
+                    <i class="fas fa-envelope mr-2"></i> Nombres de message
+                    <span class="badge badge-pill badge-grey ml-2">{{ advert.messageCount }}</span>
+                </span>
+                <span class="dropdown-item" href="#">
+                    <i class="fas fa-camera-retro mr-2"></i> Nombres de photo
+                    <span class="badge badge-pill badge-grey ml-2">{{ advert.images|length }}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+<div class="ml-3">
+    <div class="dropdown">
+        <button class="btn btn-deep-purple btn-sm dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-gem ml-1"></i>
+        </button>
+        <div class="dropdown-menu dropdown-deep-purple" aria-labelledby="dropdownMenu3">
+            <h6 class="dropdown-header">Gestion des options</h6>
+
+            {% if photo %}
+                <a class="dropdown-item" data-toggle="modal" data-target="#adOptionPhoto" href="#">
+                    <i class="fas fa-camera mr-2"></i>
+                    Option photo
+                    {% if advert.optionPhoto %}<i class="fas fa-check text-success ml-1"></i>{% endif %}
+                </a>
+            {% endif %}
+
+            {% if headers|length > 0 %}
+                <a class="dropdown-item"
+                   data-toggle="modal" data-target="#adOptionDetail{{ headers[0].type }}" href="#">
+                    <i class="fas fa-sort-numeric-up mr-2"></i>
+                    Annonce en tete
+                    {% if advert.optionAdHead %}<i class="fas fa-check text-success ml-1"></i>{% endif %}
+                </a>
+            {% endif %}
+
+            {% if gallery|length > 0 %}
+                <a class="dropdown-item"
+                   data-toggle="modal" data-target="#adOptionDetail{{ gallery[0].type }}" href="#">
+                    <i class="fas fa-house-damage mr-2"></i>
+                    Galerie accueil
+                    {% if advert.optionAdGallery %}<i class="fas fa-check text-success ml-1"></i>{% endif %}
+                </a>
+            {% endif %}
+
+            {% if vedettes|length > 0 %}
+                <a class="dropdown-item"
+                   data-toggle="modal" data-target="#adOptionDetail{{ vedettes[0].type }}" href="#">
+                    <i class="far fa-minus-square mr-2"></i>
+                    Annonce en vedette
+                    {% if advert.optionAdVedette %}<i class="fas fa-check text-success ml-1"></i>{% endif %}
+                </a>
+            {% endif %}
+
+            {% if urgents|length > 0 %}
+                <a class="dropdown-item"
+                   data-toggle="modal" data-target="#adOptionDetail{{ urgents[0].type }}" href="#">
+                    <i class="fas fa-bullhorn mr-2"></i>
+                    Logo urgent
+                    {% if advert.optionAdUrgents %}<i class="fas fa-check text-success ml-1"></i>{% endif %}
+                </a>
+            {% endif %}
+
+            {% if encadres|length > 0 %}
+                <a class="dropdown-item"
+                   data-toggle="modal" data-target="#adOptionDetail{{ encadres[0].type }}" href="#">
+                    <i class="fas fa-border-style mr-2"></i>
+                    Annonce encadrée
+                    {% if advert.optionAdEncadre %}<i class="fas fa-check text-success ml-1"></i>{% endif %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="ml-3">
+    <div class="dropdown">
+        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-cogs ml-1"></i>
+        </button>
+        <div class="dropdown-menu dropdown-primary dropdown-menu-right" aria-labelledby="dropdownMenu4">
+
+            {% if advert.subDivision|length > 0 %}
+                {% set param = {'category_slug': advert.category.slug, 'c': advert.subCategory.slug, 'sc': advert.subDivision.slug, 'id': advert.id} %}
+            {% elseif advert.subCategory|length > 0 %}
+                {% set param = {'category_slug': advert.category.slug, 'c': advert.subCategory.slug, 'id': advert.id} %}
+            {% else %}
+                {% set param = {'category_slug': advert.category.slug, 'id': advert.id} %}
+            {% endif %}
+
+            <h6 class="dropdown-header">Gestion de l'annonce</h6>
+            {% if advert.validated %}
+                <a class="dropdown-item" href="{{ route }}">
+                    <i class="fas fa-eye mr-1"></i> Voir
+                </a>
+            {% endif %}
+            <a class="dropdown-item" href="{{ path('app_dashboard_advert_edit', param) }}">
+                <i class="fas fa-pen mr-1"></i> Modifier
+            </a>
+            <a class="dropdown-item" href="{{ path('app_dashboard_advert_image_add', {'id': advert.id}) }}">
+                <i class="fas fa-file-image mr-1"></i> Modifier les photos
+            </a>
+            <a data-id="{{ advert.id }}" class="dropdown-item app-user-advert-delete">
+                <i class="fas fa-trash mr-1"></i> Supprimer
+            </a>
+        </div>
+    </div>
+</div>

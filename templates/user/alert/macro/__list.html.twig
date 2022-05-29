@@ -1,0 +1,39 @@
+{% macro list(alert) %}
+    <div class="card mb-4">
+        <div class="card-body pb-2 px-2 px-md-3">
+            <div class="title small text-right text-default font-weight-stone-500">
+                <i class="fas fa-calendar mr-2"></i> le {{ alert.createdAt|date_french(1, 1) }} . {{ alert.createdAt|date('h:i') }}
+            </div>
+            <div class="small-9 grey-text font-weight-stone-600">
+                <div class="mb-1"><i class="fas fa-tag mr-1"></i> {{ alert.category.name }}</div>
+
+                {% if alert.subCategory|length > 0 %}
+                    <div class="mb-1"><i class="fas fa-tag mr-1"></i> {{ alert.subCategory.name }}</div>
+                {% endif %}
+
+                {% if alert.subDivision|length > 0 %}
+                    <div class=""><i class="fas fa-tag mr-1"></i> {{ alert.subDivision.name }}</div>
+                {% endif %}
+            </div>
+            <div class="d-flex justify-content-end">
+                <div class="d-flex align-items-end">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle btn btn-primary btn-sm py-1 px-2" data-toggle="dropdown">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </a>
+                        <div class="dropdown-menu user dropdown-primary">
+                            <a href="{{ path('app_dashboard_alert_status', {'id': alert.id}) }}" class="dropdown-item">
+                                <i class="fas fa-check-circle mr-1"></i>
+                                {% if alert.enabled %}Désactiver{% else %}Activer{% endif %}
+                            </a>
+                            <a class="dropdown-item app-advert-alert-delete" data-id="{{ alert.id }}">
+                                <i class="fas fa-trash mr-1 text-danger"></i> Supprimer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+

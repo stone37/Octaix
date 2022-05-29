@@ -1,0 +1,37 @@
+app_admin_order_index:
+    path: /orders
+    methods: [GET]
+    controller: App\Controller\Admin\OrderController::index
+
+app_admin_order_show:
+    path: /orders/{id}/show
+    methods: [GET, POST]
+    controller: App\Controller\Admin\OrderController::show
+    requirements:
+        id: \d+
+
+app_admin_order_delete:
+    path: /orders/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\OrderController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_order_bulk_delete:
+    path: /orders/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\OrderController::deleteBulk
+    options:
+        expose: true
+
+app_admin_order_user:
+    path: /orders/{id}/user
+    methods: [GET]
+    controller: App\Controller\Admin\OrderController::byUser
+
+app_admin_order_hostel:
+    path: /orders/{id}/hostel
+    methods: [GET]
+    controller: App\Controller\Admin\OrderController::hostel

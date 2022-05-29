@@ -1,0 +1,62 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block meta %}
+    {% set content = "Prenez contact avec notre équipe, nous serons heureux d'échanger sur vos projets de création de site internet et vos besoins en communication digitale." %}
+    <meta name="description" content="{{ content }}" />
+    <meta property="og:description" content="{{ content }}" />
+    <meta name="twitter:description" content="{{ content }}" />
+{% endblock %}
+
+{% block app_breadcrumbs %}{% endblock %}
+
+{% block app_intro %}
+    <div class="view jarallax" data-jarallax='{"speed": 0.2}'
+         style="background-image: url({{ asset('images/data/contact.jpg') }});
+                 background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="mask rgba-black-strong">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="row pt-5 mt-3">
+                    <div class="col-md-12 mb-3">
+                        <div class="intro-info-content text-center">
+                            <h1 class="display-5 white-text font-weight-stone-600 mb-3 wow fadeInDown" data-wow-delay="0.3s">
+                                Contactez nous pour vos <span class="amber-text">projets web</span>.
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bc text-white mb-5">
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    {% include 'site/contact/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfSnr0UAAAAAGgVbAAZQdtn8UdJ6CAMTf79myG_"></script>
+    <script>
+        let route = '{{ path('app_contact') }}';
+
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfSnr0UAAAAAGgVbAAZQdtn8UdJ6CAMTf79myG_', {action: route})
+                .then(function(token) {
+                    $('input.app-recaptchaToken').val(token);
+                });
+        });
+    </script>
+{% endblock %}
+
+

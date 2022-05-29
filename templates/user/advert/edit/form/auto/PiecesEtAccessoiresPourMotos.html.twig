@@ -1,0 +1,39 @@
+{% extends 'user/advert/edit/form.html.twig' %}
+
+{% block app_advert_type %}
+{% endblock %}
+
+{% block app_advert_traitement %}
+{% endblock %}
+
+{% block app_advert_detail %}
+    <div class="form-row">
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.marque) }}
+                    <label>{{ form.marque.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.model) }}
+                    <label>{{ form.model.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.autoColor) }}
+                    <label>{{ form.autoColor.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

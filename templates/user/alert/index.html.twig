@@ -1,0 +1,67 @@
+{% extends 'user/layout.html.twig' %}
+{% import 'user/alert/macro/__list.html.twig' as __alert  %}
+
+{% block app_cart %}{% endblock %}
+{% block app_mobile_cart %}{% endblock %}
+
+{% block title %}Alertes inactive | {{ settings.name }}{% endblock %}
+
+{% block app_breadcrumbs %}
+    <div class="mt-80 mt-md-7">
+        {{ breadcrumb('Tableau de bord', '/u/') }}
+        {{ breadcrumb('Alertes inactive') }}
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+    <div class="mt-0 d-flex justify-content-end">
+        <div class="mt-2 d-none d-lg-block">
+            <div class="btn-group title" role="group" aria-label="Basic example">
+                <a href="{{ path('app_dashboard_alert_index_active') }}"
+                   class="btn btn-outline-grey waves-effect px-3 px-lg-4">
+                    Alertes active <span class="badge badge-grey badge-pill ml-1">{{ alertAN }}</span>
+                </a>
+                <a href="{{ path('app_dashboard_alert_index') }}"
+                   class="btn btn-outline-grey waves-effect px-3 px-lg-4 active">
+                    Alertes inactive <span class="badge badge-grey badge-pill ml-1">{{ alertN }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    {% if alerts|length > 0 %}
+        <div class="row app-user">
+            <div class="col-12 col-md-9 col-lg-8">
+                <div class="row">
+                    {% for alert in alerts %}
+                        <div class="col-12">{{ __alert.list(alert) }}</div>
+                    {% endfor %}
+
+                    <div class="col-12 d-flex justify-content-center mt-2">
+                        {{ knp_pagination_render(alerts, 'Ui/_pagination.html.twig') }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-4"></div>
+        </div>
+    {% else %}
+        <div class="row app-user d-flex justify-content-center">
+            <div class="col-12 col-md-8 text-center mt-3 mt-md-5">
+                <h3 class="text-primary h3-responsive font-weight-stone-600">
+                    Vous n'avez aucune alerte inactive.
+                </h3>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+

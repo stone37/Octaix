@@ -1,0 +1,8 @@
+app_achieve_index:
+    path: /nos-realisations
+    controller: App\Controller\AchieveController::index
+
+app_achieve_show:
+    path: /nos-realisations/{slug}
+    controller: App\Controller\AchieveController::show
+

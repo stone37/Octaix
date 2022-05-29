@@ -1,0 +1,212 @@
+<section class="container-fluid app-service">
+    {% if services|length > 0 %}
+        <div class="row mt-5 d-flex justify-content-center">
+            <div class="col-12 col-md-10 col-lg-9">
+                <h1 class="display-5 font-weight-stone-600 text-center my-5 wow fadeInDown">
+                    <span class="amber-text">Comprendre</span>,
+                    <span class="text-default">rechercher</span>,
+                    <span class="text-success">concevoir</span>,
+                    <span class="cyan-text">développer</span>,
+                    <span class="black-text">garantir</span>,
+                    <span class="text-danger">évoluer</span>.
+                    <span class="text-primary">Ensemble</span>
+                </h1>
+            </div>
+        </div>
+        <div class="row service">
+            <div class="col-12">
+                <div class="row mb-3 mb-md-4 px-3 px-md-0">
+                    {% for service in services %}
+                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-0 mb-5">
+                            <div class="card card-image wow fadeIn" data-wow-delay="0.3s"
+                                 style="background-image: url({{ vich_uploader_asset(service, 'file') }});">
+                                <div class="text-white text-center d-flex justify-content-center align-items-center
+                                 rgba-black-strong px-4">
+                                    <div class="first">
+                                        <h1 class="display-5 font-weight-stone-600 mb-4">{{ service.name }}</h1>
+                                        <p>{{ service.description|raw }}</p>
+                                        <div class="mt-4">
+                                            <a href="{{ path('app_service_show', {'slug': service.slug}) }}" class="btn btn-secondary btn-rounded btn-md">
+                                                En savoir plus <i class="fas fa-angle-right right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="second">
+                                        <h1 class="display-5 font-weight-stone-600">{{ service.name }}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</section>
+
+<section class="container">
+    <div class="row d-flex mb-5">
+        <div class="col-12 col-md-6 text-center mb-3">
+            <a href="{{ path('app_contact') }}" class="btn btn-secondary btn-lg btn-rounded font-weight-stone-600
+                    py-4 px-5 d-inline-block d-md-none wow fadeInLeft">
+                Contacter l'agence <i class="far fa-address-book ml-2"></i>
+            </a>
+            <a href="{{ path('app_contact') }}" class="btn btn-danger btn-lg btn-rounded font-weight-stone-600
+                    py-4 px-5 d-none d-md-inline-block wow fadeInLeft" style="font-size: 1.2rem !important;">
+                Contacter l'agence <i class="far fa-address-book ml-2"></i>
+            </a>
+        </div>
+        <div class="col-12 col-md-6 text-center">
+            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
+                    py-4 px-5 d-inline-block d-md-none wow fadeInRight">
+                Demander un devis <i class="fas fa-calculator ml-2"></i>
+            </a>
+            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
+                    py-4 px-5 d-none d-md-inline-block wow fadeInRight" style="font-size: 1.2rem !important;">
+                Demander un devis <i class="fas fa-calculator ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid app-service-technologie">
+    <div class="row bg-default p-0 mb-5">
+        <div class="col-12">
+            <div class="text-center text-white pt-4 pt-md-5">
+                <h1 class="display-5 font-weight-stone-600 text-center wow fadeInDown">
+                    Nos <span class="text-success">outils</span> et
+                    <span class="text-danger">technologies</span> <br> approuvés et éprouvés
+                </h1>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row d-flex justify-content-center align-items-center wow fadeInUp px-4 px-md-5 mb-4">
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/html.png') }}" class="img-fluid html" alt="html-css"
+                         title="HTML 5 & CSS 3 & JAVASCRIPT" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/php.png') }}" class="img-fluid php" alt="html-css"
+                         title="PHP" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/jquery.png') }}" class="img-fluid jquery" alt="jquery"
+                         title="JQUERY" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/symfony.png') }}" class="img-fluid symfony" alt="jquery"
+                         title="SYMFONY" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <i class="fab fa-mdb fa-6x white-text" title="Material Design Bootstrap" data-toggle="tooltip"></i>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/react.png') }}" class="img-fluid" alt="react"
+                         title="REACT & REACT NATIVE" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/nodeJS.png') }}" class="img-fluid" alt="nodeJS"
+                         title="NodeJS" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/mysql.png') }}" class="img-fluid mysql mb-md-2" alt="mysql"
+                         title="MySQL" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/mongoDB.png') }}" class="img-fluid mt-md-1" alt="mongoDB"
+                         title="MongoDB" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/wordpress.png') }}" class="img-fluid mt-md-2" alt="wordpress"
+                         title="Wordpress" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/sass.png') }}" class="img-fluid sass" alt="sass"
+                         title="SASS" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/flutter.png') }}" class="img-fluid flutter mt-4 mt-md-0" alt="flutter"
+                         title="Flutter" data-toggle="tooltip" />
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/facebook.png') }}" class="img-fluid facebook my-4 my-md-5" alt="facebook"
+                         title="Facebook Ads" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/google-ads.png') }}" class="img-fluid google-ads" alt="google ads"
+                         title="Google Ads" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/google-analytics.png') }}" class="img-fluid google-analytics my-md-5" alt="google analytics"
+                         title="Google Analytics" data-toggle="tooltip" />
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <img src="{{ asset('images/technologie/woocommerce.png') }}" class="img-fluid woocommerce" alt="woocommerce"
+                         title="Woocommerce" data-toggle="tooltip" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if settings.activeAchieve %}
+    <section class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-3">
+                <a href="{{ path('app_achieve_index') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
+                    py-4 px-5 d-inline-block d-md-none wow fadeInDown">
+                    Voir nos réalisations <i class="fas fa-trophy ml-2"></i>
+                </a>
+                <a href="{{ path('app_achieve_index') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
+                    py-4 px-5 d-none d-md-inline-block wow fadeInDown" style="font-size: 1.2rem !important;">
+                    Voir nos réalisations <i class="fas fa-trophy ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+
+{% if reviews|length > 0 %}
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <section class="team-section text-center dark-grey-text">
+                    <h1 class="display-5 font-weight-bold mb-3 pb-2 wow fadeInUp">Nos clients témoignent</h1>
+                    <div class="row text-center wow fadeInRight">
+                        {% for review in reviews %}
+                            <div class="col-md-4 mb-4">
+                                <div class="testimonial">
+                                    <h4 class="font-weight-bold dark-grey-text mt-4">{{ review.name }}</h4>
+                                    <p class="font-weight-normal dark-grey-text">
+                                        <i class="fas fa-quote-left pr-2"></i>{{ review.comment }}
+                                    </p>
+                                    <div class="orange-text">
+                                        {% if review.rating == 5 %}
+                                            {% for item in 1..(review.rating) %}
+                                                <i class="fas fa-star"> </i>
+                                            {% endfor %}
+                                        {% else %}
+                                            {% for item in 1..(review.rating) %}
+                                                <i class="fas fa-star"> </i>
+                                            {% endfor %}
+
+                                            {% for item in (review.rating+1)..5 %}
+                                                <i class="far fa-star"> </i>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+
+
+

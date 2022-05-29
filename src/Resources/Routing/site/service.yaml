@@ -1,0 +1,12 @@
+app_service_index:
+    path: /nos-solutions
+    controller: App\Controller\ServiceController::index
+
+app_service_show:
+    path: /nos-solutions/{slug}
+    controller: App\Controller\ServiceController::show
+
+app_service_show_s:
+    path: /nos-solutions/{slug}/{sub_slug}
+    controller: App\Controller\ServiceController::show
+

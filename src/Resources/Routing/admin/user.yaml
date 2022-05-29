@@ -1,0 +1,47 @@
+app_admin_user_index:
+    path: /users
+    methods: [GET]
+    controller: App\Controller\Admin\UserController::index
+
+app_admin_user_no_confirm_index:
+    path: /users/no-comfirm
+    methods: [GET]
+    controller: App\Controller\Admin\UserController::indexN
+
+app_admin_user_deleted_index:
+    path: /users/deleted
+    methods: [GET]
+    controller: App\Controller\Admin\UserController::indexD
+
+app_admin_user_show:
+    path: /users/{id}/show/{type}
+    methods: [GET, POST]
+    controller: App\Controller\Admin\UserController::show
+    requirements:
+        id: \d+
+        type: \d+
+
+app_admin_user_ban:
+    path: /users/{id}/ban
+    methods: [DELETE, POST]
+    controller: App\Controller\Admin\UserController::ban
+    requirements:
+        id: \d+
+
+app_admin_user_delete:
+    path: /users/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\UserController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_user_bulk_delete:
+    path: /users/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\UserController::deleteBulk
+    options:
+        expose: true
+
+

@@ -1,0 +1,38 @@
+{% import 'Ui/Macro/buttons.html.twig' as buttons %}
+
+{% form_theme form_mobile 'Ui/Form/theme.html.twig' %}
+
+{{ form_start(form_mobile, {'attr': {'novalidate': 'novalidate', 'class': 'search-sec'}}) }}
+<div class="row">
+    <div class="col-4 col-md-5 p-0">
+        <div class="md-form md-outline">
+            <input type="search" name="{{ form_mobile.data.vars.full_name }}"
+                   id="data_mobile" value="{{ form_mobile.data.vars.value }}"
+                   class="form-control mdb-autocomplete search-slt input-one"
+                   placeholder="Rechercher n'importe quoi..." />
+        </div>
+    </div>
+    <div class="col-3 col-md-3 p-0">
+        <div class="select-outline">
+            {{ form_widget(form_mobile.category, {'id': 'category_mobile'}) }}
+            <label>{{ form_mobile.category.vars.label }}</label>
+        </div>
+    </div>
+    <div class="col-3 col-md-3 p-0 m-0">
+        <div class="md-form md-outline input-with-pre-icon">
+            <i class="fas fa-map-marker-alt input-prefix"></i>
+            <input id="app-location-mobile-input" type="text" value="{{ app.session.get('app_user_search_area') }}"
+                   class="form-control search-slt input-two my-0 mr-1" placeholder="Sélectionner un lieu"
+                   style="margin-left: -1px !important;" />
+        </div>
+    </div>
+    <div class="col-2 col-md-1 p-0">
+        <div class="md-form md-outline">
+            <button type="submit" class="btn btn-secondary wrn-btn m-0" style="margin-left: -1.3px !important;">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+</div>
+{{ form_end(form_mobile, {'render_rest': false}) }}
+

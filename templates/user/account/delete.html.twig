@@ -1,0 +1,39 @@
+{% extends "user/layout.html.twig" %}
+
+{% block title %}Fermeture du compte | {{ config.get.name }}{% endblock %}
+
+{% block app_cart %}{% endblock %}
+{% block app_mobile_cart %}{% endblock %}
+
+{% block app_breadcrumbs %}
+    <div class="mt-80 mt-md-7">
+        {{ breadcrumb('Tableau de bord', '/u/') }}
+        {{ breadcrumb('Fermeture du compte') }}
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+    <div class="mt-0 mb-4 d-flex justify-content-end">
+        <div class="mt-2 d-none d-lg-block">
+            <div class="btn-group title" role="group" aria-label="Basic example">
+                <a href="{{ path('app_user_profil_edit') }}"
+                   class="btn btn-outline-grey waves-effect px-3 px-lg-4">
+                    Modifier le profil
+                </a>
+                <a href="{{ path('app_user_change_password') }}"
+                   class="btn btn-outline-grey waves-effect px-3 px-lg-4">
+                    Modifier le mot de passe
+                </a>
+                <a href="{{ path('app_user_delete') }}"
+                   class="btn btn-outline-grey waves-effect px-3 px-lg-4 active">
+                    Fermeture du compte
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    {% include "user/account/delete_content.html.twig" %}
+{% endblock app_body %}
+
+

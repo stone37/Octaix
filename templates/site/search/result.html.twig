@@ -1,0 +1,79 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}
+    Listes d'annonces | {{ settings.name }}
+{% endblock %}
+
+{% block app_cart %}{% endblock %}
+
+{% block app_navbar_second %}
+    {% if is_mobile() %}
+        <div class="jumbotron mobile color-primary d-block d-lg-none">
+            <div class="d-flex align-items-center h-100">
+                <div class="container text-center mx-3">
+                    {% block app_mobile_search_form %}
+                        {{ render(controller('App\\Controller\\SearchController::indexM')) }}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <nav class="navbar navbar-expand-md navbar-light second nav-black d-none d-lg-block py-0">
+            <div class="collapse navbar-collapse" id="{{ settings.name }}_navbarSecond">
+                <ul class="navbar-nav mr-auto">
+                    {% for category in categories %}
+                        <li class="nav-item dropdown mega-dropdown activ">
+                            <a href="{{ path('app_advert_index', {'category_slug': category.slug}) }}" class="nav-link" id="navbarMenu{{ category.id }}"
+                               aria-haspopup="true" aria-expanded="false">{{ category.name }}
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    {% endif %}
+{% endblock %}
+
+{% block app_breadcrumbs %}
+    <div class="d-flex justify-content-between mt-90 mt-md-70">
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="grey-text font-weight-stone-500">
+                {{ adverts.totalItemCount }} annonces
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            {% include 'site/advert/index/content.html.twig'%}
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-12">
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/site/advert/list.css'} %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/site/advert/list.js'} %}
+{% endblock %}
+
+

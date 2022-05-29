@@ -1,0 +1,33 @@
+app_dashboard_room_equipment_index:
+    path: /room-equipments/
+    methods: [GET]
+    controller: App\Controller\Account\RoomEquipmentController::index
+
+app_dashboard_room_equipment_create:
+    path: /room-equipments/create/
+    methods: [GET, POST]
+    controller: App\Controller\Account\RoomEquipmentController::create
+
+app_dashboard_room_equipment_edit:
+    path: /room-equipments/{id}/edit/
+    methods: [GET, POST]
+    controller: App\Controller\Account\RoomEquipmentController::edit
+    requirements:
+        id: \d+
+
+app_dashboard_room_equipment_delete:
+    path: /room-equipments/{id}/delete/
+    methods: [GET, DELETE]
+    controller: App\Controller\Account\RoomEquipmentController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_dashboard_room_equipment_bulk_delete:
+    path: /room-equipments/bulk/delete/
+    methods: [GET, DELETE]
+    controller: App\Controller\Account\RoomEquipmentController::deleteBulk
+    options:
+        expose: true
+

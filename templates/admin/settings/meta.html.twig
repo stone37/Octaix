@@ -1,0 +1,20 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Configuration meta tags | {{ parent() }}{% endblock %}
+
+{% block app_body %}
+    {% include 'admin/settings/meta/_header.html.twig' %}
+
+    {% include 'admin/settings/meta/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'Ui/_javascripts.html.twig' with {'path': 'assets/js/admin/create.js'} %}
+{% endblock %}
+

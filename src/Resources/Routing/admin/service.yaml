@@ -1,0 +1,40 @@
+app_admin_service_index:
+    path: /services
+    methods: [GET]
+    controller: App\Controller\Admin\ServiceController::index
+
+app_admin_service_create:
+    path: /services/create
+    methods: [GET, POST]
+    controller: App\Controller\Admin\ServiceController::create
+
+app_admin_service_edit:
+    path: /services/{id}/edit
+    methods: [GET, POST]
+    controller: App\Controller\Admin\ServiceController::edit
+    requirements:
+        id: \d+
+
+app_admin_service_delete:
+    path: /services/{id}/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\ServiceController::delete
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+app_admin_service_bulk_delete:
+    path: /services/bulk/delete
+    methods: [GET, DELETE]
+    controller: App\Controller\Admin\ServiceController::deleteBulk
+    options:
+        expose: true
+
+app_admin_service_move:
+    path: /services/{id}/move
+    methods: GET
+    controller: App\Controller\Admin\ServiceController::move
+    requirements:
+        id: \d+
+

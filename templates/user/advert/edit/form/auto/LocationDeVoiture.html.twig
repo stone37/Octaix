@@ -1,0 +1,98 @@
+{% extends 'user/advert/edit/form.html.twig' %}
+
+{% block app_advert_type %}
+{% endblock %}
+
+{% block app_advert_traitement %}
+{% endblock %}
+
+{% block app_advert_detail %}
+    <div class="form-row">
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.marque) }}
+                    <label>{{ form.marque.vars.label }}</label>
+                </div>
+                <div style="margin-top: -15px;" class="red-text font-weight-stone-500">{{ form_errors(form.marque) }}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.model) }}
+                    <label>{{ form.model.vars.label }}</label>
+                </div>
+                <div style="margin-top: -15px;" class="red-text font-weight-stone-500">{{ form_errors(form.model) }}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.autoYear) }}
+                    <label>{{ form.autoYear.vars.label }}</label>
+                </div>
+                <div style="margin-top: -15px;" class="red-text font-weight-stone-500">{{ form_errors(form.autoYear) }}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.autoType) }}
+                    <label>{{ form.autoType.vars.label }}</label>
+                </div>
+                <div style="margin-top: -15px;" class="red-text font-weight-stone-500">{{ form_errors(form.autoType) }}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.boiteVitesse) }}
+                    <label>{{ form.boiteVitesse.vars.label|raw }}</label>
+                </div>
+                <div style="margin-top: -15px;" class="red-text font-weight-stone-500">{{ form_errors(form.boiteVitesse) }}</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.autoColor) }}
+                    <label>{{ form.autoColor.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.typeCarburant) }}
+                    <label>{{ form.typeCarburant.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.nombrePorte) }}
+                    <label>{{ form.nombrePorte.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="d-flex flex-wrap">
+                <div class="select-outline position-relative w-100">
+                    {{ form_widget(form.nombrePlace) }}
+                    <label>{{ form.nombrePlace.vars.label|raw }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+            <div class="app-checkbox-field-bulk">
+                <div class="font-weight-stone-600 mb-2">{{ form.autreInformation.vars.label }}</div>
+                {{ form_widget(form.autreInformation) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
