@@ -28,6 +28,34 @@
     {{ parent() }}
 
     {% include 'Ui/_stylesheets.html.twig' with {'path': 'assets/css/timeline.min.css'} %}
+
+    <style>
+        @media (max-width: 767px) {
+            .jarallax {
+                min-height: 300px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 300px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .jarallax {
+                min-height: 300px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 50vh;
+            }
+        }
+    </style>
 {% endblock %}
 
 {% block javascripts %}

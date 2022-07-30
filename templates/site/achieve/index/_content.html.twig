@@ -1,0 +1,57 @@
+{% import 'site/achieve/macro/__list.html.twig' as __view %}
+
+<section class="container">
+    <div class="row mt-5 pt-3">
+        {% if services|length > 0 %}
+            <div class="col-12">
+                <div class="text-right">
+                    <div class="dropdown">
+                        <button class="btn btn-grey btn-md dropdown-toggle"
+                                type="button" id="dropdownAdvertSort"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style="color: #FFFFFF !important">
+                            Trier par services <i class="fas fa-sort ml-2"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-primary dropdown-menu-right" >
+                            {% set url = app.request.getSchemeAndHttpHost() ~ '' ~ app.request.pathInfo %}
+
+                            <a class="dropdown-item" href="{{ path('app_achieve_index') }}">Tous</a>
+                            {% for service in services %}
+                                <a class="dropdown-item" href="{{ url ~'/?service='~service.slug }}">{{ service.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+<section class="container">
+    {% if achieves|length > 0 %}
+        <div class="row app-achieve-list">
+            {% for achieve in achieves %}
+                {{ __view.list(achieve) }}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="alert alert-grey">Nous n'avons aucune realisation pour le moment</div>
+            </div>
+        </div>
+    {% endif %}
+</section>
+
+<section class="container">
+    <div class="row mt-4">
+        <div class="col-12">
+            <h1 class="display-5 font-weight-stone-600 text-center">Envie d'échanger sur votre projet ?</h1>
+            <div class="mt-4 text-center">
+                <a href="{{ path('app_contact') }}" class="btn btn-primary btn-lg">
+                    Contacter l'agence <i class="far fa-address-book ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+

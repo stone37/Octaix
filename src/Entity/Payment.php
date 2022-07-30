@@ -43,7 +43,7 @@ class Payment
     /**
      * @var Command
      *
-     * @ORM\OneToOne(targetEntity=Command::class)
+     * @ORM\OneToOne(targetEntity=Command::class, inversedBy="payment")
      * @ORM\JoinColumn(nullable=false)
      */
     private $order;

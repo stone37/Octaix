@@ -1,5 +1,5 @@
  <section class="container app-service-show">
-    <div class="row d-flex justify-content-center mt-5">
+    <div class="row d-flex justify-content-center mt-4 mt-md-3 mt-lg-4">
         <div class="col-12">
             <h1 class="display-5 font-weight-stone-600 text-center wow fadeInDown my-5 mx-lg-5">
                 Nous réalisons des <span class="text-danger">sites</span>,
@@ -29,10 +29,10 @@
                                     {{ children.description|raw }}
                                 </div>
 
-                                <a href="{{ path('app_service_show_s', {'slug': service.slug, 'sub_slug': children.slug}) }}"
-                                   class="btn btn-secondary text-default font-weight-stone-600 btn-rounded mt-2 mb-3">
-                                    En savoir plus <i class="fas fa-arrow-right ml-2 ml-md-1 ml-lg-2"></i>
-                                </a>
+                                {#<a href="{{ path('app_service_show_s', {'slug': service.slug, 'sub_slug': children.slug}) }}"
+                                   class="btn btn-primary mt-2 mb-3">
+                                    En savoir plus <i class="fas fa-long-arrow-alt-right right"></i>
+                                </a>#}
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
  <section class="container">
     <div class="row d-flex justify-content-center mx-1 mx-md-1 mt-3">
         <div class="col-12">
-            <h1 class="display-4 font-weight-stone-600 text-center">Comment ça marche ?</h1>
+            <h1 class="display-5 font-weight-stone-600 text-center">Comment ça marche ?</h1>
             <h4 class="text-center h4-responsive">
                 Les <span class="text-primary font-weight-stone-600">4 étapes</span> de votre projet.
             </h4>
@@ -61,8 +61,8 @@
                         </a>
 
                         <div class="step-content z-depth-1 ml-1 px-4 pt-4 pb-2">
-                            <h3 class="h3-responsive font-weight-stone-600 mb-3 deep-orange-text">Prise de contact</h3>
-                            <p class="font-weight-stone-500 grey-text" style="font-size: .95rem">
+                            <h4 class="h4-responsive font-weight-stone-600 mb-3 deep-orange-text">Prise de contact</h4>
+                            <p class="dark-grey-text" style="font-size: .95rem">
                                 Contactez-nous par téléphone, email ou via le formulaire de contact.
                             </p>
                         </div>
@@ -75,8 +75,8 @@
                         </a>
 
                         <div class="step-content z-depth-1 mr-xl-1 px-4 pt-4 pb-2">
-                            <h3 class="h3-responsive font-weight-stone-600 mb-3 text-primary">Analyse du besoin</h3>
-                            <p class="font-weight-stone-500 grey-text" style="font-size: .95rem">
+                            <h4 class="h4-responsive font-weight-stone-600 mb-3 text-primary">Analyse du besoin</h4>
+                            <p class="dark-grey-text" style="font-size: .95rem">
                                 Décrivez votre projet et indiquez-nous votre budget.
                             </p>
                         </div>
@@ -89,8 +89,8 @@
                         </a>
 
                         <div class="step-content z-depth-1 ml-1 px-4 pt-4 pb-2">
-                            <h3 class="h3-responsive font-weight-stone-600 mb-3 text-success">Validation du devis</h3>
-                            <p class="font-weight-stone-500 grey-text" style="font-size: .95rem">
+                            <h4 class="h4-responsive font-weight-stone-600 mb-3 text-success">Validation du devis</h4>
+                            <p class="dark-grey-text" style="font-size: .95rem">
                                 Nous préparerons un plan que vous pourrez examiner et approuver.
                             </p>
                         </div>
@@ -103,10 +103,10 @@
                         </a>
 
                         <div class="step-content z-depth-1 mr-xl-1 px-4 pt-4 pb-2">
-                            <h3 class="h3-responsive font-weight-stone-600 mb-3 text-default">
+                            <h4 class="h4-responsive font-weight-stone-600 mb-3 text-default">
                                 Lancement du projet
-                            </h3>
-                            <p class="font-weight-stone-500 grey-text" style="font-size: .95rem">
+                            </h4>
+                            <p class="dark-grey-text" style="font-size: .95rem">
                                 Une fois d'accord sur tous les détails, le projet commence.
                             </p>
                         </div>
@@ -147,9 +147,10 @@
                                             {% for data in services %}
                                                 {% if service.slug != data.slug %}
                                                     <a href="{{ path('app_service_show', {'slug': data.slug}) }}"
-                                                       class="btn btn-lg {% if loop.first %}btn-primary
-                                                        {% elseif loop.last %}btn-danger{% else %}btn-amber{% endif%}
-                                                       btn-rounded mb-lg-0 mb-2 mb-md-0">{{ data.name }}</a>
+                                                       class="btn {% if loop.first %}btn-primary mb-4 mb-md-0
+                                                        {% elseif loop.last %}btn-danger{% else %}btn-amber{% endif%}">
+                                                        {{ data.name }}
+                                                    </a>
                                                 {% endif %}
                                             {% endfor %}
                                         </div>
@@ -266,24 +267,22 @@
  <section class="container">
     <div class="row d-flex mt-3 mb-5">
         <div class="col-12 col-md-6 text-center mb-3">
-            <a href="{{ path('app_contact') }}" class="btn btn-danger btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-inline-block d-md-none wow fadeInLeft">
+            <a href="{{ path('app_contact') }}" class="btn btn-danger btn-block wow fadeInLeft">
                 Contacter l'agence <i class="far fa-address-book ml-2"></i>
             </a>
-            <a href="{{ path('app_contact') }}" class="btn btn-danger btn-lg btn-rounded font-weight-stone-600
+            {#<a href="{{ path('app_contact') }}" class="btn btn-danger btn-lg btn-rounded font-weight-stone-600
                     py-4 px-5 d-none d-md-inline-block wow fadeInLeft" style="font-size: 1.2rem !important;">
                 Contacter l'agence <i class="far fa-address-book ml-2"></i>
-            </a>
+            </a>#}
         </div>
         <div class="col-12 col-md-6 text-center">
-            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-inline-block d-md-none wow fadeInRight">
+            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-block wow fadeInRight">
                 Demander un devis <i class="fas fa-calculator ml-2"></i>
             </a>
-            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
+            {#<a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
                     py-4 px-5 d-none d-md-inline-block wow fadeInRight" style="font-size: 1.2rem !important;">
                 Demander un devis <i class="fas fa-calculator ml-2"></i>
-            </a>
+            </a>#}
         </div>
     </div>
 </section>

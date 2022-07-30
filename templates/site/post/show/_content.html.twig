@@ -1,0 +1,86 @@
+{% import 'site/post/macro/__list_post.html.twig' as __view %}
+
+{% set url = app.request.getSchemeAndHttpHost() ~ '' ~ app.request.requestUri %}
+{% set subject = 'Voici ma dernière trouvaille sur ' ~ settings.name ~ ': ' ~ post.title %}
+
+<section class="container app-post-show">
+    <div class="row mt-5">
+        <div class="col-12 mt-5 mt-md-1">
+            <div class="card card-image mt-4" style="background-image: url({{ vich_uploader_asset(post, 'file') }});">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="d-flex justify-content-end align-items-center mt-2">
+                <div class="mr-2 small-9 font-weight-stone-500 dark-grey-text">Partager l'article</div>
+                <div class="">
+                    <a class="btn-floating btn-sm btn-fb" data-toggle="tooltip" title="Partager sur facebook"
+                       data-sharer="facebook" data-hashtag="{{ settings.name|lower }}" data-url="{{ url }}">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="btn-floating btn-sm btn-tw mx-1" data-toggle="tooltip" title="Partager sur twitter"
+                       data-sharer="twitter" data-hashtags="{{ settings.name|lower }}" data-url="{{ url }}">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="btn-floating btn-sm btn-grey-medium" data-toggle="tooltip" title="Partager par mail"
+                       data-sharer="email" data-url="{{ url }}" data-subject="{{ subject }}" data-to="" data-title="">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 my-5">{{ post.content|raw }}</div>
+
+        <div class="col-12">
+            <div class="d-flex justify-content-end align-items-center mt-2">
+                <div class="mr-2 small-9 font-weight-stone-500 dark-grey-text">Partager l'article</div>
+                <div class="">
+                    <a class="btn-floating btn-sm btn-fb" data-toggle="tooltip" title="Partager sur facebook"
+                       data-sharer="facebook" data-hashtag="{{ settings.name|lower }}" data-url="{{ url }}">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="btn-floating btn-sm btn-tw mx-1" data-toggle="tooltip" title="Partager sur twitter"
+                       data-sharer="twitter" data-hashtags="{{ settings.name|lower }}" data-url="{{ url }}">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="btn-floating btn-sm btn-grey-medium" data-toggle="tooltip" title="Partager par mail"
+                       data-sharer="email" data-url="{{ url }}" data-subject="{{ subject }}" data-to="" data-title="">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if posts|length > 0 %}
+    <section class="container">
+        <div class="row mt-5">
+            <div class="col-12">
+                <h1 class="display-5 font-weight-stone-600 text-center mb-5">D'autres articles à découvrir</h1>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    {% for post in posts %}
+                        {{ __view.list(post) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+<section class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <h1 class="display-5 font-weight-stone-600 text-center">Envie d'échanger sur votre projet ?</h1>
+            <div class="mt-4 text-center">
+                <a href="{{ path('app_contact') }}" class="btn btn-primary btn-lg">
+                    Contacter l'agence <i class="far fa-address-book ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+

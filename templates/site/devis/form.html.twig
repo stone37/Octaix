@@ -3,13 +3,13 @@
         <div class="h5-responsive border border-primary border-top-0 border-left-0 border-right-0
         d-inline-block" style="border-width: 1.6px !important">
             <div class="badge badge-primary d-inline-block mr-1" style="position: relative; bottom: 6px;">1</div>
-            <div class="text-secondary d-inline-block font-weight-stone-600">Vos informations</div>
+            <div class="text-secondary d-inline-block font-weight-stone-500">Vos informations</div>
         </div>
     </div>
 </div>
 
 <div class="form-row">
-    <div class="col-12 col-md-5">
+    <div class="col-12 col-md-6">
         <div class="d-flex flex-wrap">
             <div class="select-outline position-relative w-100">
                 {{ form_widget(form.status) }}
@@ -21,7 +21,7 @@
             Ce champ est obligatoire
         </small>
     </div>
-    <div class="col-12 col-md-7">
+    <div class="col-12 col-md-6">
         {{ form_row(form.name) }}
         <small class="form-text text-muted" style="margin-top: -4px">
             Ce champ est obligatoire
@@ -46,29 +46,29 @@
         <div class="h5-responsive border border-primary border-top-0 border-left-0 border-right-0
         d-inline-block" style="border-width: 1.6px !important">
             <div class="badge badge-primary d-inline-block mr-1" style="position: relative; bottom: 6px;">2</div>
-            <div class="text-secondary d-inline-block font-weight-stone-600">Votre projet</div>
+            <div class="text-secondary d-inline-block font-weight-stone-500">Votre projet</div>
         </div>
     </div>
 </div>
 <div class="form-row">
     <div class="col-12">
-        <div class="font-weight-stone-500 grey-text mb-3">{{ form.project.vars.label }}</div>
+        <div class="dark-grey-text mb-3">{{ form.project.vars.label }}</div>
     </div>
     <div class="col-12 col-md-6 col-lg-5 mb-5">
         <div class="app-checkbox-field-bulk">
-            <div class="font-weight-stone-600 amber-text mb-2">{{ form.project.web.vars.label }}</div>
+            <div class="font-weight-stone-500 amber-text mb-2">{{ form.project.web.vars.label }}</div>
             {{ form_widget(form.project.web) }}
         </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4 mb-5">
         <div class="app-checkbox-field-bulk">
-            <div class="font-weight-stone-600 amber-text mb-2">{{ form.project.digital.vars.label }}</div>
+            <div class="font-weight-stone-500 amber-text mb-2">{{ form.project.digital.vars.label }}</div>
             {{ form_widget(form.project.digital) }}
         </div>
     </div>
     <div class="col-12 col-md-6 col-lg-3 mb-5">
         <div class="app-checkbox-field-bulk">
-            <div class="font-weight-stone-600 amber-text mb-2">{{ form.project.print.vars.label }}</div>
+            <div class="font-weight-stone-500 amber-text mb-2">{{ form.project.print.vars.label }}</div>
             {{ form_widget(form.project.print) }}
         </div>
     </div>
@@ -81,13 +81,13 @@
         <div class="h5-responsive border border-primary border-top-0 border-left-0 border-right-0
         d-inline-block" style="border-width: 1.6px !important">
             <div class="badge badge-primary d-inline-block mr-1" style="position: relative; bottom: 6px;">3</div>
-            <div class="text-secondary d-inline-block font-weight-stone-600">Votre budget et délai</div>
+            <div class="text-secondary d-inline-block font-weight-stone-500">Votre budget et délai</div>
         </div>
     </div>
 </div>
 <div class="form-row mt-3">
     <div class="col-12 app-radio-block-parent">
-        <div class="font-weight-stone-500 grey-text mb-3">{{ form.budget.vars.label }}</div>
+        <div class="dark-grey-text mb-3">{{ form.budget.vars.label }}</div>
         <div class="d-flex flex-wrap">
             {% for choices in form.budget.vars.choices %}
                 <div class="app-radio-block grey-text text-center py-3 mb-3
@@ -116,7 +116,7 @@
         <div class="h5-responsive border border-primary border-top-0 border-left-0 border-right-0
         d-inline-block" style="border-width: 1.6px !important">
             <div class="badge badge-primary d-inline-block mr-1" style="position: relative; bottom: 6px;">4</div>
-            <div class="text-secondary d-inline-block font-weight-stone-600">Complètez votre demande</div>
+            <div class="text-secondary d-inline-block font-weight-stone-500">Complètez votre demande</div>
         </div>
     </div>
 </div>

@@ -1,0 +1,79 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block meta %}
+    {% set content = post.title %}
+    <meta name="description" content="{{ content }}" />
+    <meta property="og:description" content="{{ content }}" />
+    <meta name="twitter:description" content="{{ content }}" />
+{% endblock %}
+
+{% block app_intro %}
+    <div class="view jarallax" data-jarallax='{"speed": 0.2}'
+         style="background-image: url({{ vich_uploader_asset(post, 'file') }});
+                 background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="mask rgba-black-strong">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="row pt-5 mt-3">
+                    <div class="col-md-12 mb-3">
+                        <div class="intro-info-content text-center">
+                            <h1 class="display-5 white-text font-weight-stone-600 mb-3 wow fadeInDown" data-wow-delay="0.3s">
+                                {{ post.title }}
+                            </h1>
+                            <h5 class="h5-responsive amber-text font-weight-stone-600">
+                                <i class="far fa-calendar-alt mr-1"></i> {{ post.publishedAt|date('d/m/Y') }}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bc text-white mb-5">
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    {% include 'site/post/show/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+        @media (max-width: 767px) {
+            .jarallax {
+                min-height: 300px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 300px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .jarallax {
+                min-height: 230px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 50vh;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+{% endblock %}

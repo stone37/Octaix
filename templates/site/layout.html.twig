@@ -22,7 +22,7 @@
 {% set post_category = isActive('app_post_category') %}
 
 {% block app_navbar_first %}
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary d-none d-lg-block py-0 border border-danger">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary d-none d-lg-block py-0 border border-danger">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ path('app_home') }}">
                 <img src="{{ vich_uploader_asset(settings, 'file') }}" alt="Logo du site" class="img-fluid logo py-0"/>
@@ -84,7 +84,7 @@
                     </li>
                 </ul>
                 <div class="pl-3">
-                    <a href="tel:{{ settings.phone }}" class="btn btn-sm btn-secondary btn-rounded phone">
+                    <a href="tel:{{ settings.phone }}" class="btn btn-sm btn-secondary {#btn-rounded#} phone">
                         <i class="fas fa-phone-alt mr-1"></i> {{ settings.phone }}
                     </a>
                 </div>
@@ -93,7 +93,7 @@
     </nav>
 
     {# Mobile navbar #}
-    <nav class="navbar fixed-top navbar-expand-lg double-nav d-block d-lg-none px-md-5 px-4 mobile">
+    <nav class="navbar fixed-top navbar-expand-lg double-nav bg-secondary d-block d-lg-none px-md-5 px-4 mobile">
         <div class="float-left mobile-logo">
             <a class="navbar-brand" href="{{ path('app_home') }}">
                 <img src="{{ vich_uploader_asset(settings, 'file') }}" alt="Logo du site" class="img-fluid logo py-0"/>
@@ -111,10 +111,10 @@
 
     <div id="slide-out" class="side-nav mobile sn-bg-4 fixed d-block d-lg-none">
         <ul class="custom-scrollbar">
-            <li class="logo-sn waves-effect py-3">
+            <li class="logo-sn waves-effect pt-2 py-md-3">
                 <div class="text-center">
                     <a href="{{ path('app_home') }}" class="pl-0">
-                        <img src="{{ vich_uploader_asset(settings, 'file') }}" style="width: 140px !important;" alt="Logo du site" />
+                        <img src="{{ vich_uploader_asset(settings, 'file') }}" style="width: 100px !important;" alt="Logo du site" />
                     </a>
                 </div>
             </li>
@@ -125,9 +125,9 @@
                         <li>
                             <a class="collapsible-header waves-effect arrow-r
                                 {% if service_index or service_show or service_show_s %}active{% endif %}">
-                                Nos solutions <i class="fas fa-plus" style="position: relative; bottom: 1px; right: 0;"></i>
+                                Nos solutions <i class="fas fa-plus ml-1" style="position: relative; bottom: 1px; right: 0; font-size: .6rem"></i>
                                 <i class="fas fa-angle-down rotate-icon"
-                                   style="font-size: 1rem !important; top: .7rem !important;"></i>
+                                   style="font-size: .8rem !important; top: .7rem !important;"></i>
                             </a>
                             <div class="collapsible-body">
                                 <ul>
@@ -200,21 +200,26 @@
             <div class="mask">
                 <div class="container h-100 d-flex justify-content-start align-items-center">
                     <div class="row mt-5">
-                        <div class="col-12 col-md-7 col-lg-6 my-lg-5 pt-lg-3">
+                        <div class="col-12 col-md-7 col-lg-7 mt-lg-5 pt-lg-3">
                             <div class="intro-info-content mt-lg-5 mt-3 home">
-                                <h1 class="white-text text-uppercase font-weight-bold mb-md-5 wow fadeInDown" data-wow-delay="0.3s">
+                                <h1 class="white-text text-uppercase font-weight-bold mb-md-2 mb-lg-5 wow fadeInDown" data-wow-delay="0.3s">
                                     {{ settings.name }} - Accélérateur de développement
                                 </h1>
-                                <h5 class="white-text my-3 mb-md-5 mt-md-1 font-weight-stone-500 wow fadeInDown title" data-wow-delay="0.3s">
+                                <p class="white-text mb-lg-5 mt-md-1 wow fadeInDown font-weight-normal title d-none d-md-block" data-wow-delay="0.3s">
                                     Nous accompagne les entreprises et marques dans leur stratégie digitale,
                                     à travers la création de sites internet optimisés pour l’utilisateur et
                                     la mise en place de dispositifs webmarketing performants.
-                                </h5>
+                                </p>
+                                <p class="white-text mt-3 mb-md-5 mt-md-1 wow fadeInDown font-weight-normal small-9 title d-block d-md-none" data-wow-delay="0.3s">
+                                    Nous accompagne les entreprises et marques dans leur stratégie digitale,
+                                    à travers la création de sites internet optimisés pour l’utilisateur et
+                                    la mise en place de dispositifs webmarketing performants.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-12 col-md-5 col-lg-6 my-lg-5 pt-lg-4">
+                        <div class="col-12 col-md-5 col-lg-5 mt-lg-4 pt-lg-4">
                             <div class="intro-info-content text-center d-flex justify-content-center">
-                                <img src="{{ asset('images/banner/illustration.png') }}" class="img-fluid" alt="illustration" />
+                                <img src="{{ asset('images/banner/illustration.png') }}" class="img-fluid d-none d-md-block" alt="illustration" />
                             </div>
                         </div>
                         <div class="col-12">

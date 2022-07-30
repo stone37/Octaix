@@ -24,7 +24,7 @@
                                 <span class="text-success">besoins</span> regroupés en un
                                 <span class="text-danger">seul endroit</span>.
                             </h1>
-                            <h6 class="white-text mt-1 title mx-lg-5 px-md-5 wow fadeInDown" data-wow-delay="0.3s">
+                            <h6 class="white-text mt-1 title mx-lg-5 px-md-5 wow fadeInDown font-weight-normal" data-wow-delay="0.3s">
                                 Nous avons tout ce qu'il faut pour faire prospérer votre entreprise ou votre business.
                             </h6>
                         </div>
@@ -45,6 +45,33 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <style>
+        @media (max-width: 767px) {
+            .jarallax {
+                min-height: 300px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 300px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .jarallax {
+                min-height: 300px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 50vh;
+            }
+        }
+    </style>
 {% endblock %}
 
 {% block javascripts %}

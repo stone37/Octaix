@@ -1,0 +1,78 @@
+{% extends 'site/layout.html.twig' %}
+
+{% block title %}Nos réalisations{% endblock %}
+
+{% block meta %}
+    {% set content = "Découvrez les réalisations de l'agence digital Octaix..." %}
+    <meta name="description" content="{{ content }}" />
+    <meta property="og:description" content="{{ content }}" />
+    <meta name="twitter:description" content="{{ content }}" />
+{% endblock %}
+
+{% block app_intro %}
+    <div class="view jarallax" data-jarallax='{"speed": 0.2}'
+         style="background-image: url({{ asset('images/data/contact.jpg') }});
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 background-position: center center;">
+        <div class="mask rgba-black-strong">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="row pt-5 mt-3">
+                    <div class="col-md-12 mb-3">
+                        <div class="intro-info-content text-center">
+                            <h1 class="display-5 white-text font-weight-stone-600 mb-3 wow fadeInDown" data-wow-delay="0.3s">
+                                Nos <span class="amber-text">projets</span> déjà réalisés.
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bc text-white mb-5">
+        {{ wo_render_breadcrumbs({ viewTemplate: '_breadcrumb.html.twig', listClass: 'breadcrumb',
+            itemClass: 'breadcrumb-item', separator: '>', separatorClass: 'fas fa-angle-right'}) }}
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    {% include 'site/achieve/index/_content.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+        @media (max-width: 767px) {
+            .jarallax {
+                min-height: 200px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 200px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .jarallax {
+                min-height: 200px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 40vh;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+

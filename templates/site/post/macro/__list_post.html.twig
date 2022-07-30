@@ -1,0 +1,28 @@
+{% macro list(post) %}
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card card-cascade z-depth-4 mb-4 wow fadeInRight">
+            <div class="view view-cascade overlay zoom">
+                <img class="card-img-top" src="{{ vich_uploader_asset(post, 'file') }}" alt="Article image"
+                     style="height: 200px !important;">
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <div class="card-body card-body-cascade px-3 pt-2 pb-3">
+                <h5 class="card-title h5-responsive font-weight-stone-600 mt-2"><strong>{{ post.title|raw }}</strong></h5>
+                <p class="small-8 dark-grey-text text-left">
+                    {{ post.content|u.truncate(150, '...')|raw }}
+                </p>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div class="small grey-text font-italic pt-2">
+                        <i class="far fa-calendar-alt mr-1"></i> {{ post.publishedAt|date('d/m/Y') }}
+                    </div>
+                    <a href="{{ path('app_post_show', {'slug': post.slug}) }}" class="btn btn-primary btn-sm">
+                        Lire la suite <i class="fas fa-long-arrow-alt-right right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

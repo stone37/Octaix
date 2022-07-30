@@ -1,0 +1,43 @@
+{% macro list(achieve) %}
+    <div class="col-12 col-md-6 col-lg-4 mb-2">
+        <div class="card card-image mt-4"
+             style="background-image: url({{ vich_uploader_asset(achieve, 'file') }});">
+            <div class="text-white d-flex align-items-center justify-content-center px-4 py-5">
+                <div class="text-center title">{{ achieve.title }}</div>
+            </div>
+            <div class="cover">
+                <a href="" class="d-flex align-items-center justify-content-center"
+                   data-toggle="modal" data-target="#achieveModal{{ achieve.id }}">
+                    Découvrir le projet <i class="fas fa-long-arrow-alt-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {{ _self.view(achieve) }}
+{% endmacro %}
+
+{% macro view(achieve) %}
+    <div class="modal fade right" id="achieveModal{{ achieve.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="font-weight-stone-500 h4-responsive heading lead">{{ achieve.title }}</h4>
+                    <button type="button" class="close font-weight-normal" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <img src="{{ vich_uploader_asset(achieve, 'file') }}" alt="" class="img-fluid z-depth-3" />
+                    </div>
+                    <div class="">
+                        {{ achieve.description|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+

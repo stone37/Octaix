@@ -33,8 +33,8 @@
                     </th>
                     <th scope="col" class="font-weight-stone-500 text-center">Titre</th>
                     <th scope="col" class="font-weight-stone-500 text-center">Catégories</th>
-                    <th scope="col" class="font-weight-stone-500 text-center">Étiquettes</th>
-                    <th scope="col" class="font-weight-stone-500 text-center">Publié le</th>
+                    {#<th scope="col" class="font-weight-stone-500 text-center">Étiquettes</th>#}
+                    <th scope="col" class="font-weight-stone-500 text-center">Crée le</th>
                     <th scope="col" class="font-weight-stone-500 text-center">Status</th>
                     <th scope="col" class="font-weight-stone-500 text-center"></th>
                 </tr>
@@ -51,10 +51,8 @@
                         </td>
                         <td class="text-center">{{ post.title }}</td>
                         <td class="text-center">
-                            {% if post.categories|length > 0 %}
-                                {% for category in post.categories %}
-                                    {{ category.name }} {% if loop.last %}, {% endif %}
-                                {% endfor %}
+                            {% if post.category|length > 0 %}
+                                {{ post.category.name }}
                             {% else %}
                                 <span class="badge badge-grey">
                                     Aucune
@@ -62,21 +60,10 @@
                             {% endif %}
                         </td>
                         <td class="text-center">
-                            {% if post.tags|length > 0 %}
-                                {% for tag in post.tags %}
-                                    {{ tags.name }} {% if loop.last %}, {% endif %}
-                                {% endfor %}
-                            {% else %}
-                                <span class="badge badge-grey">
-                                    Aucun
-                                </span>
-                            {% endif %}
+                            {{ post.createdAt|date('d/m/Y H:i:s') }}
                         </td>
                         <td class="text-center">
-                            {{ post.publishedAt|date('d/m/Y H:i:s') }}
-                        </td>
-                        <td class="text-center">
-                            {% if post.enabled %}
+                            {% if post.online %}
                                 <span class="badge badge-success">
                                     <i class="fas fa-check mr-1"></i> Actif
                                 </span>

@@ -1,5 +1,5 @@
 <section class="container-fluid contact-section">
-    <div class="row my-5">
+    <div class="row my-5 mx-md-4">
         <div class="col-12">
             <div class="card mt-4 mt-md-5 z-depth-4">
                 <div class="row">
@@ -9,7 +9,7 @@
                                 <h3 class="font-weight-stone-600 h3-responsive mt-2 mb-0">
                                     Obtenez rapidement un <strong class="text-primary font-weight-stone-600">devis pour votre projet</strong>
                                 </h3>
-                                <div class="font-weight-stone-500 small-9 grey-text">Sur la base de vos réponses nous vous proposerons un devis en moins de 24h</div>
+                                <div class="small-9 dark-grey-text">Sur la base de vos réponses nous vous proposerons un devis en moins de 24h</div>
                             </div>
                             {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'admin-form'}}) }}
                             <P class="text-danger my-0">{{ form_errors(form) }}</P>
@@ -20,7 +20,7 @@
 
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-rounded">
+                                    <button type="submit" class="btn btn-primary">
                                         Envoyer <i class="fas fa-paper-plane ml-1"></i>
                                     </button>
                                 </div>
@@ -34,7 +34,7 @@
                             <ul class="text-lg-left list-unstyled ml-lg-2">
                                 {% if settings.city %}
                                     <li>
-                                        <p class="font-weight-stone-500">
+                                        <p>
                                             <span class="btn-floating btn-sm btn-white mr-2">
                                                 <i class="fas fa-map-marker-alt text-default"></i>
                                             </span>
@@ -45,7 +45,7 @@
 
                                 {% if settings.address %}
                                     <li>
-                                        <p class="font-weight-stone-500">
+                                        <p>
                                             <span class="btn-floating btn-sm btn-white mr-2">
                                                 <i class="fas fa-home text-default"></i>
                                             </span>
@@ -56,7 +56,7 @@
 
                                 {% if settings.phone %}
                                     <li>
-                                        <p class="font-weight-stone-500">
+                                        <p>
                                             <span class="btn-floating btn-sm btn-white mr-2">
                                                 <i class="fas fa-phone-alt text-default"></i>
                                             </span>
@@ -67,7 +67,7 @@
 
                                 {% if settings.fax %}
                                     <li>
-                                        <p class="font-weight-stone-500">
+                                        <p>
                                             <span class="btn-floating btn-sm btn-white mr-2">
                                                 <i class="fas fa-fax text-default"></i>
                                             </span>
@@ -78,7 +78,7 @@
 
                                 {% if settings.email %}
                                     <li>
-                                        <p class="font-weight-stone-500">
+                                        <p>
                                             <span class="btn-floating btn-sm btn-white mr-2">
                                                 <i class="fas fa-envelope text-default"></i>
                                             </span>

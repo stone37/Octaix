@@ -1,43 +1,18 @@
+{% import 'site/post/macro/__list_post.html.twig' as __view %}
+
 {% if posts|length > 0 %}
     <section class="container">
-        <div class="row my-5 mb-4 mx-md-4 mx-lg-5">
+        <div class="row my-5 mb-4 mx-md-4">
             <div class="col-12">
-                <h1 class="display-4 font-weight-stone-600 text-center mb-3 mb-md-5 wow fadeInDown">Nos publications</h1>
+                <h1 class="display-5 font-weight-stone-600 text-center mb-3 mb-md-5 wow fadeInDown">Nos publications</h1>
             </div>
             {% for post in posts %} 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card card-cascade z-depth-4 mb-4 wow fadeInRight">
-                        <div class="view view-cascade overlay">
-                            <img class="card-img-top" src="{{ vich_uploader_asset(post, 'file') }}" alt="Card image cap">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <div class="card-body card-body-cascade text-center pb-3">
-                            <h5 class="card-title h5-responsive font-weight-stone-600 mt-2"><strong>{{ post.title|u.truncate(27, '...') }}</strong></h5>
-                            <p class="small-9 grey-text font-weight-stone-500 my-3 text-left">
-                                {{ post.content|u.truncate(110, '...') }}
-                            </p>
-
-                            <div class="text-right">
-                                <a href="{{ path('app_post_show', {'slug': post.slug}) }}" class="btn btn-primary btn-sm btn-rounded">
-                                    Lire la suite <i class="fas fa-angle-double-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{ __view.list(post) }}
             {% endfor %}
 
-            <div class="col-12 text-center mt-5">
-                <a href="{{ path('app_post_index') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-inline-block d-md-none wow fadeInUp">
-                    Voir les autres articles <i class="fas fa-long-arrow-alt-right ml-2"></i>
-                </a>
-                <a href="{{ path('app_post_index') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-none d-md-inline-block wow fadeInUp" style="font-size: 1.2rem !important;">
-                    Voir les autres articles <i class="fas fa-long-arrow-alt-right ml-2"></i>
+            <div class="col-12 text-center mt-3">
+                <a href="{{ path('app_post_index') }}" class="btn btn-primary btn-lg wow fadeInUp">
+                    Tous les articles <i class="fas fa-long-arrow-alt-right right"></i>
                 </a>
             </div>
         </div>

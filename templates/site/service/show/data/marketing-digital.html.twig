@@ -1,5 +1,5 @@
 <section class="container-fluid app-service-show">
-    <div class="row d-flex justify-content-center mt-5 mx-lg-4">
+    <div class="row d-flex justify-content-center mt-4 mt-md-3 mt-lg-4 mx-lg-4">
         <div class="col-12">
             <h1 class="display-5 font-weight-stone-600 text-center wow fadeInDown my-5 mx-lg-5">
                 Tout ce dont votre <span class="text-danger">business à besoin</span>, en un seul
@@ -27,10 +27,10 @@
                                     {{ children.description|raw }}
                                 </div>
 
-                                <a href="{{ path('app_service_show_s', {'slug': service.slug, 'sub_slug': children.slug}) }}"
+                                {#<a href="{{ path('app_service_show_s', {'slug': service.slug, 'sub_slug': children.slug}) }}"
                                    class="btn btn-secondary text-default font-weight-stone-600 btn-rounded mt-2 mb-3">
                                     En savoir plus <i class="fas fa-arrow-right ml-2 ml-md-1 ml-lg-2"></i>
-                                </a>
+                                </a>#}
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                         </h1>
                     </div>
                     <div class="col-12 col-md-4">
-                        <div class="card mb-3 wow fadeInUp" style="border-radius: 30px;">
+                        <div class="card mb-3 wow fadeInUp">
                             <div class="card-body text-center">
                                 <div class=""><i class="fas fa-eye fa-3x text-default"></i></div>
                                 <h4 class="h4-responsive font-weight-stone-600 mt-2 mb-2">Augmenter votre visibilité</h4>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <div class="card mb-3 wow fadeInUp" style="border-radius: 30px;">
+                        <div class="card mb-3 wow fadeInUp">
                             <div class="card-body text-center">
                                 <div class=""><i class="fas fa-signal fa-3x text-default"></i></div>
                                 <h4 class="h4-responsive font-weight-stone-600 mt-3 mb-2">Augmenter le traffic sur votre site</h4>
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <div class="card mb-3 wow fadeInUp" style="border-radius: 30px;">
+                        <div class="card mb-3 wow fadeInUp">
                             <div class="card-body text-center">
                                 <div class=""><i class="fas fa-phone-alt fa-3x text-default"></i></div>
                                 <h4 class="h4-responsive font-weight-stone-600 mt-3 mb-2">Augmenter votre visibilité</h4>
@@ -170,9 +170,9 @@
                                             {% for data in services %}
                                                 {% if service.slug != data.slug %}
                                                     <a href="{{ path('app_service_show', {'slug': data.slug}) }}"
-                                                       class="btn btn-lg {% if loop.first %}btn-primary
+                                                       class="btn {% if loop.first %}btn-primary
                                                         {% elseif loop.last %}btn-danger{% else %}btn-amber{% endif%}
-                                                       btn-rounded mb-lg-0 mb-2 mb-md-0">{{ data.name }}</a>
+                                                        mb-lg-0 mb-2 mb-md-0">{{ data.name }}</a>
                                                 {% endif %}
                                             {% endfor %}
                                         </div>
@@ -187,7 +187,7 @@
     </div>
 </section>
 
-<section class="container-fluid">
+<section class="container">
     <div class="row d-flex justify-content-center my-lg-5 mt-5 mb-4">
         <div class="col-12">
             <h4 class="h4-responsive font-weight-stone-600 text-center d-none d-md-block">NOUS SOMMES LÀ POUR VOUS AIDER</h4>
@@ -205,24 +205,22 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-6 text-center mb-3">
-            <a href="{{ path('app_contact') }}" class="btn btn-secondary btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-inline-block d-md-none wow fadeInLeft">
+            <a href="{{ path('app_contact') }}" class="btn btn-danger btn-block wow fadeInLeft">
                 Contacter l'agence <i class="far fa-address-book ml-2"></i>
             </a>
-            <a href="{{ path('app_contact') }}" class="btn btn-danger btn-lg btn-rounded font-weight-stone-600
+            {#<a href="{{ path('app_contact') }}" class="btn btn-danger btn-lg btn-rounded font-weight-stone-600
                     py-4 px-5 d-none d-md-inline-block wow fadeInLeft" style="font-size: 1.2rem !important;">
                 Contacter l'agence <i class="far fa-address-book ml-2"></i>
-            </a>
+            </a>#}
         </div>
         <div class="col-12 col-md-6 text-center">
-            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-inline-block d-md-none wow fadeInRight">
+            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-block wow fadeInRight">
                 Demander un devis <i class="fas fa-calculator ml-2"></i>
             </a>
-            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
+            {#<a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
                     py-4 px-5 d-none d-md-inline-block wow fadeInRight" style="font-size: 1.2rem !important;">
                 Demander un devis <i class="fas fa-calculator ml-2"></i>
-            </a>
+            </a>#}
         </div>
     </div>
 </section>

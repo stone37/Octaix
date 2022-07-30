@@ -1,11 +1,11 @@
 {% if services|length > 0 %}
-    <section class="container app-home-service mt-5 mt-md-4 mt-lg-5">
+    <section class="container app-home-service mt-5 mt-md-4">
         <div class="row">
             <div class="col-12">
-                <h1 class="display-4 font-weight-stone-600 text-center wow fadeInDown" data-wow-delay="0.3s">
+                <h1 class="display-5 font-weight-stone-600 text-center wow fadeInDown" data-wow-delay="0.3s">
                     Nos domaines <span class="text-primary">d'expertise.</span>
                 </h1>
-                <p class="text-center grey-text mb-5 mx-0 mx-md-3 mx-lg-5 wow fadeInDown" data-wow-delay="0.3s">
+                <p class="text-center dark-grey-text mb-5 mx-0 mx-md-3 mx-lg-5 wow fadeInDown" data-wow-delay="0.3s">
                     De la création d’identité de marque à la création ou refonte de votre site web,
                     nous vous accompagnons tout au long de vos projets de communication digitaux.
                 </p>
@@ -13,7 +13,7 @@
 
             {% for service in services %}
                 <div class="col-12 col-md-4 mb-4">
-                    <div class="card card-cascade narrower blue-grey lighten-5 wow fadeInRight">
+                    <div class="card card-cascade narrower blue-grey lighten-5 z-depth-4 wow fadeInRight">
                         <div class="view view-cascade overlay">
                             <img class="card-img-top" src="{{ vich_uploader_asset(service, 'file') }}" alt="service image">
                             <a>
@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="card-body card-body-cascade text-center">
-                            <h3 class="h3-responsive font-weight-stone-600 mb-3 mt-2">{{ service.name }}</h3>
+                            <h3 class="h3-responsive mb-3 mt-2">{{ service.name }}</h3>
                             {% if service.parent %}
                                 {% set route = path('app_service_show_s', {'slug': service.parent.slug, 'sub_slug': service.slug}) %}
                             {% else %}
@@ -30,9 +30,8 @@
                             {% endif %}
 
                             <a href="{{ route }}"
-                               class="btn btn-secondary text-default font-weight-stone-600
-                               btn-rounded mt-2 mb-3">
-                                En savoir plus <i class="fas fa-arrow-right ml-2 ml-md-1 ml-lg-2"></i>
+                               class="btn btn-outline-primary btn-md my-2">
+                                En savoir plus <i class="fas fa-long-arrow-alt-right ml-2 ml-md-1 ml-lg-2"></i>
                             </a>
                         </div>
                     </div>
@@ -50,17 +49,17 @@
                             {% if loop.index % 2 == 1 %}
                                 <div class="bg-primary text-white text-left py-4 px-3 px-md-5 py-md-4 wow fadeInRight">
                                     <div class="mx-4">
-                                        <h1 class="display-5 font-weight-stone-600">{{ service.name }}</h1>
+                                        <h1 class="h1-responsive">{{ service.name }}</h1>
                                         <hr class="w-25 hr-light mt-0 mb-4">
 
                                         <p>{{ service.description|raw }}</p>
-                                        <h3 class="h3-responsive font-weight-stone-600 mt-5 mb-3">Services</h3>
+                                        <h3 class="h3-responsive mt-5 mb-3">Services</h3>
 
                                         {% if service.children|length > 0 %}
                                             <div class="d-flex flex-wrap">
                                                 {% for children in service.children %}
                                                     {% if children.enabled %}
-                                                        <div class="my-2 pr-4 small-9 font-weight-stone-500">{{ children.name }}</div>
+                                                        <div class="my-2 pr-4 small-9">{{ children.name }}</div>
                                                     {% endif %}
                                                 {% endfor %}
                                             </div>
@@ -73,7 +72,7 @@
                                         {% endif %}
 
                                         <div class="text-center mt-4 mb-3">
-                                            <a href="{{ route }}" class="btn btn-stone btn-rounded font-weight-stone-500">
+                                            <a href="{{ route }}" class="btn btn-amber btn-md">
                                                 En savoir plus
                                             </a>
                                         </div>
@@ -82,17 +81,17 @@
                             {% else %}
                                 <div class="bg-default text-white p-4 px-md-5 py-md-4 pair wow fadeInLeft">
                                     <div class="ml-3 mr-2">
-                                        <h1 class="display-5 font-weight-stone-600">{{ service.name }}</h1>
+                                        <h1 class="h1-responsive">{{ service.name }}</h1>
                                         <hr class=" hr-light mt-0 mb-4">
 
                                         <p>{{ service.description|raw }}</p>
-                                        <h3 class="h3-responsive font-weight-stone-600 mt-5 mb-3">Services</h3>
+                                        <h3 class="h3-responsive mt-5 mb-3">Services</h3>
 
                                         {% if service.children|length > 0 %}
                                             <div class="d-flex flex-wrap">
                                                 {% for children in service.children %}
                                                     {% if children.enabled %}
-                                                        <div class="my-2 pr-4 small-9 font-weight-stone-500">{{ children.name }}</div>
+                                                        <div class="my-2 pr-4 small-9">{{ children.name }}</div>
                                                     {% endif %}
                                                 {% endfor %}
                                             </div>
@@ -105,7 +104,7 @@
                                         {% endif %}
 
                                         <div class="text-center mt-3">
-                                            <a href="{{ route }}" class="btn btn-orange btn-rounded font-weight-stone-500">
+                                            <a href="{{ route }}" class="btn btn-orange btn-md">
                                                 En savoir plus
                                             </a>
                                         </div>
@@ -124,17 +123,17 @@
                                 </div>
                                 <div class="bg-primary text-white w-50 text-left p-4 wow fadeInRight">
                                     <div class="mx-4">
-                                        <h1 class="display-5 font-weight-stone-600">{{ service.name }}</h1>
+                                        <h1 class="h1-responsive">{{ service.name }}</h1>
                                         <hr class="w-25 hr-light mt-0 mb-4">
 
                                         <p>{{ service.description|raw }}</p>
-                                        <h3 class="h3-responsive font-weight-stone-600 mt-5 mb-3">Services</h3>
+                                        <h3 class="h3-responsive mt-5 mb-3">Services</h3>
 
                                         {% if service.children|length > 0 %}
                                             <div class="d-flex flex-wrap">
                                                 {% for children in service.children %}
                                                     {% if children.enabled %}
-                                                        <div class="my-2 pr-4 small-9 font-weight-stone-500">{{ children.name }}</div>
+                                                        <div class="my-2 pr-4 small-9">{{ children.name }}</div>
                                                     {% endif %}
                                                 {% endfor %}
                                             </div>
@@ -147,7 +146,7 @@
                                         {% endif %}
 
                                         <div class="text-center mt-4 mb-3">
-                                            <a href="{{ route }}" class="btn btn-stone btn-rounded font-weight-stone-500">
+                                            <a href="{{ route }}" class="btn btn-amber btn-md">
                                                 En savoir plus
                                             </a>
                                         </div>
@@ -156,17 +155,17 @@
                             {% else %}
                                 <div class="bg-default text-white w-50 p-5 pair wow fadeInLeft">
                                     <div class="ml-3 mr-2">
-                                        <h1 class="display-5 font-weight-stone-600">{{ service.name }}</h1>
+                                        <h1 class="h1-responsive">{{ service.name }}</h1>
                                         <hr class=" hr-light mt-0 mb-4">
 
                                         <p>{{ service.description|raw }}</p>
-                                        <h3 class="h3-responsive font-weight-stone-600 mt-5 mb-3">Services</h3>
+                                        <h3 class="h3-responsive mt-5 mb-3">Services</h3>
 
                                         {% if service.children|length > 0 %}
                                             <div class="d-flex flex-wrap">
                                                 {% for children in service.children %}
                                                     {% if children.enabled %}
-                                                        <div class="my-2 pr-4 small-9 font-weight-stone-500">{{ children.name }}</div>
+                                                        <div class="my-2 pr-4 small-9">{{ children.name }}</div>
                                                     {% endif %}
                                                 {% endfor %}
                                             </div>
@@ -179,7 +178,7 @@
                                         {% endif %}
 
                                         <div class="text-center mt-3">
-                                            <a href="{{ route }}" class="btn btn-orange btn-rounded font-weight-stone-500">
+                                            <a href="{{ route }}" class="btn btn-orange btn-md">
                                                 En savoir plus
                                             </a>
                                         </div>

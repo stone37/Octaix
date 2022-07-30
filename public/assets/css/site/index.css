@@ -2,7 +2,7 @@ html,
 body,
 header,
 .jarallax {
-    height: 700px;
+    height: 550px;
 }
 
 @media (max-width: 740px) {
@@ -10,7 +10,7 @@ header,
     body,
     header,
     .jarallax {
-        height: 133vh;
+        height: 97vh;
     }
 }
 
@@ -19,7 +19,16 @@ header,
     body,
     header,
     .jarallax {
-        height: 100vh;
+        height: 70vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    html,
+    body,
+    header,
+    .jarallax {
+        height: 70vh;
     }
 }
 

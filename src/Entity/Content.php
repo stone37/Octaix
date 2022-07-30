@@ -11,9 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="App\Repository\ContentRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="string")
- * @ORM\DiscriminatorMap({
- *     "post" = "App\Entity\Post",
- * })
+ * @ORM\DiscriminatorMap({"post" = "App\Entity\Post"})
  */
 abstract class Content
 {

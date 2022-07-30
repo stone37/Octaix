@@ -8,13 +8,13 @@
 
 @media (max-width: 768px) {
     .navbar:not(.top-nav-collapse) {
-        background: #000AA5 !important;
+        background: #0033ff !important;
     }
 }
 
 @media (min-width: 800px) and (max-width: 850px) {
     .navbar:not(.top-nav-collapse) {
-        background: #000AA5 !important;
+        background: #0033ff !important;
     }
 }
 
@@ -24,14 +24,14 @@ body.skin-light.fixed-sn .navbar {
 }
 
 .jarallax {
-    min-height: 400px
+    min-height: 300px
 }
 
 html,
 body,
 header,
 .jarallax {
-    height: 400px;
+    height: 370px;
 }
 
 @media (max-width: 740px) {
@@ -39,11 +39,11 @@ header,
     body,
     header,
     .jarallax {
-        height: 80vh ;
+        height: 65vh ;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     html,
     body,
     header,
@@ -57,7 +57,16 @@ header,
     body,
     header,
     .jarallax {
-        height: 800vh;
+        height: 800vh !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    html,
+    body,
+    header,
+    .jarallax {
+        height: 60vh;
     }
 }
 
@@ -70,20 +79,27 @@ header,
     }
 }
 
-.skin-light .app-home-service .card {
+/*.skin-light .app-home-service .card {
     border-radius: 30px !important;
 }
 
 .skin-light .app-home-service .card .view {
     border-radius: 30px !important;
-}
+}*/
 
 .skin-light .app-home-service .card img {
     height: 150px !important;
 }
 
+.skin-light .app-home-service .card .card-body a.btn:hover,
+.skin-light .app-home-service .card .card-body a.btn:focus,
+.skin-light .app-home-service .card .card-body a.btn:active {
+    color: #fff !important;
+    background-color: #0033ff !important;
+}
+
 .skin-light .display-5 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 300;
     line-height: 1.2;
 }
@@ -110,7 +126,7 @@ header,
     }
 
     .skin-light .display-5 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 300;
         line-height: 1.2;
     }
@@ -123,7 +139,7 @@ header,
 .skin-light .app-home-service-plus .service hr {
     position: relative;
     left: -11.55rem;
-    border-width: 6px;
+    border-width: 4px;
     width: 30% !important;
 }
 
@@ -132,12 +148,12 @@ header,
 }
 
 .skin-light .app-home-service-plus .service p strong {
-    font-weight: 600;
+    font-weight: 500;
     color: #EDD500 !important;
 }
 
 .skin-light .app-home-service-plus .service .pair p strong {
-    font-weight: 600;
+    font-weight: 500;
     color: #f57c00 !important;
 }
 
@@ -204,22 +220,21 @@ header,
     background-color: #0033ff !important;
     font-size: 1rem;
     border-radius: 0;
-    padding: 18px 10px 14px 40px !important;
+    padding: 12px 10px 8px 40px !important;
 }
 
 @media (max-width: 767px) {
     .skin-light .breadcrumb {
         font-size: .9rem;
-        padding: 18px 10px 14px 10px !important;
+        padding: 10px 10px 6px 25px !important;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .skin-light .breadcrumb {
-        padding: 18px 10px 14px 10px !important;
+        padding: 10px 10px 6px 25px !important;
     }
 }
-
 
 @media (max-width: 767px) {
     .skin-light .breadcrumb {
@@ -271,7 +286,7 @@ header,
 
 .skin-light .app-service .service .card.card-image p strong {
     color: #FFC107FF;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 }
 
 .skin-light .app-service .service .card.card-image:hover {
@@ -312,12 +327,23 @@ header,
     }
 
     .skin-light .app-service .service .display-5 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 }
 
 .skin-light .app-service .service .card.card-image .first {
     display: none;
+}
+
+.skin-light .app-service .service .first a.btn {
+    background-color: #ffffff !important;
+}
+
+.skin-light .app-service .service .first a.btn:hover,
+.skin-light .app-service .service .first a.btn:focus,
+.skin-light .app-service .service .first a.btn:active {
+    color: #ffffff !important;
+    background-color: #0033ff !important;
 }
 
 .skin-light .app-service-technologie img.html {
@@ -347,34 +373,34 @@ header,
     width: 75px !important;
 }
 
-.skin-light .app-service-show .card.card-cascade.narrower {
+/*.skin-light .app-service-show .card.card-cascade.narrower {
     border-radius: 30px !important;
 }
 
 .skin-light .app-service-show .card.card-cascade.narrower .view {
     border-radius: 30px !important;
-}
+}*/
 
 .skin-light .app-service-show .card.card-cascade.narrower img {
     height: 180px !important;
 }
 
 .skin-light .app-service-show .card.card-cascade.narrower .card-body {
-    border-bottom-left-radius: 30px !important;
-    border-bottom-right-radius: 30px !important;
+    /*border-bottom-left-radius: 30px !important;
+    border-bottom-right-radius: 30px !important;*/
     font-size: .97rem;
 }
 
 .skin-light .app-service-show .card.service strong {
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     color: #000AA5;
 }
-
+/*
 .skin-light .app-service-show .card.service a {
-    font-weight: 600 !important;
-}
+    font-weight: 500 !important;
+}*/
 
-.skin-light .app-service-show .card.service a {
+/*.skin-light .app-service-show .card.service a {
     color: #EDD500;
 }
 
@@ -383,7 +409,7 @@ header,
 .skin-light .app-service-show .card.service a:active {
     color: #f57c00;
     text-decoration: underline;
-}
+}*/
 
 .skin-light .app-service-question img {
     width: 140px;
@@ -391,6 +417,10 @@ header,
 
 .skin-light .app-service-question .card .card-body {
     font-size: .95rem;
+}
+
+.skin-light .app-service-design-graphic .graphic {
+    margin-top: 38px !important;
 }
 
 .skin-light .app-service-design-graphic .graphic h1 {
@@ -432,7 +462,7 @@ header,
 
 @media (max-width: 767px) {
     .skin-light .app-service-design-graphic .graphic {
-        margin-top: 4.6rem !important;
+        margin-top: 3.6rem !important;
     }
 
     .skin-light .app-service-design-graphic .graphic h1 {
@@ -474,6 +504,11 @@ header,
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+
+    .skin-light .app-service-design-graphic .graphic {
+        margin-top: 34px !important;
+    }
+
     .skin-light .app-service-design-graphic .graphic h1 {
         line-height: 50px !important;
     }
@@ -512,13 +547,13 @@ header,
     }
 }
 
-.skin-light .contact-section .card {
+/*.skin-light .contact-section .card {
     border-radius: 30px !important;
-}
+}*/
 
 .skin-light .contact-section .contact {
     background-color: #000AA5;
-    border-radius: 0 30px 30px 0 !important;
+    /*border-radius: 0 30px 30px 0 !important;*/
 }
 
 .skin-light .contact-section .contact .fas,
@@ -530,14 +565,14 @@ header,
 @media (max-width: 767px) {
     .skin-light .contact-section .contact {
         background-color: #000AA5;
-        border-radius: 0 0 30px 30px !important;
+        /*border-radius: 0 0 30px 30px !important;*/
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .skin-light .contact-section .contact {
         background-color: #000AA5;
-        border-radius: 0 0 30px 30px !important;
+        /*border-radius: 0 0 30px 30px !important;*/
     }
 }
 
@@ -552,7 +587,7 @@ header,
 
 .skin-light .view.service-intro .container .intro-info-content h6 strong {
     color: #FFC107FF;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     line-height: 25px !important;
 }
 
@@ -606,7 +641,7 @@ header,
 
 .skin-light .contact-section form .app-radio-block {
     border: 1.6px solid #dadce0;
-    width: 125px;
+    width: 115px;
     height: 120px;
     cursor: pointer;
     border-radius: 30px;
@@ -616,8 +651,8 @@ header,
 }
 
 .skin-light .contact-section form .app-radio-block .label {
-    line-height: 15px;
-    font-size: 1rem;
+    line-height: 12px;
+    font-size: .85rem;
     font-weight: 500;
 }
 
@@ -677,10 +712,61 @@ header,
     box-shadow: none !important;
 }*/
 
+/*.skin-light .app-apropos-intro a.btn {
+    background-color: #fff !important;
+}
 
+.skin-light .app-apropos-intro a.btn:hover,
+.skin-light .app-apropos-intro a.btn:focus,
+.skin-light .app-apropos-intro a.btn:active {
+    color: #fff !important;
+    background-color: #004BE6 !important;
+}*/
 
+.skin-light .app-post-show .card.card-image {
+    height: 300px !important;
+}
 
+.skin-light .app-achieve-list .card.card-image {
+    height: 300px !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+}
 
+.skin-light .app-achieve-list .card.card-image > div {
+    height: 300px !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
 
+.skin-light .app-achieve-list .card.card-image > div:after {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.skin-light .app-achieve-list .card.card-image > div .title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.skin-light .app-achieve-list .card.card-image .cover {
+    position: absolute;
+    display: none;
+    z-index: 2;
+    height: 300px;
+    width: 100%;
+    background-color: rgba(0, 50, 255, .95) !important;
+}
+
+.skin-light .app-achieve-list .card.card-image .cover > a {
+    height: 300px;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.skin-light .app-achieve-list .card.card-image:hover .cover {
+    display: block;
+}
 
 

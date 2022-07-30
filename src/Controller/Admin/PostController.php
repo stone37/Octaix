@@ -7,6 +7,7 @@ use App\Event\AdminCRUDEvent;
 use App\Form\Filter\AdminPostType;
 use App\Form\Admin\PostType;
 use App\Model\Admin\PostSearch;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -55,6 +56,10 @@ class PostController extends AbstractController
 
             $event = new AdminCRUDEvent($post);
 
+            if ($post->isOnline() && !$post->getPublishedAt()) {
+                $post->setPublishedAt(new DateTime());
+            }
+
             $dispatcher->dispatch($event, AdminCRUDEvent::PRE_CREATE);
 
             $em->persist($post);
@@ -85,6 +90,10 @@ class PostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $event = new AdminCRUDEvent($post);
+
+            if ($post->isOnline() && !$post->getPublishedAt()) {
+                $post->setPublishedAt(new DateTime());
+            }
 
             $dispatcher->dispatch($event, AdminCRUDEvent::PRE_EDIT);
 

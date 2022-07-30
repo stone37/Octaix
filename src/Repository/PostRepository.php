@@ -29,6 +29,19 @@ class PostRepository extends AbstractRepository
             ->getResult();
     }
 
+    public function findRecentBySlug(int $limit, $slug)
+    {
+        return $this->createIterableQuery('p')
+            ->select('p')
+            ->where('p.online = true')
+            ->andWhere('p.slug <> :slug')
+            ->setParameter('slug', $slug)
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function queryAll(?Category $category = null): Query
     {
         $query = $this->createQueryBuilder('p')

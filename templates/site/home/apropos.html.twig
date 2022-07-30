@@ -11,27 +11,27 @@
 {% block app_breadcrumbs %}{% endblock %}
 
 {% block app_intro %}
-    <div class="view jarallax" data-jarallax='{"speed": 0.2}'
+    <div class="view jarallax app-apropos-intro" data-jarallax='{"speed": 0.2}'
          style="background-image: url({{ asset('images/data/apropos.jpg') }}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <div class="mask rgba-black-strong">
             <div class="container h-100 d-flex justify-content-center align-items-center">
-                <div class="row pt-5 mt-3">
+                <div class="row pt-5 mt-lg-3">
                     <div class="col-md-12 mb-1">
                         <div class="intro-info-content text-center">
-                            <h1 class="display-5 white-text font-weight-stone-600 mb-md-4 wow fadeInDown" data-wow-delay="0.3s">
+                            <h1 class="display-5 white-text font-weight-stone-600 mb-md-4 mb-4 wow fadeInDown" data-wow-delay="0.3s">
                                 L'agence web <span class="amber-text">{{ settings.name }}</span>.
                             </h1>
-                            <p class="white-text mt-1 title mx-lg-5 px-md-5 font-weight-stone-500 wow fadeInDown" data-wow-delay="0.3s">
-                                <strong class="font-weight-stone-600 amber-text">{{ settings.name }}</strong> est
+                            <p class="white-text mt-1 title mx-lg-5 px-md-5 wow fadeInDown" data-wow-delay="0.3s">
+                                <strong class="font-weight-stone-500 amber-text">{{ settings.name }}</strong> est
                                 une agence web (aussi appelée agence digitale, webagency ou webmaster). Nous fournissons à nos
                                 clients une gamme complète de prestations de services; de la
-                                <strong class="font-weight-stone-600 amber-text">création de sites internet</strong> à la
-                                <strong class="font-weight-stone-600 amber-text">promotion marketing</strong> de nos clients sur le web.
+                                <strong class="font-weight-stone-500 amber-text">création de sites internet</strong> à la
+                                <strong class="font-weight-stone-500 amber-text">promotion marketing</strong> de nos clients sur le web.
                                 Nous sommes basés à {{ settings.city }}. Nous opérons cependant dans la Côte d'Ivoire entière et en Afrique.
                             </p>
                             <div class="mt-3 mb-4 mt-md-4 mb-md-0">
-                                <a href="{{ path('app_service_index') }}" class="btn btn-secondary btn-rounded btn-lg font-weight-stone-600">
-                                    Voir nos services <i class="fas fa-angle-right ml-2"></i>
+                                <a href="{{ path('app_service_index') }}" class="btn btn-amber">
+                                    Voir nos services <i class="fas fa-long-arrow-alt-right ml-2"></i>
                                 </a>
                             </div>
                         </div>

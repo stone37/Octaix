@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Achieve;
+use App\Entity\Service;
 use App\Entity\Settings;
-use App\Form\Filter\SearchType;
 use App\Model\Search;
 use App\Service\SettingsManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,10 +36,9 @@ class AchieveController extends AbstractController
         $this->breadcrumb($breadcrumbs);
 
         $search = new Search();
+        $search = $this->hydrate($request, $search);
 
-        $form = $this->createForm(SearchType::class, $search);
-        $form->handleRequest($request);
-
+        $services = $em->getRepository(Service::class)->findBy(['parent' => null], ['position' => 'asc']);
         $data = $em->getRepository(Achieve::class)->searchEnabled($search);
 
         $achieves = $paginator->paginate($data, $request->query->getInt('page', 1), 30);
@@ -47,7 +46,7 @@ class AchieveController extends AbstractController
         return $this->render('site/achieve/index.html.twig', [
             'settings' => $this->settings,
             'achieves' => $achieves,
-            'form' => $form->createView(),
+            'services' => $services
         ]);
     }
 
@@ -64,6 +63,14 @@ class AchieveController extends AbstractController
             'settings' => $this->settings,
             'achieve' => $achieve,
         ]);
+    }
+
+    private function hydrate(Request $request, Search $search)
+    {
+        if ($request->query->has('service'))
+            $search->setData($request->query->get('service'));
+
+        return $search;
     }
 
     /**

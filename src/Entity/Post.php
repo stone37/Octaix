@@ -44,6 +44,13 @@ class Post extends Content
      */
     private $comment = true;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $publishedAt;
+
     public function getCategory(): ?Category
     {
         return $this->category;
@@ -101,6 +108,24 @@ class Post extends Content
     public function setComment(?bool $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getPublishedAt(): ?DateTime
+    {
+        return $this->publishedAt;
+    }
+
+    /**
+     * @param DateTime $publishedAt
+     */
+    public function setPublishedAt(?DateTime $publishedAt): self
+    {
+        $this->publishedAt = $publishedAt;
 
         return $this;
     }

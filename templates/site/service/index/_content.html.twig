@@ -1,6 +1,6 @@
 <section class="container-fluid app-service">
     {% if services|length > 0 %}
-        <div class="row mt-5 d-flex justify-content-center">
+        <div class="row mt-lg-4 d-flex justify-content-center">
             <div class="col-12 col-md-10 col-lg-9">
                 <h1 class="display-5 font-weight-stone-600 text-center my-5 wow fadeInDown">
                     <span class="amber-text">Comprendre</span>,
@@ -26,8 +26,8 @@
                                         <h1 class="display-5 font-weight-stone-600 mb-4">{{ service.name }}</h1>
                                         <p>{{ service.description|raw }}</p>
                                         <div class="mt-4">
-                                            <a href="{{ path('app_service_show', {'slug': service.slug}) }}" class="btn btn-secondary btn-rounded btn-md">
-                                                En savoir plus <i class="fas fa-angle-right right"></i>
+                                            <a href="{{ path('app_service_show', {'slug': service.slug}) }}" class="btn btn-outline-primary btn-md">
+                                                En savoir plus <i class="fas fa-long-arrow-alt-right right"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -47,24 +47,22 @@
 <section class="container">
     <div class="row d-flex mb-5">
         <div class="col-12 col-md-6 text-center mb-3">
-            <a href="{{ path('app_contact') }}" class="btn btn-secondary btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-inline-block d-md-none wow fadeInLeft">
+            <a href="{{ path('app_contact') }}" class="btn btn-danger btn-block wow fadeInLeft">
                 Contacter l'agence <i class="far fa-address-book ml-2"></i>
             </a>
-            <a href="{{ path('app_contact') }}" class="btn btn-danger btn-lg btn-rounded font-weight-stone-600
+           {# <a href="{{ path('app_contact') }}" class="btn btn-danger btn-lg btn-rounded font-weight-stone-600
                     py-4 px-5 d-none d-md-inline-block wow fadeInLeft" style="font-size: 1.2rem !important;">
                 Contacter l'agence <i class="far fa-address-book ml-2"></i>
-            </a>
+            </a>#}
         </div>
         <div class="col-12 col-md-6 text-center">
-            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-inline-block d-md-none wow fadeInRight">
+            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-block wow fadeInRight">
                 Demander un devis <i class="fas fa-calculator ml-2"></i>
             </a>
-            <a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
+            {#<a href="{{ path('app_devis') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
                     py-4 px-5 d-none d-md-inline-block wow fadeInRight" style="font-size: 1.2rem !important;">
                 Demander un devis <i class="fas fa-calculator ml-2"></i>
-            </a>
+            </a>#}
         </div>
     </div>
 </section>
@@ -154,14 +152,13 @@
     <section class="container">
         <div class="row">
             <div class="col-12 text-center mt-3">
-                <a href="{{ path('app_achieve_index') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
-                    py-4 px-5 d-inline-block d-md-none wow fadeInDown">
+                <a href="{{ path('app_achieve_index') }}" class="btn btn-primary btn-lg wow fadeInDown">
                     Voir nos réalisations <i class="fas fa-trophy ml-2"></i>
                 </a>
-                <a href="{{ path('app_achieve_index') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
+                {#<a href="{{ path('app_achieve_index') }}" class="btn btn-primary btn-lg btn-rounded font-weight-stone-600
                     py-4 px-5 d-none d-md-inline-block wow fadeInDown" style="font-size: 1.2rem !important;">
                     Voir nos réalisations <i class="fas fa-trophy ml-2"></i>
-                </a>
+                </a>#}
             </div>
         </div>
     </section>

@@ -41,6 +41,34 @@
 
 {% block stylesheets %}
     {{ parent() }}
+
+    <style>
+        @media (max-width: 767px) {
+            .jarallax {
+                min-height: 200px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 200px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .jarallax {
+                min-height: 200px
+            }
+
+            html,
+            body,
+            header,
+            .jarallax {
+                height: 40vh;
+            }
+        }
+    </style>
 {% endblock %}
 
 {% block javascripts %}
